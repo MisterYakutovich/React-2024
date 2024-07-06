@@ -1,5 +1,6 @@
 import React from 'react';
-
+import Seach from './components/Seach/Seach';
+import Main from './components/Main/Main';
 
 export interface PageBeers {
   show: string;
@@ -55,7 +56,11 @@ class Page extends React.Component<Record<string, never>, PageBeers> {
   render() {
     return (
       <>
-       
+        <Seach enterHandler={this.handleEnter} />
+        <Main
+          personNameSearch={this.state.personNameSearch}
+          localResult={this.state.localResult}
+        />
       </>
     );
   }
