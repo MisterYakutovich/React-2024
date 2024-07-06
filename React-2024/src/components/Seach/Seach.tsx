@@ -1,5 +1,6 @@
 import React from 'react';
 import './Seach.css';
+import ErrorButton from '../ErrorButton/ErrorButton';
 
 
 interface SearchState {
@@ -34,7 +35,7 @@ class Seach extends React.Component<SearchProps, SearchState> {
           >
             Search
           </button>
-         
+          <ErrorButton />
         </div>
       </div>
     );
