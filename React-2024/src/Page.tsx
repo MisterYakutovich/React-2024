@@ -2,6 +2,7 @@ import React from 'react';
 import Seach from './components/Seach/Seach';
 import Main from './components/Main/Main';
 
+
 export interface PageBeers {
   show: string;
   personNameSearch: ArrSearchResult[];
@@ -77,9 +78,8 @@ class Page extends React.Component<Record<string, never>, PageBeers> {
         <Main
           personNameSearch={this.state.personNameSearch}
           localResult={this.state.localResult}
-        />      
+        />
       </>
-     
     );
   }
 }

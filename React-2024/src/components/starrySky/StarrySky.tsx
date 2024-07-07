@@ -4,10 +4,10 @@ import './StarrySky.css';
 class StarrySky extends React.Component {
   render() {
     return (
-        <>
+      <>
         <div className="stars"></div>
         <div className="twinkling"></div>
-        </>
+      </>
     );
   }
 }
