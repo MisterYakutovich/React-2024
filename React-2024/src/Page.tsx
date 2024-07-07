@@ -77,8 +77,9 @@ class Page extends React.Component<Record<string, never>, PageBeers> {
         <Main
           personNameSearch={this.state.personNameSearch}
           localResult={this.state.localResult}
-        />
+        />      
       </>
+     
     );
   }
 }
