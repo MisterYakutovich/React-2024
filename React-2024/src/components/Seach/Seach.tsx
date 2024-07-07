@@ -2,7 +2,6 @@ import React from 'react';
 import './Seach.css';
 import ErrorButton from '../ErrorButton/ErrorButton';
 
-
 interface SearchState {
   search: string;
 }
