@@ -2,7 +2,7 @@ import React from 'react';
 import Seach from './components/Seach/Seach';
 import Main from './components/Main/Main';
 
-export interface PageBeers {
+export interface PagePeople {
   show: string;
   personNameSearch: ArrSearchResult[];
   loading: boolean;
@@ -15,8 +15,8 @@ export interface ArrSearchResult {
   name: string;
   id: string;
 }
-class Page extends React.Component<Record<string, never>, PageBeers> {
-  state: PageBeers = {
+class Page extends React.Component<Record<string, never>, PagePeople> {
+  state: PagePeople = {
     show: 'index',
     personNameSearch: [],
     loading: true,
