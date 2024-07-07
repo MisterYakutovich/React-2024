@@ -2,7 +2,6 @@ import React from 'react';
 import Seach from './components/Seach/Seach';
 import Main from './components/Main/Main';
 
-
 export interface PageBeers {
   show: string;
   personNameSearch: ArrSearchResult[];
