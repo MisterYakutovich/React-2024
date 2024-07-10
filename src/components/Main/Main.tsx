@@ -56,8 +56,8 @@ class Main extends React.Component<PeopleProps, SearchState> {
       <section className="section-main">
         <div className="container">
           {arrResultLocal.length === 0
-            ? allItems.map((i) => (
-                <div key={i.id} className="card">
+            ? allItems.map((i, index) => (
+                <div key={i.id || index} className="card">
                   <img
                     className="card_img"
                     src={`${URL_PERSON}${this.extractIdFromUrl(i.url)}${URL_EXTENSION}`}
@@ -68,8 +68,8 @@ class Main extends React.Component<PeopleProps, SearchState> {
                   </p>
                 </div>
               ))
-            : arrResultLocal.map((i) => (
-                <div key={i.id} className="card">
+            : arrResultLocal.map((i, index) => (
+                <div key={i.id || index} className="card">
                   <img
                     className="card_img"
                     src={`${URL_PERSON}${this.extractIdFromUrl(i.url)}${URL_EXTENSION}`}
