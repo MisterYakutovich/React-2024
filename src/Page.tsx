@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Seach from './components/Seach/Seach';
 import Main from './components/Main/Main';
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 
 export interface ArrSearchResult {
   url: string;
@@ -51,8 +52,13 @@ function Page() {
   };
   return (
     <>
-      <Seach enterHandler={handleEnter} savedSearchLocal={localResultSearch} />
-      <Main personNameSearch={personNameSearch} localResult={localResult} />
+      <ErrorBoundary>
+        <Seach
+          enterHandler={handleEnter}
+          savedSearchLocal={localResultSearch}
+        />
+        <Main personNameSearch={personNameSearch} localResult={localResult} />
+      </ErrorBoundary>
     </>
   );
 }
