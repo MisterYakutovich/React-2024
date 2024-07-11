@@ -1,76 +1,47 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import './Seach.css';
 import ErrorButton from '../ErrorButton/ErrorButton';
 
-interface SearchState {
-  search: string;
-  isSavedSearch: boolean;
-}
 interface SearchProps {
   enterHandler: (search: string) => void;
   savedSearchLocal: string;
 }
-class Seach extends React.Component<SearchProps, SearchState> {
-  constructor(props: SearchProps) {
-    super(props);
-    this.state = {
-      search: '',
-      isSavedSearch: false,
-    };
-  }
-  componentDidMount() {
-    this.updateSearchFromLocalStorage();
-  }
-  componentDidUpdate(prevProps: SearchProps) {
-    if (prevProps.savedSearchLocal !== this.props.savedSearchLocal) {
-      this.updateSearchFromLocalStorage();
-    }
-  }
-  updateSearchFromLocalStorage() {
-    const { savedSearchLocal } = this.props;
-    if (savedSearchLocal) {
-      this.setState({
-        search: savedSearchLocal,
-        isSavedSearch: true,
-      });
-    }
-  }
+function Seach({ enterHandler, savedSearchLocal }: SearchProps) {
+  const [search, setSearch] = useState<string>('');
+  const [isSavedSearch, setisSavedSearch] = useState<boolean>(false);
 
-  handleEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  useEffect(() => {
+    if (savedSearchLocal) {
+      setSearch(savedSearchLocal);
+      setisSavedSearch(true);
+    }
+  }, [savedSearchLocal]);
+
+  const handleEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
-      this.props.enterHandler(this.state.search);
+      enterHandler(search);
     }
   };
-
-  render() {
-    const { savedSearchLocal } = this.props;
-    return (
-      <div className="row">
-        <div className="input-field col s12">
-          <input
-            type="text"
-            value={
-              this.state.isSavedSearch ? savedSearchLocal : this.state.search
-            }
-            onChange={(event) =>
-              this.setState({
-                search: event.target.value,
-                isSavedSearch: false,
-              })
-            }
-            onKeyUp={this.handleEnter}
-            placeholder="Enter the name of the person"
-          />
-          <button
-            className="btn"
-            onClick={() => this.props.enterHandler(this.state.search)}
-          >
-            Search
-          </button>
-          <ErrorButton />
-        </div>
+  return (
+    <div className="row">
+      <div className="input-field col s12">
+        <input
+          type="text"
+          value={isSavedSearch ? savedSearchLocal : search}
+          onChange={(event) => {
+            setSearch(event.target.value);
+            setisSavedSearch(false);
+          }}
+          onKeyUp={handleEnter}
+          placeholder="Enter the name of the person"
+        />
+        <button className="btn" onClick={() => enterHandler(search)}>
+          Search
+        </button>
+        <ErrorButton />
       </div>
-    );
-  }
+    </div>
+  );
 }
+
 export default Seach;
