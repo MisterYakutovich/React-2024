@@ -7,6 +7,7 @@ export interface ArrSearchResult {
   url: string;
   name: string;
   id: string;
+  birth_year: string;
 }
 function Page() {
   const [, setShow] = useState<string>('index');

@@ -3,7 +3,7 @@ import Page from './Page';
 import './App.css';
 
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import PageItemCart from './pageItemCart/PageItemCart';
+import PageItemCart from './PageItemCart/PageItemCart';
 
 function App(): ReactNode {
   const router = createBrowserRouter([
@@ -12,7 +12,7 @@ function App(): ReactNode {
       element: <Page />,
     },
     {
-      path: `/id`,
+      path: `/:id/`,
       element: <PageItemCart />,
     },
   ]);

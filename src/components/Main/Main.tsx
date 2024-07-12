@@ -3,7 +3,7 @@ import './Main.css';
 import { ArrSearchResult } from '../../Page';
 
 import Loader from '../loading/Loader';
-import Carts from '../carts/Carts';
+import Carts from '../Carts/Carts';
 
 export interface PeopleProps {
   personNameSearch: ArrSearchResult[];
@@ -13,6 +13,7 @@ export interface PeopleArray {
   name: string;
   id: string;
   url: string;
+  birth_year: string;
 }
 function Main({ localResult }: PeopleProps) {
   const [items, setItems] = useState<PeopleArray[]>([]);
