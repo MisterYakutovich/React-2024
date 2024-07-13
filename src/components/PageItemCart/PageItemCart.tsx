@@ -81,7 +81,14 @@ function PageItemCart() {
           <p className="cart_title_pageitem">{item.name}</p>
         </div>
       </div>
-      <p>{item.height}</p>
+      <div className="description">
+        <p>Height:{item.height}</p>
+        <p>Birth_year:{item.birth_year}</p>
+        <p>Eye_color:{item.eye_color}</p>
+        <p>Mass:{item.mass}</p>
+        <p>Edited:{item.edited}</p>
+        <p>Created:{item.created}</p>
+      </div>
     </section>
   );
 }

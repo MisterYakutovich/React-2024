@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import './Carts.css';
 import CartItem from '../CartItem/CartItem';
 import { ArrSearchResult, PeopleArray } from '../../types/types';
@@ -9,19 +9,20 @@ interface CartsProps {
 }
 
 function Carts({ localResult, items }: CartsProps) {
+  const location = useLocation();
   function extractIdFromUrl(url: string): string {
     const parts = url.split('/');
     return parts[parts.length - 2];
   }
-
+  const isDetailPage = location.pathname.includes('/item/');
   return (
     <section className="section-main">
-      <div className="container">
+      <div className={`container ${isDetailPage ? 'container-small' : ''}`}>
         {localResult.length === 0
           ? items.map((i, index) => (
               <NavLink
                 key={i.id}
-                to={`/${extractIdFromUrl(i.url)}/`}
+                to={`/item/${extractIdFromUrl(i.url)}/`}
                 style={{ textDecoration: 'none' }}
                 className={({ isActive, isPending }) =>
                   isPending ? 'pending' : isActive ? 'active-linc' : ''

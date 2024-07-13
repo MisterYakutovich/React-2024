@@ -1,6 +1,6 @@
 .container-pageitem {
   position: relative;
-  top: 100px;
+  top: 50px;
 
   float: right;
 }
@@ -10,7 +10,10 @@
   height: 320px;
   position: relative;
 }
-.cart_img_pageitem {
+.section-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 .cart_pageitem {
   border: 3px solid #717171;
@@ -37,6 +40,13 @@
   color: #880808;
   text-align: center;
   text-decoration: none;
+}
+.description {
+  width: 246px;
+  margin-top: 50px;
+}
+.description p {
+  color: #880808;
 }
 
 @keyframes rotation {

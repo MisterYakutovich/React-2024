@@ -6,6 +6,11 @@ export interface ArrSearchResult {
   id: string;
   birth_year: string;
   height: string;
+  eye_color: string;
+  gender: string;
+  mass: string;
+  edited: string;
+  created: string;
 }
 
 export interface PeopleArray {
@@ -14,6 +19,11 @@ export interface PeopleArray {
   url: string;
   birth_year: string;
   height: string;
+  eye_color: string;
+  gender: string;
+  mass: string;
+  edited: string;
+  created: string;
 }
 
 export interface ErrorBoundaryProps {

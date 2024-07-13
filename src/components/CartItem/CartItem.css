@@ -1,7 +1,7 @@
 .card {
   background-color: aliceblue;
 }
-.card p {
+.cart_title {
   width: 100%;
   position: relative;
   margin-top: 100%;
@@ -32,4 +32,32 @@
 .card_img {
   width: 240px;
   height: 320px;
+}
+
+.card {
+  background-color: aliceblue;
+}
+
+.card-small {
+  width: 170px;
+  height: 250px;
+}
+
+.card_img-small {
+  width: 170px;
+  height: 250px;
+}
+.cart_title_small {
+  width: 100%;
+  position: relative;
+  margin-top: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  color: #717171;
+  text-align: center;
 }

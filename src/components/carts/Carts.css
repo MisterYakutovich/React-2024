@@ -7,3 +7,12 @@
   column-gap: 20px;
   row-gap: 20px;
 }
+.container-small {
+  position: absolute;
+  top: 85px;
+  display: grid;
+  grid-template-columns: repeat(5, 170px);
+  grid-template-rows: repeat(2, 250px);
+  column-gap: 40px;
+  row-gap: 80px;
+}
