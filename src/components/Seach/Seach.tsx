@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './Seach.css';
 import ErrorButton from '../ErrorButton/ErrorButton';
 
-interface SearchProps {
+export interface SearchProps {
   enterHandler: (search: string) => void;
   savedSearchLocal: string;
 }

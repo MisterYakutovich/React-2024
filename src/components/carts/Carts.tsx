@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
-import { ArrSearchResult } from '../../Page';
-import { PeopleArray } from '../Main/Main';
+
 import CartItem from '../CartItem/CartItem';
+import { ArrSearchResult, PeopleArray } from '../../types/types';
 
 interface CartsProps {
   localResult: ArrSearchResult[];

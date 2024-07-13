@@ -1,19 +1,12 @@
 import { useEffect, useState } from 'react';
 import './Main.css';
-import { ArrSearchResult } from '../../Page';
-
 import Loader from '../loading/Loader';
 import Carts from '../Carts/Carts';
+import { ArrSearchResult, PeopleArray } from '../../types/types';
 
 export interface PeopleProps {
   personNameSearch: ArrSearchResult[];
   localResult: ArrSearchResult[];
-}
-export interface PeopleArray {
-  name: string;
-  id: string;
-  url: string;
-  birth_year: string;
 }
 function Main({ localResult }: PeopleProps) {
   const [items, setItems] = useState<PeopleArray[]>([]);

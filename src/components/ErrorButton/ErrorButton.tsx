@@ -1,10 +1,6 @@
 import React from 'react';
 import './ErrorButton.css';
-
-interface ErrorButtonState {
-  error: boolean;
-  hasError: boolean;
-}
+import { ErrorButtonState } from '../../types/types';
 
 class ErrorButton extends React.Component<
   Record<string, never>,

@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { PeopleArray } from '../components/Main/Main';
+import { useNavigate, useParams } from 'react-router-dom';
+
 import { URL_EXTENSION, URL_PERSON } from '../consts/api';
+import Loader from '../components/loading/Loader';
+import { PeopleArray } from '../types/types';
 
 function PageItemCart() {
   const [loading, setLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
   const [item, setItem] = useState<PeopleArray | null>(null);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setLoading(true);
@@ -28,7 +31,7 @@ function PageItemCart() {
   }
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   if (isError) {
@@ -38,18 +41,47 @@ function PageItemCart() {
   if (!item) {
     return <div>No data found.</div>;
   }
+  const handleClose = () => {
+    navigate(-1);
+  };
 
   return (
-    <div className="card">
-      <img
-        className="card_img"
-        src={`${URL_PERSON}${extractIdFromUrl(item.url)}${URL_EXTENSION}`}
-        alt={item.name}
-      />
-      <p key={item.name} className="card_title">
-        {item.name}
-      </p>
-    </div>
+    <section className="section-container">
+      <div className="container-pageitem">
+        <div onClick={handleClose} className="close_pageitem">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              x="0.5"
+              y="0.5"
+              width="31"
+              height="31"
+              rx="7.5"
+              fill="white"
+              stroke="#DBDBDB"
+            />
+            <path
+              d="M20.0799 18.6155L17.6311 16.1667L20.0798 13.718C21.0241 12.7738 19.5596 11.3093 18.6154 12.2536L16.1667 14.7023L13.7179 12.2535C12.7738 11.3095 11.3095 12.7738 12.2535 13.7179L14.7023 16.1667L12.2536 18.6154C11.3093 19.5596 12.7738 21.0241 13.718 20.0798L16.1667 17.6311L18.6155 20.0799C19.5597 21.0241 21.0241 19.5597 20.0799 18.6155Z"
+              fill="#B5B5B5"
+            />
+          </svg>{' '}
+        </div>
+
+        <div className="cart_pageitem">
+          <img
+            className="cart_img_pageitem"
+            src={`${URL_PERSON}${extractIdFromUrl(item.url)}${URL_EXTENSION}`}
+            alt=""
+          ></img>
+          <p className="cart_title_pageitem">{item.name}</p>
+        </div>
+      </div>
+    </section>
   );
 }
 

@@ -2,13 +2,8 @@ import { useEffect, useState } from 'react';
 import Seach from './components/Seach/Seach';
 import Main from './components/Main/Main';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
+import { ArrSearchResult } from './types/types';
 
-export interface ArrSearchResult {
-  url: string;
-  name: string;
-  id: string;
-  birth_year: string;
-}
 function Page() {
   const [, setShow] = useState<string>('index');
   const [personNameSearch, setPersonNameSearch] = useState<ArrSearchResult[]>(
