@@ -27,6 +27,7 @@ function Main({ localResult }: PeopleProps) {
   if (!isLoaded) {
     return <Loader />;
   }
+
   return <Carts localResult={localResult} items={items} />;
 }
 

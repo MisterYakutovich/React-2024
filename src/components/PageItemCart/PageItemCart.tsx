@@ -4,6 +4,7 @@ import './PageItemCart.css';
 import { URL_EXTENSION, URL_PERSON } from '../../consts/api';
 import Loader from '../loading/Loader';
 import { PeopleArray } from '../../types/types';
+import { extractIdFromUrl } from '../Carts/Carts';
 
 function PageItemCart() {
   const [loading, setLoading] = useState<boolean>(false);
@@ -25,10 +26,6 @@ function PageItemCart() {
         alert(error);
       });
   }, [id]);
-  function extractIdFromUrl(url: string): string {
-    const parts = url.split('/');
-    return parts[parts.length - 2];
-  }
 
   if (loading) {
     return <Loader />;
@@ -44,7 +41,7 @@ function PageItemCart() {
   const handleClose = () => {
     navigate(-1);
   };
-  console.log(item);
+
   return (
     <section className="section-container">
       <div className="container-pageitem">

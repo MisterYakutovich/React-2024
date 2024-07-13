@@ -3,6 +3,7 @@ import Seach from './components/Seach/Seach';
 import Main from './components/Main/Main';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 import { ArrSearchResult } from './types/types';
+import Paginations from './components/Pagination/Paginations';
 
 function Page() {
   const [, setShow] = useState<string>('index');
@@ -55,7 +56,7 @@ function Page() {
           enterHandler={handleEnter}
           savedSearchLocal={localResultSearch}
         />
-
+        <Paginations />
         <Main personNameSearch={personNameSearch} localResult={localResult} />
       </ErrorBoundary>
     </>

@@ -1,5 +1,6 @@
 import { URL_EXTENSION, URL_PERSON } from '../../consts/api';
 import { PeopleArray } from '../../types/types';
+import { extractIdFromUrl } from '../Carts/Carts';
 import './CartItem.css';
 import { useLocation } from 'react-router-dom';
 
@@ -10,11 +11,6 @@ export interface CartItemProps {
 
 function CartItem({ i, index }: CartItemProps) {
   const location = useLocation();
-
-  function extractIdFromUrl(url: string): string {
-    const parts = url.split('/');
-    return parts[parts.length - 2];
-  }
 
   const isDetailPage = location.pathname.includes('/item/');
 
