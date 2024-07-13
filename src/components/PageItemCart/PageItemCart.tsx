@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-
-import { URL_EXTENSION, URL_PERSON } from '../consts/api';
-import Loader from '../components/loading/Loader';
-import { PeopleArray } from '../types/types';
+import './PageItemCart.css';
+import { URL_EXTENSION, URL_PERSON } from '../../consts/api';
+import Loader from '../loading/Loader';
+import { PeopleArray } from '../../types/types';
 
 function PageItemCart() {
   const [loading, setLoading] = useState<boolean>(false);
@@ -44,7 +44,7 @@ function PageItemCart() {
   const handleClose = () => {
     navigate(-1);
   };
-
+  console.log(item);
   return (
     <section className="section-container">
       <div className="container-pageitem">
@@ -81,6 +81,7 @@ function PageItemCart() {
           <p className="cart_title_pageitem">{item.name}</p>
         </div>
       </div>
+      <p>{item.height}</p>
     </section>
   );
 }

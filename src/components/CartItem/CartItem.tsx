@@ -1,6 +1,6 @@
 import { URL_EXTENSION, URL_PERSON } from '../../consts/api';
 import { PeopleArray } from '../../types/types';
-
+import './CartItem.css';
 export interface CartItemProps {
   i: PeopleArray;
   index: number;

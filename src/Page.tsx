@@ -6,6 +6,7 @@ import { ArrSearchResult } from './types/types';
 
 function Page() {
   const [, setShow] = useState<string>('index');
+
   const [personNameSearch, setPersonNameSearch] = useState<ArrSearchResult[]>(
     []
   );
@@ -46,6 +47,7 @@ function Page() {
         localStorage.setItem('key', JSON.stringify(data.results));
       });
   };
+
   return (
     <>
       <ErrorBoundary>
@@ -53,6 +55,7 @@ function Page() {
           enterHandler={handleEnter}
           savedSearchLocal={localResultSearch}
         />
+
         <Main personNameSearch={personNameSearch} localResult={localResult} />
       </ErrorBoundary>
     </>

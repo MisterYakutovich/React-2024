@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-
+import './Carts.css';
 import CartItem from '../CartItem/CartItem';
 import { ArrSearchResult, PeopleArray } from '../../types/types';
 
