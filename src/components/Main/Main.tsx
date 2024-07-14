@@ -7,13 +7,15 @@ import { ArrSearchResult, PeopleArray } from '../../types/types';
 export interface PeopleProps {
   personNameSearch: ArrSearchResult[];
   localResult: ArrSearchResult[];
+  currentPage: number;
 }
-function Main({ localResult }: PeopleProps) {
+
+function Main({ localResult, currentPage }: PeopleProps) {
   const [items, setItems] = useState<PeopleArray[]>([]);
   const [isLoaded, setisLoaded] = useState<boolean>(false);
 
   useEffect(() => {
-    fetch('https://swapi.dev/api/people/?page=1')
+    fetch(`https://swapi.dev/api/people/?page=${currentPage}`)
       .then((res) => res.json())
       .then((result) => {
         setisLoaded(true);
@@ -22,7 +24,7 @@ function Main({ localResult }: PeopleProps) {
       .catch(() => {
         setisLoaded(true);
       });
-  }, []);
+  }, [currentPage]);
 
   if (!isLoaded) {
     return <Loader />;

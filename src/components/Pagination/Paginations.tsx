@@ -1,9 +1,15 @@
 import './Paginations.css';
 
-function Paginations() {
+interface PaginationsProps {
+  nextPage: () => void;
+  prevPage: () => void;
+  currentPage: number;
+}
+
+function Paginations({ nextPage, prevPage, currentPage }: PaginationsProps) {
   return (
     <div className="navigation">
-      <button className="button">
+      <button className="button" onClick={prevPage}>
         <div className="two">
           <svg
             width="10"
@@ -21,10 +27,14 @@ function Paginations() {
       </button>
 
       <div className="button_arrow_right_number">
-        <h4></h4>
+        <h4>{currentPage}</h4>
       </div>
 
-      <button className="button">
+      <button
+        className="button"
+        onClick={nextPage}
+        disabled={currentPage === 9}
+      >
         <div className="two">
           <svg
             width="10"

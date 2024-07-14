@@ -11,6 +11,7 @@ export function extractIdFromUrl(url: string): string {
   const parts = url.split('/');
   return parts[parts.length - 2];
 }
+
 function Carts({ localResult, items }: CartsProps) {
   const location = useLocation();
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ function Carts({ localResult, items }: CartsProps) {
       navigate(-1);
     }
   };
+
   return (
     <section className="section-main">
       <div

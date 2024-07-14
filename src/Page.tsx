@@ -4,6 +4,7 @@ import Main from './components/Main/Main';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 import { ArrSearchResult } from './types/types';
 import Paginations from './components/Pagination/Paginations';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function Page() {
   const [, setShow] = useState<string>('index');
@@ -15,7 +16,16 @@ function Page() {
   const [, setLoading] = useState<boolean>(true);
   const [, setSearch] = useState<string>('');
   const [localResultSearch, setlocalResultSearch] = useState<string>('');
+  const [currentPage, setCurrentPage] = useState<number>(1);
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const page = parseInt(params.get('page') || '1', 10);
+    setCurrentPage(page);
+  }, [location.search, setCurrentPage]);
   useEffect(() => {
     const localData = localStorage.getItem('key');
     const localSearch = localStorage.getItem('search');
@@ -48,6 +58,17 @@ function Page() {
         localStorage.setItem('key', JSON.stringify(data.results));
       });
   };
+  const incrementPage = () => {
+    const nextPage = currentPage + 1;
+    setCurrentPage(nextPage);
+    navigate(`?page=${nextPage}`);
+  };
+
+  const decrementPage = () => {
+    const prevPage = currentPage > 1 ? currentPage - 1 : 1;
+    setCurrentPage(prevPage);
+    navigate(`?page=${prevPage}`);
+  };
 
   return (
     <>
@@ -56,8 +77,16 @@ function Page() {
           enterHandler={handleEnter}
           savedSearchLocal={localResultSearch}
         />
-        <Paginations />
-        <Main personNameSearch={personNameSearch} localResult={localResult} />
+        <Paginations
+          nextPage={incrementPage}
+          prevPage={decrementPage}
+          currentPage={currentPage}
+        />
+        <Main
+          personNameSearch={personNameSearch}
+          localResult={localResult}
+          currentPage={currentPage}
+        />
       </ErrorBoundary>
     </>
   );
