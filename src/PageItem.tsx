@@ -24,7 +24,6 @@ function PageItem() {
   };
   return (
     <>
-      <Main personNameSearch={[]} localResult={[]} currentPage={1} />
       <Outlet context={handleClick} />
     </>
   );
