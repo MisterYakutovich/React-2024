@@ -9,7 +9,11 @@ interface PaginationsProps {
 function Paginations({ nextPage, prevPage, currentPage }: PaginationsProps) {
   return (
     <div className="navigation">
-      <button className="button" onClick={prevPage}>
+      <button
+        className="button"
+        onClick={prevPage}
+        data-testid="previous-button"
+      >
         <div className="two">
           <svg
             width="10"
@@ -31,6 +35,7 @@ function Paginations({ nextPage, prevPage, currentPage }: PaginationsProps) {
       </div>
 
       <button
+        data-testid="next-button"
         className="button"
         onClick={nextPage}
         disabled={currentPage === 9}

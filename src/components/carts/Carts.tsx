@@ -21,7 +21,7 @@ function Carts({ localResult, items }: CartsProps) {
       navigate(-1);
     }
   };
-  console.log(items);
+
   return (
     <section className="section-main">
       <div

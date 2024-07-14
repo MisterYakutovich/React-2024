@@ -1,11 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './ErrorBoundary.css';
 import { ErrorBoundaryProps, ErrorBoundaryState } from '../../types/types';
 
-class ErrorBoundary extends React.Component<
-  ErrorBoundaryProps,
-  ErrorBoundaryState
-> {
+class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   constructor(props: ErrorBoundaryProps) {
     super(props);
     this.state = {

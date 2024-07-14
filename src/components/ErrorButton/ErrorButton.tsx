@@ -1,30 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ErrorButton.css';
 import { ErrorButtonState } from '../../types/types';
 
-class ErrorButton extends React.Component<
-  Record<string, never>,
-  ErrorButtonState
-> {
-  state: ErrorButtonState = {
+const ErrorButton: React.FC = () => {
+  const [state, setState] = useState<ErrorButtonState>({
     error: false,
     hasError: false,
-  };
+  });
 
-  handleClick = () => {
-    this.setState({ error: true, hasError: true });
+  const handleClick = () => {
+    setState({ error: true, hasError: true });
     throw new Error('Oops, mistake!');
   };
 
-  render() {
-    if (this.state.hasError) {
-      throw new Error('Oops, mistake!');
-    }
-    return (
-      <button className="error-button" onClick={this.handleClick}>
-        ErrorBoundary
-      </button>
-    );
+  if (state.hasError) {
+    throw new Error('Oops, mistake!');
   }
-}
+
+  return (
+    <button className="error-button" onClick={handleClick}>
+      ErrorBoundary
+    </button>
+  );
+};
+
 export default ErrorButton;
