@@ -21,37 +21,41 @@ function Carts({ localResult, items }: CartsProps) {
       navigate(-1);
     }
   };
-
+  console.log(items);
   return (
     <section className="section-main">
       <div
         onClick={handleClosePageItem}
         className={`container ${isDetailPage ? 'container-small' : ''}`}
       >
-        {localResult.length === 0
-          ? items.map((i, index) => (
-              <div key={i.id} className="cart-item-wrapper">
-                {isDetailPage ? (
-                  <div className="cart-item">
-                    <CartItem key={i.id} i={i} index={index} />
-                  </div>
-                ) : (
-                  <NavLink
-                    key={i.id}
-                    to={`/item/${extractIdFromUrl(i.url)}/`}
-                    style={{ textDecoration: 'none' }}
-                    className={({ isActive, isPending }) =>
-                      isPending ? 'pending' : isActive ? 'active-linc' : ''
-                    }
-                  >
-                    <CartItem key={i.id} i={i} index={index} />
-                  </NavLink>
-                )}
-              </div>
-            ))
-          : localResult.map((i, index) => (
-              <CartItem key={i.id} i={i} index={index} />
-            ))}
+        {items.length === 0 ? (
+          <div>No items available</div>
+        ) : localResult.length === 0 ? (
+          items.map((i, index) => (
+            <div key={i.id} className="cart-item-wrapper">
+              {isDetailPage ? (
+                <div className="cart-item">
+                  <CartItem key={i.id} i={i} index={index} />
+                </div>
+              ) : (
+                <NavLink
+                  key={i.id}
+                  to={`/item/${extractIdFromUrl(i.url)}/`}
+                  style={{ textDecoration: 'none' }}
+                  className={({ isActive, isPending }) =>
+                    isPending ? 'pending' : isActive ? 'active-linc' : ''
+                  }
+                >
+                  <CartItem key={i.id} i={i} index={index} />
+                </NavLink>
+              )}
+            </div>
+          ))
+        ) : (
+          localResult.map((i, index) => (
+            <CartItem key={i.id} i={i} index={index} />
+          ))
+        )}
       </div>
     </section>
   );
