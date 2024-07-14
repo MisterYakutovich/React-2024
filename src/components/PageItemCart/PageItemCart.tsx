@@ -28,7 +28,12 @@ function PageItemCart() {
   }, [id]);
 
   if (loading) {
-    return <Loader />;
+    return (
+      <>
+        <div>Loading...</div>
+        <Loader />
+      </>
+    );
   }
 
   if (isError) {
@@ -45,7 +50,11 @@ function PageItemCart() {
   return (
     <section className="section-container">
       <div className="container-pageitem">
-        <div onClick={handleClose} className="close_pageitem">
+        <div
+          onClick={handleClose}
+          className="close_pageitem"
+          data-testid="close-pageitem"
+        >
           <svg
             width="32"
             height="32"
