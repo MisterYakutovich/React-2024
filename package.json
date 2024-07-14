@@ -25,7 +25,9 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run test:coverage"
+     
     }
   },
   "lint-staged": {
@@ -33,7 +35,7 @@
       "npm run format:fix"
     ],
     "*.(ts|tsx|js|jsx)": [
-      "npm run lint"
+      "npm run test"
     ]
   },
   "dependencies": {

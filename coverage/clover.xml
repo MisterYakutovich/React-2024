@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1720980905370" clover="3.2.0">
-  <project timestamp="1720980905370" name="All files">
-    <metrics statements="184" coveredstatements="151" conditionals="40" coveredconditionals="23" methods="42" coveredmethods="31" elements="266" coveredelements="205" complexity="0" loc="184" ncloc="184" packages="13" files="13" classes="13"/>
+<coverage generated="1720983287444" clover="3.2.0">
+  <project timestamp="1720983287444" name="All files">
+    <metrics statements="183" coveredstatements="150" conditionals="40" coveredconditionals="23" methods="42" coveredmethods="31" elements="265" coveredelements="204" complexity="0" loc="183" ncloc="183" packages="13" files="13" classes="13"/>
     <package name="src">
       <metrics statements="54" coveredstatements="37" conditionals="9" coveredconditionals="5" methods="8" coveredmethods="5"/>
       <file name="Page.tsx" path="C:\Users\user\Desktop\React 2024\React-2024\React-2024\src\Page.tsx">
@@ -86,9 +86,9 @@
       </file>
     </package>
     <package name="src.components.Carts">
-      <metrics statements="18" coveredstatements="15" conditionals="13" coveredconditionals="7" methods="6" coveredmethods="4"/>
+      <metrics statements="17" coveredstatements="14" conditionals="13" coveredconditionals="7" methods="6" coveredmethods="4"/>
       <file name="Carts.tsx" path="C:\Users\user\Desktop\React 2024\React-2024\React-2024\src\components\Carts\Carts.tsx">
-        <metrics statements="18" coveredstatements="15" conditionals="13" coveredconditionals="7" methods="6" coveredmethods="4"/>
+        <metrics statements="17" coveredstatements="14" conditionals="13" coveredconditionals="7" methods="6" coveredmethods="4"/>
         <line num="1" count="3" type="stmt"/>
         <line num="2" count="3" type="stmt"/>
         <line num="3" count="3" type="stmt"/>
@@ -101,7 +101,6 @@
         <line num="19" count="5" type="stmt"/>
         <line num="20" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="21" count="0" type="stmt"/>
-        <line num="24" count="5" type="stmt"/>
         <line num="25" count="5" type="stmt"/>
         <line num="35" count="2" type="stmt"/>
         <line num="46" count="2" type="cond" truecount="2" falsecount="2"/>
