@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './Main.css';
 import Loader from '../loading/Loader';
-import Carts from '../Carts/Carts';
+import Carts from '../PeopleCarts/Carts';
 import { ArrSearchResult, PeopleArray } from '../../types/types';
 
 export interface PeopleProps {

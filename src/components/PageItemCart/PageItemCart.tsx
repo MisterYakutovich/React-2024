@@ -4,7 +4,7 @@ import './PageItemCart.css';
 import { URL_EXTENSION, URL_PERSON } from '../../consts/api';
 import Loader from '../loading/Loader';
 import { PeopleArray } from '../../types/types';
-import { extractIdFromUrl } from '../Carts/Carts';
+import { extractIdFromUrl } from '../PeopleCarts/Carts';
 
 function PageItemCart() {
   const [loading, setLoading] = useState<boolean>(false);

@@ -1,6 +1,6 @@
 import { URL_EXTENSION, URL_PERSON } from '../../consts/api';
 import { PeopleArray } from '../../types/types';
-import { extractIdFromUrl } from '../Carts/Carts';
+import { extractIdFromUrl } from '../PeopleCarts/Carts';
 import './CartItem.css';
 import { useLocation } from 'react-router-dom';
 
