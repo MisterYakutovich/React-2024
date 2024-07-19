@@ -15,8 +15,13 @@ function Page() {
   const [localResult, setLocalResult] = useState<ArrSearchResult[]>([]);
   const [, setLoading] = useState<boolean>(true);
   const [, setSearch] = useState<string>('');
+ 
   const [localResultSearch, setlocalResultSearch] = useState<string>('');
-  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [currentPage, setCurrentPage] = useState<number>(() => {
+   
+    const savedPage = localStorage.getItem('currentPage');
+    return savedPage ? parseInt(savedPage, 10) : 1;
+  });
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -34,7 +39,10 @@ function Page() {
     setLocalResult(localResult);
     setlocalResultSearch(localResultSearch);
   }, []);
-
+ useEffect(() => {
+    
+    localStorage.setItem('currentPage', currentPage.toString());
+  }, [currentPage]);
   const handleEnter = (search: string): void => {
     if (search.trim() === '') {
       localStorage.removeItem('key');
@@ -69,7 +77,7 @@ function Page() {
     setCurrentPage(prevPage);
     navigate(`?page=${prevPage}`);
   };
-
+console.log(currentPage)
   return (
     <>
       <ErrorBoundary>

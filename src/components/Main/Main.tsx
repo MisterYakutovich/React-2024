@@ -13,7 +13,7 @@ export interface PeopleProps {
 function Main({ localResult, currentPage }: PeopleProps) {
   const [items, setItems] = useState<PeopleArray[]>([]);
   const [isLoaded, setisLoaded] = useState<boolean>(false);
-
+console.log(currentPage)
   useEffect(() => {
     fetch(`https://swapi.dev/api/people/?page=${currentPage}`)
       .then((res) => res.json())
