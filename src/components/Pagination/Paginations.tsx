@@ -7,7 +7,6 @@ interface PaginationsProps {
 }
 
 function Paginations({ nextPage, prevPage, currentPage }: PaginationsProps) {
-  console.log(currentPage);
   return (
     <div className="navigation">
       <button

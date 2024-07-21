@@ -24,7 +24,9 @@ function Main({ localResult, currentPage }: PeopleProps) {
     return <Loader />;
   }
 
-  return <Carts localResult={localResult} items={items} />;
+  return (
+    <Carts currentPage={currentPage} localResult={localResult} items={items} />
+  );
 }
 
 export default Main;

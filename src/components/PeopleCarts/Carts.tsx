@@ -3,17 +3,21 @@ import './Carts.css';
 import CartItem from '../CartItem/CartItem';
 import { ArrSearchResult, PeopleArray } from '../../types/types';
 import Checkbox from '../Checkbox/Checkbox';
+import { useState } from 'react';
 
 interface CartsProps {
   localResult: ArrSearchResult[];
   items: PeopleArray[];
+  currentPage: number;
 }
 export function extractIdFromUrl(url: string): string {
   const parts = url.split('/');
   return parts[parts.length - 2];
 }
 
-function Carts({ localResult, items }: CartsProps) {
+function Carts({ localResult, items, currentPage }: CartsProps) {
+  const [selectedCharacters, setSelectedCharacters] = useState<string[]>([]); // Состояние для выбранных персонажей
+
   const location = useLocation();
   const navigate = useNavigate();
   const isDetailPage = location.pathname.includes('/item/');
@@ -40,7 +44,12 @@ function Carts({ localResult, items }: CartsProps) {
                 </div>
               ) : (
                 <>
-                  <Checkbox i={i} />
+                  <Checkbox
+                    i={i}
+                    currentPage={currentPage}
+                    selectedCharacters={selectedCharacters}
+                    setSelectedCharacters={setSelectedCharacters}
+                  />
                   <NavLink
                     key={i.id}
                     to={`/item/${extractIdFromUrl(i.url)}/`}
