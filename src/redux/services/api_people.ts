@@ -15,4 +15,5 @@ export const peopleApi = createApi({
     }),
   }),
 });
-export const { useGetPeopleQuery, useGetPeopleIdQuery } = peopleApi;
+export const { useGetPeopleQuery, useGetPeopleIdQuery, useGetSearchQuery } =
+  peopleApi;

@@ -5,18 +5,18 @@ import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 import { ArrSearchResult } from './types/types';
 import Paginations from './components/Pagination/Paginations';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useGetSearchQuery } from './redux/services/api_people';
+import Loader from './components/loading/Loader';
 
 function Page() {
   const [, setShow] = useState<string>('index');
-
   const [personNameSearch, setPersonNameSearch] = useState<ArrSearchResult[]>(
     []
   );
   const [localResult, setLocalResult] = useState<ArrSearchResult[]>([]);
-  const [, setLoading] = useState<boolean>(true);
-  const [, setSearch] = useState<string>('');
-
+  const [search, setSearch] = useState<string>('');
   const [localResultSearch, setlocalResultSearch] = useState<string>('');
+  const { data, isLoading } = useGetSearchQuery(search);
   const [currentPage, setCurrentPage] = useState<number>(() => {
     const savedPage = localStorage.getItem('currentPage');
     return savedPage ? parseInt(savedPage, 10) : 1;
@@ -41,7 +41,17 @@ function Page() {
   useEffect(() => {
     localStorage.setItem('currentPage', currentPage.toString());
   }, [currentPage]);
-  const handleEnter = (search: string): void => {
+  useEffect(() => {
+    if (data && data.results && search) {
+      setLocalResult(data.results);
+      setlocalResultSearch(search);
+      setPersonNameSearch(data.results);
+      localStorage.setItem('search', JSON.stringify(search));
+      localStorage.setItem('key', JSON.stringify(data.results));
+    }
+  }, [data, search]);
+
+  const handleEnter = (search: string) => {
     if (search.trim() === '') {
       localStorage.removeItem('key');
       localStorage.removeItem('search');
@@ -49,21 +59,10 @@ function Page() {
       setlocalResultSearch('');
       return;
     }
-    setLoading(true);
     setShow('search');
-    search = encodeURIComponent(search);
-    const url = `https://swapi.dev/api/people/?search=${search}`;
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        setPersonNameSearch(data.results);
-        setLoading(false);
-        setLocalResult(data.results);
-        setSearch(search),
-          localStorage.setItem('search', JSON.stringify(search));
-        localStorage.setItem('key', JSON.stringify(data.results));
-      });
+    setSearch(search);
   };
+
   const incrementPage = () => {
     const nextPage = currentPage + 1;
     setCurrentPage(nextPage);
@@ -75,7 +74,9 @@ function Page() {
     setCurrentPage(prevPage);
     navigate(`?page=${prevPage}`);
   };
-  console.log(currentPage);
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <>
       <ErrorBoundary>
