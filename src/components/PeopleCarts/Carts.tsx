@@ -2,6 +2,7 @@ import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import './Carts.css';
 import CartItem from '../CartItem/CartItem';
 import { ArrSearchResult, PeopleArray } from '../../types/types';
+import Checkbox from '../Checkbox/Checkbox';
 
 interface CartsProps {
   localResult: ArrSearchResult[];
@@ -38,16 +39,19 @@ function Carts({ localResult, items }: CartsProps) {
                   <CartItem key={i.id} i={i} index={index} />
                 </div>
               ) : (
-                <NavLink
-                  key={i.id}
-                  to={`/item/${extractIdFromUrl(i.url)}/`}
-                  style={{ textDecoration: 'none' }}
-                  className={({ isActive, isPending }) =>
-                    isPending ? 'pending' : isActive ? 'active-linc' : ''
-                  }
-                >
-                  <CartItem key={i.id} i={i} index={index} />
-                </NavLink>
+                <>
+                  <Checkbox i={i} />
+                  <NavLink
+                    key={i.id}
+                    to={`/item/${extractIdFromUrl(i.url)}/`}
+                    style={{ textDecoration: 'none' }}
+                    className={({ isActive, isPending }) =>
+                      isPending ? 'pending' : isActive ? 'active-linc' : ''
+                    }
+                  >
+                    <CartItem key={i.id} i={i} index={index} />
+                  </NavLink>
+                </>
               )}
             </div>
           ))

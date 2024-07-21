@@ -19,7 +19,7 @@
   width: 100%;
   margin-left: auto;
 }
-input {
+.input_search {
   border: 1px solid #e06733;
   width: 100%;
   height: 3rem;
