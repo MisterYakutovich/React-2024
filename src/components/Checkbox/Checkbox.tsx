@@ -1,37 +1,29 @@
-import { useEffect, useState } from 'react';
 import './Checkbox.css';
 import { PeopleArray } from '../../types/types';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../redux/store';
-import { setSelectedCharacters } from '../../redux/slices/itemDetailsSlice';
+import { setSelectedCharacters } from '../../redux/slices/itemsDetailsSlice';
 
 interface CheckboxProps {
-  i: PeopleArray;
-  currentPage: number;
-  selectedCharacters: string[];
-  setSelectedCharacters: (characters: string[]) => void;
+  element: PeopleArray;
 }
-function Checkbox({ i }: CheckboxProps) {
+function Checkbox({ element }: CheckboxProps) {
   const dispatch = useDispatch<AppDispatch>();
   const selectedCharacters = useSelector(
-    (state: RootState) => state.itemDetails.selectedCharacters
+    (state: RootState) => state.itemsDetails.selectedCharacters
   );
-  console.log(selectedCharacters);
-
-  const [isChecked, setIsChecked] = useState<boolean>(false);
-  useEffect(() => {
-    setIsChecked(selectedCharacters.includes(i.name));
-  }, [selectedCharacters, i.name]);
+  const isChecked = selectedCharacters.includes(element.name);
   const handleChange = () => {
-    setIsChecked(!isChecked);
     if (isChecked) {
       dispatch(
         setSelectedCharacters(
-          selectedCharacters.filter((name) => name !== i.name)
+          selectedCharacters.filter((name) => name !== element.name)
         )
       );
     } else {
-      dispatch(setSelectedCharacters([...selectedCharacters, i.name || '']));
+      dispatch(
+        setSelectedCharacters([...selectedCharacters, element.name || ''])
+      );
     }
   };
 

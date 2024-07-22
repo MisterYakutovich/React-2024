@@ -12,7 +12,6 @@ function PageItemCart() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { data, isLoading, isError } = useGetPeopleIdQuery(`${id}`);
-  console.log(data);
 
   useEffect(() => {
     if (data) {

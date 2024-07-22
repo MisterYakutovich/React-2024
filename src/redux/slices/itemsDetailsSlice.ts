@@ -8,8 +8,8 @@ const initialState: CharactersState = {
   selectedCharacters: [],
 };
 
-export const itemDetailsSlice = createSlice({
-  name: 'itemDetails',
+export const itemsDetailsSlice = createSlice({
+  name: 'itemsDetails',
   initialState,
   reducers: {
     setSelectedCharacters(state, action: PayloadAction<string[]>) {
@@ -17,5 +17,6 @@ export const itemDetailsSlice = createSlice({
     },
   },
 });
-export const { setSelectedCharacters } = itemDetailsSlice.actions;
-export default itemDetailsSlice.reducer;
+
+export const { setSelectedCharacters } = itemsDetailsSlice.actions;
+export default itemsDetailsSlice.reducer;

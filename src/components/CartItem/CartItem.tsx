@@ -5,30 +5,30 @@ import './CartItem.css';
 import { useLocation } from 'react-router-dom';
 
 export interface CartItemProps {
-  i: PeopleArray;
+  element: PeopleArray;
   index: number;
 }
 
-function CartItem({ i, index }: CartItemProps) {
+function CartItem({ element, index }: CartItemProps) {
   const location = useLocation();
 
   const isDetailPage = location.pathname.includes('/item/');
 
   return (
     <div
-      key={i.id || index}
+      key={element.id || index}
       className={`card ${isDetailPage ? 'card-small' : ''}`}
     >
       <img
         className={`card_img ${isDetailPage ? 'card_img-small' : ''}`}
-        src={`${URL_PERSON}${extractIdFromUrl(i.url)}${URL_EXTENSION}`}
-        alt={i.name}
+        src={`${URL_PERSON}${extractIdFromUrl(element.url)}${URL_EXTENSION}`}
+        alt={element.name}
       />
       <p
-        key={i.name}
+        key={element.name}
         className={`cart_title ${isDetailPage ? 'cart_title_small' : ''}`}
       >
-        {i.name}
+        {element.name}
       </p>
     </div>
   );

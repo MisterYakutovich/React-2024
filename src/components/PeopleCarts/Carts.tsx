@@ -3,7 +3,6 @@ import './Carts.css';
 import CartItem from '../CartItem/CartItem';
 import { ArrSearchResult, PeopleArray } from '../../types/types';
 import Checkbox from '../Checkbox/Checkbox';
-import { useState } from 'react';
 
 interface CartsProps {
   localResult: ArrSearchResult[];
@@ -15,9 +14,7 @@ export function extractIdFromUrl(url: string): string {
   return parts[parts.length - 2];
 }
 
-function Carts({ localResult, items, currentPage }: CartsProps) {
-  const [selectedCharacters, setSelectedCharacters] = useState<string[]>([]); // Состояние для выбранных персонажей
-
+function Carts({ localResult, items }: CartsProps) {
   const location = useLocation();
   const navigate = useNavigate();
   const isDetailPage = location.pathname.includes('/item/');
@@ -36,37 +33,36 @@ function Carts({ localResult, items, currentPage }: CartsProps) {
         {items.length === 0 ? (
           <div>No items available</div>
         ) : localResult.length === 0 ? (
-          items.map((i, index) => (
-            <div key={i.id} className="cart-item-wrapper">
+          items.map((element, index) => (
+            <div key={element.id} className="cart-item-wrapper">
               {isDetailPage ? (
                 <div className="cart-item">
-                  <CartItem key={i.id} i={i} index={index} />
+                  <CartItem key={element.id} element={element} index={index} />
                 </div>
               ) : (
                 <>
-                  <Checkbox
-                    i={i}
-                    currentPage={currentPage}
-                    selectedCharacters={selectedCharacters}
-                    setSelectedCharacters={setSelectedCharacters}
-                  />
+                  <Checkbox element={element} />
                   <NavLink
-                    key={i.id}
-                    to={`/item/${extractIdFromUrl(i.url)}/`}
+                    key={element.id}
+                    to={`/item/${extractIdFromUrl(element.url)}/`}
                     style={{ textDecoration: 'none' }}
                     className={({ isActive, isPending }) =>
                       isPending ? 'pending' : isActive ? 'active-linc' : ''
                     }
                   >
-                    <CartItem key={i.id} i={i} index={index} />
+                    <CartItem
+                      key={element.id}
+                      element={element}
+                      index={index}
+                    />
                   </NavLink>
                 </>
               )}
             </div>
           ))
         ) : (
-          localResult.map((i, index) => (
-            <CartItem key={i.id} i={i} index={index} />
+          localResult.map((element, index) => (
+            <CartItem key={element.id} element={element} index={index} />
           ))
         )}
       </div>
