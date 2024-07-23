@@ -12,18 +12,22 @@ function Checkbox({ element }: CheckboxProps) {
   const selectedCharacters = useSelector(
     (state: RootState) => state.itemsDetails.selectedCharacters
   );
-  const isChecked = selectedCharacters.includes(element.name);
+
+  const isChecked = selectedCharacters.some(
+    (character) => character.name === element.name
+  );
+
   const handleChange = () => {
     if (isChecked) {
       dispatch(
         setSelectedCharacters(
-          selectedCharacters.filter((name) => name !== element.name)
+          selectedCharacters.filter(
+            (character) => character.name !== element.name
+          )
         )
       );
     } else {
-      dispatch(
-        setSelectedCharacters([...selectedCharacters, element.name || ''])
-      );
+      dispatch(setSelectedCharacters([...selectedCharacters, element]));
     }
   };
 
