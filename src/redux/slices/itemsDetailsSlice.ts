@@ -18,12 +18,15 @@ export const itemsDetailsSlice = createSlice({
     setSelectedCharacters(state, action: PayloadAction<PeopleArray[]>) {
       state.selectedCharacters = action.payload;
     },
+    unselectAllItems(state) {
+      state.selectedCharacters = [];
+    },
     setIsChecked(state, action: PayloadAction<boolean>) {
       state.isChecked = action.payload;
     },
   },
 });
 
-export const { setSelectedCharacters, setIsChecked } =
+export const { setSelectedCharacters, setIsChecked, unselectAllItems } =
   itemsDetailsSlice.actions;
 export default itemsDetailsSlice.reducer;
