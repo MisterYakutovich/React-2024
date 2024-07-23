@@ -10,17 +10,21 @@ import Loader from './components/loading/Loader';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from './redux/store';
 import { setCurrentPage } from './redux/slices/currentPageSlice';
+import FlyoutItems from './components/FlyoutItems/FlyoutItems';
 
 function Page() {
   const dispatch = useDispatch<AppDispatch>();
   const currentPage = useSelector(
     (state: RootState) => state.currentPage.currentPage
   );
-  console.log(currentPage);
+  const selectedCharacters = useSelector(
+    (state: RootState) => state.itemsDetails.selectedCharacters
+  );
   const [, setShow] = useState<string>('index');
   const [personNameSearch, setPersonNameSearch] = useState<ArrSearchResult[]>(
     []
   );
+  const [showFlyout, setShowFlyout] = useState(false);
   const [localResult, setLocalResult] = useState<ArrSearchResult[]>([]);
   const [search, setSearch] = useState<string>('');
   const [localResultSearch, setlocalResultSearch] = useState<string>('');
@@ -28,7 +32,9 @@ function Page() {
 
   const location = useLocation();
   const navigate = useNavigate();
-
+  useEffect(() => {
+    setShowFlyout(selectedCharacters.length > 0);
+  }, [selectedCharacters]);
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const page = parseInt(params.get('page') || '1', 10);
@@ -96,6 +102,7 @@ function Page() {
           localResult={localResult}
           currentPage={currentPage}
         />
+        {showFlyout && <FlyoutItems />}
       </ErrorBoundary>
     </>
   );

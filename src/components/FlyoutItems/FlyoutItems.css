@@ -1,0 +1,81 @@
+.flyout-container_unselectAll_button {
+  width: 120px;
+  padding: 10px 0;
+  position: relative;
+  margin-top: 33px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  border-radius: 6px;
+  background: greenyellow;
+  cursor: pointer;
+}
+.flyout-container_download_button {
+  width: 120px;
+  padding: 10px 0;
+  position: relative;
+  margin-top: 33px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  border-radius: 6px;
+  background: greenyellow;
+  cursor: pointer;
+}
+.flyout-container {
+  width: 600px;
+  height: 100px;
+  display: flex;
+  position: relative;
+  background: #fff;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  background-color: rgba(152, 156, 149, 0.719);
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  border-radius: 6px;
+}
+.flyout-container_items_selected {
+  color: black;
+  margin-top: 33px;
+}
+.modal-wrapper.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  transition: all 0.5s ease-in-out;
+}
+
+.modal-wrapper.open .modal {
+  margin-top: -200px;
+  opacity: 1;
+}
+
+.flyout-container_unselect_all {
+  position: relative;
+
+  width: 150px;
+  height: 100px;
+}
+.flyout-container_download {
+  position: relative;
+
+  width: 150px;
+  height: 100px;
+}

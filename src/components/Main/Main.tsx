@@ -25,7 +25,13 @@ function Main({ localResult, currentPage }: PeopleProps) {
   }
 
   return (
-    <Carts currentPage={currentPage} localResult={localResult} items={items} />
+    <>
+      <Carts
+        currentPage={currentPage}
+        localResult={localResult}
+        items={items}
+      />
+    </>
   );
 }
 

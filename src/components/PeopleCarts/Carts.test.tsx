@@ -35,7 +35,11 @@ describe('Carts Component', () => {
   test('должен отображать указанное количество карт', () => {
     render(
       <BrowserRouter>
-        <Carts localResult={mockLocalResult} items={mockItems} />
+        <Carts
+          localResult={mockLocalResult}
+          items={mockItems}
+          currentPage={0}
+        />
       </BrowserRouter>
     );
 
@@ -46,7 +50,7 @@ describe('Carts Component', () => {
   test('должен отображать сообщение при отсутствии карт', () => {
     render(
       <BrowserRouter>
-        <Carts localResult={mockLocalResult} items={[]} />
+        <Carts localResult={mockLocalResult} items={[]} currentPage={0} />
       </BrowserRouter>
     );
 
