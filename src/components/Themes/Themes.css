@@ -1,0 +1,27 @@
+.theme-container {
+  width: 70px;
+  height: 30px;
+  position: relative;
+  top: 5px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.theme-image {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.theme-image {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.dropbtn {
+  width: 30px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}

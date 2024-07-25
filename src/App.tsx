@@ -6,6 +6,7 @@ import PageItemCart from './components/PageItemCart/PageItemCart';
 import PageItem from './PageItem';
 import Main from './components/Main/Main';
 import Page_404 from './Page_404/Page_404';
+import Themes from './components/Themes/Themes';
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,6 @@ const router = createBrowserRouter([
         element: (
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <Main personNameSearch={[]} localResult={[]} currentPage={1} />
-
             <PageItemCart />
           </div>
         ),
@@ -39,7 +39,13 @@ const router = createBrowserRouter([
     element: <Page_404 />,
   },
 ]);
+
 function App(): ReactNode {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <Themes />
+      <RouterProvider router={router} />
+    </>
+  );
 }
 export default App;

@@ -2,23 +2,24 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  --main-bg-color-light: #000 url(./assets/plants1.png);
+  --main-bg-color-dark: #ffffff;
+  --main-bg-color: var(--main-bg-color-light);
 }
 
 body {
+  background: var(--main-bg-color);
   margin: 0;
-
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  margin: 0;
+  place-items: center;
 }
 
 h1 {

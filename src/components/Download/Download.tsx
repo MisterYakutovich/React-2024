@@ -5,14 +5,14 @@ import './Download.css';
 
 export function convertToCSV(data: PeopleArray[]) {
   const csvHeaders = [
-    'name',
-    'birth_year',
-    'eye_color',
-    'created',
-    'edited',
-    'height',
-    'mass',
-    'url',
+    'name      ',
+    'birth_year      ',
+    'eye_color      ',
+    'created      ',
+    'edited      ',
+    'height      ',
+    'mass      ',
+    'url      ',
   ];
   const csvData = data.map((item) => {
     return [
