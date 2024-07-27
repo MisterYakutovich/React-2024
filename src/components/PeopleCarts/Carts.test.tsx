@@ -3,6 +3,8 @@ import '@testing-library/jest-dom';
 import Carts from './Carts';
 import { BrowserRouter } from 'react-router-dom';
 import { ArrSearchResult, PeopleArray } from '../../types/types';
+import { Provider } from 'react-redux';
+import { store } from '../../redux/store';
 
 const mockItems: PeopleArray[] = [
   {
@@ -34,13 +36,15 @@ const mockLocalResult: ArrSearchResult[] = [];
 describe('Carts Component', () => {
   test('должен отображать указанное количество карт', () => {
     render(
-      <BrowserRouter>
-        <Carts
-          localResult={mockLocalResult}
-          items={mockItems}
-          currentPage={0}
-        />
-      </BrowserRouter>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Carts
+            localResult={mockLocalResult}
+            items={mockItems}
+            currentPage={0}
+          />
+        </BrowserRouter>
+      </Provider>
     );
 
     const cartItems = screen.getAllByRole('link');
@@ -49,9 +53,11 @@ describe('Carts Component', () => {
 
   test('должен отображать сообщение при отсутствии карт', () => {
     render(
-      <BrowserRouter>
-        <Carts localResult={mockLocalResult} items={[]} currentPage={0} />
-      </BrowserRouter>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Carts localResult={mockLocalResult} items={[]} currentPage={0} />
+        </BrowserRouter>
+      </Provider>
     );
 
     const message = screen.getByText('No items available');

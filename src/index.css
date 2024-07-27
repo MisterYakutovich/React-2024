@@ -8,12 +8,14 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  --background-color: white;
   --main-bg-color-light: #000 url(./assets/plants1.png);
-  --main-bg-color-dark: #ffffff;
+  --main-bg-color-dark: #ffffff url(./assets/plants1.png);
   --main-bg-color: var(--main-bg-color-light);
 }
 
 body {
+  background-color: var(--background-color);
   background: var(--main-bg-color);
   margin: 0;
   min-width: 320px;
@@ -25,4 +27,13 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+body.dark {
+  --background-color: black;
+  --text-color: white;
+}
+
+body.light {
+  --background-color: white;
+  --text-color: black;
 }

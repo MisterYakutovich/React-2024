@@ -25,27 +25,27 @@
         </h1>
         <div class="clearfix">
           <div class="fl pad1y space-right2">
-            <span class="strong">89.65% </span>
+            <span class="strong">95.83% </span>
             <span class="quiet">Statements</span>
-            <span class="fraction">26/29</span>
+            <span class="fraction">23/24</span>
           </div>
 
           <div class="fl pad1y space-right2">
-            <span class="strong">66.66% </span>
+            <span class="strong">75% </span>
             <span class="quiet">Branches</span>
-            <span class="fraction">2/3</span>
+            <span class="fraction">3/4</span>
           </div>
 
           <div class="fl pad1y space-right2">
-            <span class="strong">83.33% </span>
+            <span class="strong">100% </span>
             <span class="quiet">Functions</span>
-            <span class="fraction">5/6</span>
+            <span class="fraction">3/3</span>
           </div>
 
           <div class="fl pad1y space-right2">
-            <span class="strong">89.65% </span>
+            <span class="strong">95.83% </span>
             <span class="quiet">Lines</span>
-            <span class="fraction">26/29</span>
+            <span class="fraction">23/24</span>
           </div>
         </div>
         <p class="quiet">
@@ -155,45 +155,29 @@
 <a name='L92'></a><a href='#L92'>92</a>
 <a name='L93'></a><a href='#L93'>93</a>
 <a name='L94'></a><a href='#L94'>94</a>
-<a name='L95'></a><a href='#L95'>95</a>
-<a name='L96'></a><a href='#L96'>96</a>
-<a name='L97'></a><a href='#L97'>97</a>
-<a name='L98'></a><a href='#L98'>98</a>
-<a name='L99'></a><a href='#L99'>99</a>
-<a name='L100'></a><a href='#L100'>100</a>
-<a name='L101'></a><a href='#L101'>101</a>
-<a name='L102'></a><a href='#L102'>102</a>
-<a name='L103'></a><a href='#L103'>103</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L95'></a><a href='#L95'>95</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -272,29 +256,21 @@ import { URL_EXTENSION, URL_PERSON } from '../../consts/api';
 import Loader from '../loading/Loader';
 import { PeopleArray } from '../../types/types';
 import { extractIdFromUrl } from '../PeopleCarts/Carts';
+import { useGetPeopleIdQuery } from '../../redux/services/api_people';
 &nbsp;
 function PageItemCart() {
-  const [loading, setLoading] = useState&lt;boolean&gt;(false);
-  const [isError, setIsError] = useState&lt;boolean&gt;(false);
   const [item, setItem] = useState&lt;PeopleArray | null&gt;(null);
   const { id } = useParams();
   const navigate = useNavigate();
+  const { data, isLoading, isError } = useGetPeopleIdQuery(`${id}`);
 &nbsp;
   useEffect(() =&gt; {
-    setLoading(true);
-    fetch(`https://swapi.dev/api/people/${id}/`)
-      .then((res) =&gt; res.json())
-      .then((result) =&gt; {
-        setItem(result);
-        setLoading(false);
-      })
-      .catch(<span class="fstat-no" title="function not covered" >(e</span>rror) =&gt; {
-<span class="cstat-no" title="statement not covered" >        setIsError(true);</span>
-<span class="cstat-no" title="statement not covered" >        alert(error);</span>
-      });
-  }, [id]);
+    if (data) {
+      setItem(data);
+    }
+  }, [data, id]);
 &nbsp;
-  if (loading) {
+  if (isLoading) {
     return (
       &lt;&gt;
         &lt;div&gt;Loading...&lt;/div&gt;
@@ -308,7 +284,7 @@ function PageItemCart() {
   }
 &nbsp;
   if (!item) {
-    return &lt;div&gt;No data found.&lt;/div&gt;;
+    return &lt;div className="isError"&gt;No data found.&lt;/div&gt;;
   }
   const handleClose = () =&gt; {
     navigate(-1);
@@ -381,7 +357,7 @@ export default PageItemCart;
         rel="noopener noreferrer"
         >istanbul</a
       >
-      at 2024-07-20T07:14:19.408Z
+      at 2024-07-27T16:10:50.567Z
     </div>
     <script src="../../../prettify.js"></script>
     <script>

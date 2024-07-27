@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import dark from '../../assets/dark.png';
 import light from '../../assets/light.jpg';
 import './Themes.css';
-import { ThemeContext } from '../../main';
+import { ThemeContext } from '../../context/ThemeProvider';
 
 function Themes() {
   const { theme, setTheme, toggleTheme } = useContext(ThemeContext);

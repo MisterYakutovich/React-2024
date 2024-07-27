@@ -37,3 +37,8 @@ export interface ErrorButtonState {
   error: boolean;
   hasError: boolean;
 }
+export interface IContext {
+  theme: string;
+  setTheme: (theme: string) => void;
+  toggleTheme: () => void;
+}

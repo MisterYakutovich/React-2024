@@ -47,6 +47,7 @@ function Download() {
     <a
       download={filename}
       href={url}
+      role="link"
       className="flyout-container_download_button"
     >
       Download

@@ -23,9 +23,9 @@
         </h1>
         <div class="clearfix">
           <div class="fl pad1y space-right2">
-            <span class="strong">82.35% </span>
+            <span class="strong">83.33% </span>
             <span class="quiet">Statements</span>
-            <span class="fraction">14/17</span>
+            <span class="fraction">15/18</span>
           </div>
 
           <div class="fl pad1y space-right2">
@@ -41,9 +41,9 @@
           </div>
 
           <div class="fl pad1y space-right2">
-            <span class="strong">82.35% </span>
+            <span class="strong">83.33% </span>
             <span class="quiet">Lines</span>
-            <span class="fraction">14/17</span>
+            <span class="fraction">15/18</span>
           </div>
         </div>
         <p class="quiet">
@@ -123,8 +123,19 @@
 <a name='L62'></a><a href='#L62'>62</a>
 <a name='L63'></a><a href='#L63'>63</a>
 <a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -168,7 +179,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -191,10 +209,12 @@
 import './Carts.css';
 import CartItem from '../CartItem/CartItem';
 import { ArrSearchResult, PeopleArray } from '../../types/types';
+import Checkbox from '../Checkbox/Checkbox';
 &nbsp;
 interface CartsProps {
   localResult: ArrSearchResult[];
   items: PeopleArray[];
+  currentPage: number;
 }
 export function extractIdFromUrl(url: string): string {
   const parts = url.split('/');
@@ -220,29 +240,36 @@ function Carts({ localResult, items }: CartsProps) {
         {items.length === 0 ? (
           &lt;div&gt;No items available&lt;/div&gt;
         ) : localResult.length === 0 ? (
-          items.map((i, index) =&gt; (
-            &lt;div key={i.id} className="cart-item-wrapper"&gt;
+          items.map((element, index) =&gt; (
+            &lt;div key={element.id} className="cart-item-wrapper"&gt;
               {isDetailPage ? (
 <span class="branch-0 cbranch-no" title="branch not covered" >                &lt;div className="cart-item"&gt;</span>
-                  &lt;CartItem key={i.id} i={i} index={index} /&gt;
+                  &lt;CartItem key={element.id} element={element} index={index} /&gt;
                 &lt;/div&gt;
               ) : (
-                &lt;NavLink
-                  key={i.id}
-                  to={`/item/${extractIdFromUrl(i.url)}/`}
-                  style={{ textDecoration: 'none' }}
-                  className={({ isActive, isPending }) =&gt;
-                    isPending ? <span class="branch-0 cbranch-no" title="branch not covered" >'pending' </span>: isActive ? <span class="branch-0 cbranch-no" title="branch not covered" >'active-linc' </span>: ''
-                  }
-                &gt;
-                  &lt;CartItem key={i.id} i={i} index={index} /&gt;
-                &lt;/NavLink&gt;
+                &lt;&gt;
+                  &lt;Checkbox element={element} /&gt;
+                  &lt;NavLink
+                    key={element.id}
+                    to={`/item/${extractIdFromUrl(element.url)}/`}
+                    style={{ textDecoration: 'none' }}
+                    className={({ isActive, isPending }) =&gt;
+                      isPending ? <span class="branch-0 cbranch-no" title="branch not covered" >'pending' </span>: isActive ? <span class="branch-0 cbranch-no" title="branch not covered" >'active-linc' </span>: ''
+                    }
+                  &gt;
+                    &lt;CartItem
+                      key={element.id}
+                      element={element}
+                      index={index}
+                    /&gt;
+                  &lt;/NavLink&gt;
+                &lt;/&gt;
               )}
             &lt;/div&gt;
           ))
         ) : (
-<span class="branch-1 cbranch-no" title="branch not covered" >          localResult.map(<span class="fstat-no" title="function not covered" >(i</span>, index) =&gt; (</span>
-<span class="cstat-no" title="statement not covered" >            &lt;CartItem key={i.id} i</span>={i} index={index} /&gt;
+<span class="branch-1 cbranch-no" title="branch not covered" >          localResult.map(<span class="fstat-no" title="function not covered" >(e</span>lement, index) =&gt; (</span>
+<span class="cstat-no" title="statement not covered" >            &lt;CartItem key={element.id} e</span>lement={element} index={index} /&gt;
           ))
         )}
       &lt;/div&gt;
@@ -265,7 +292,7 @@ export default Carts;
         rel="noopener noreferrer"
         >istanbul</a
       >
-      at 2024-07-20T07:14:19.408Z
+      at 2024-07-27T16:10:50.567Z
     </div>
     <script src="../../../prettify.js"></script>
     <script>

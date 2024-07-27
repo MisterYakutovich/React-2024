@@ -140,30 +140,30 @@ import './CartItem.css';
 import { useLocation } from 'react-router-dom';
 &nbsp;
 export interface CartItemProps {
-  i: PeopleArray;
+  element: PeopleArray;
   index: number;
 }
 &nbsp;
-function CartItem({ i, index }: CartItemProps) {
+function CartItem({ element, index }: CartItemProps) {
   const location = useLocation();
 &nbsp;
   const isDetailPage = location.pathname.includes('/item/');
 &nbsp;
   return (
     &lt;div
-      key={i.id || <span class="branch-1 cbranch-no" title="branch not covered" >index}</span>
+      key={element.id || <span class="branch-1 cbranch-no" title="branch not covered" >index}</span>
       className={`card ${isDetailPage ? <span class="branch-0 cbranch-no" title="branch not covered" >'card-small' </span>: ''}`}
     &gt;
       &lt;img
         className={`card_img ${isDetailPage ? <span class="branch-0 cbranch-no" title="branch not covered" >'card_img-small' </span>: ''}`}
-        src={`${URL_PERSON}${extractIdFromUrl(i.url)}${URL_EXTENSION}`}
-        alt={i.name}
+        src={`${URL_PERSON}${extractIdFromUrl(element.url)}${URL_EXTENSION}`}
+        alt={element.name}
       /&gt;
       &lt;p
-        key={i.name}
+        key={element.name}
         className={`cart_title ${isDetailPage ? <span class="branch-0 cbranch-no" title="branch not covered" >'cart_title_small' </span>: ''}`}
       &gt;
-        {i.name}
+        {element.name}
       &lt;/p&gt;
     &lt;/div&gt;
   );
@@ -184,7 +184,7 @@ export default CartItem;
         rel="noopener noreferrer"
         >istanbul</a
       >
-      at 2024-07-20T07:14:19.408Z
+      at 2024-07-27T16:10:50.567Z
     </div>
     <script src="../../../prettify.js"></script>
     <script>
