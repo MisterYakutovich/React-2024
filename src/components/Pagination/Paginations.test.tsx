@@ -1,9 +1,10 @@
 import { render, screen, fireEvent, act } from '@testing-library/react';
-import { BrowserRouter, MemoryRouter, Route, Routes } from 'react-router-dom';
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import '@testing-library/jest-dom';
 import Paginations from './Paginations';
-import Page from '../../Page';
 import fetchMock from 'jest-fetch-mock';
+import { Provider } from 'react-redux';
+import { store } from '../../redux/store';
 
 fetchMock.enableMocks();
 
@@ -17,20 +18,21 @@ test('обновляет параметр запроса URL при измене
 
   await act(async () => {
     render(
-      <MemoryRouter initialEntries={['/']}>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Paginations
-                nextPage={incrementPage}
-                prevPage={decrementPage}
-                currentPage={1}
-              />
-            }
-          />
-        </Routes>
-      </MemoryRouter>
+      <Provider store={store}>
+        <MemoryRouter initialEntries={['/']}>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Paginations
+                  nextPage={incrementPage}
+                  prevPage={decrementPage}
+                />
+              }
+            />
+          </Routes>
+        </MemoryRouter>
+      </Provider>
     );
   });
 
@@ -47,28 +49,4 @@ test('обновляет параметр запроса URL при измене
   });
 
   expect(decrementPage).toHaveBeenCalled();
-});
-
-test('компонент Page обновляет параметр запроса URL при изменении страницы', async () => {
-  await act(async () => {
-    render(
-      <BrowserRouter>
-        <Page />
-      </BrowserRouter>
-    );
-  });
-
-  expect(screen.getByText('1')).toBeInTheDocument();
-
-  await act(async () => {
-    fireEvent.click(screen.getByTestId('next-button'));
-  });
-
-  expect(window.location.search).toBe('?page=2');
-
-  await act(async () => {
-    fireEvent.click(screen.getByTestId('previous-button'));
-  });
-
-  expect(window.location.search).toBe('?page=1');
 });

@@ -26,6 +26,7 @@ function Seach({ enterHandler, savedSearchLocal }: SearchProps) {
     <div className="row">
       <div className="input-field col s12">
         <input
+          className="input_search"
           type="text"
           value={isSavedSearch ? savedSearchLocal : search}
           onChange={(event) => {
