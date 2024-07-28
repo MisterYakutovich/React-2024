@@ -7,7 +7,6 @@ import Checkbox from '../Checkbox/Checkbox';
 interface CartsProps {
   localResult: ArrSearchResult[];
   items: PeopleArray[];
-  currentPage: number;
 }
 export function extractIdFromUrl(url: string): string {
   const parts = url.split('/');

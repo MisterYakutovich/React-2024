@@ -2,7 +2,9 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const peopleApi = createApi({
   reducerPath: 'peopleApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://swapi.dev/api/people/' }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: 'https://swapi.dev/api/people/',
+  }),
   endpoints: (builder) => ({
     getPeople: builder.query({
       query: (page) => `?page=${page}`,

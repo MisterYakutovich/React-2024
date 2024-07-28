@@ -1,12 +1,16 @@
+import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/store';
 import './Paginations.css';
 
 interface PaginationsProps {
   nextPage: () => void;
   prevPage: () => void;
-  currentPage: number;
 }
 
-function Paginations({ nextPage, prevPage, currentPage }: PaginationsProps) {
+function Paginations({ nextPage, prevPage }: PaginationsProps) {
+  const currentPage = useSelector(
+    (state: RootState) => state.currentPage.currentPage
+  );
   return (
     <div className="navigation">
       <button

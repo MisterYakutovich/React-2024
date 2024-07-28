@@ -78,12 +78,18 @@
 <a name='L17'></a><a href='#L17'>17</a>
 <a name='L18'></a><a href='#L18'>18</a>
 <a name='L19'></a><a href='#L19'>19</a>
-<a name='L20'></a><a href='#L20'>20</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -95,13 +101,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 &nbsp;
 export const peopleApi = createApi({
   reducerPath: 'peopleApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://swapi.dev/api/people/' }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: 'https://swapi.dev/api/people/',
+  }),
   endpoints: (builder) =&gt; ({
     getPeople: builder.query({
       query: <span class="fstat-no" title="function not covered" >(p</span>age) =&gt; <span class="cstat-no" title="statement not covered" >`?page=${page}`,</span>
@@ -130,7 +139,7 @@ export const { useGetPeopleQuery, useGetPeopleIdQuery, useGetSearchQuery } =
         rel="noopener noreferrer"
         >istanbul</a
       >
-      at 2024-07-27T19:37:43.396Z
+      at 2024-07-28T12:51:13.863Z
     </div>
     <script src="../../prettify.js"></script>
     <script>

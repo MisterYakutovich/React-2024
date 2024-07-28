@@ -36,10 +36,10 @@
 }
 
 .card {
-  transition: 2s;
+  transition: 5s;
 }
 .card:hover {
-  transform: scale(0.7);
+  transform: scale(0);
 }
 .card-small {
   width: 170px;

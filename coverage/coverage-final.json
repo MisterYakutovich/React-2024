@@ -212,7 +212,7 @@
         "end": { "line": 30, "column": 72 }
       },
       "13": {
-        "start": { "line": 34, "column": 2 },
+        "start": { "line": 33, "column": 2 },
         "end": { "line": 43, "column": 4 }
       },
       "14": {
@@ -297,24 +297,24 @@
       }
     },
     "s": {
-      "0": 2,
-      "1": 2,
-      "2": 2,
-      "3": 2,
-      "4": 2,
-      "5": 4,
-      "6": 2,
-      "7": 0,
-      "8": 2,
-      "9": 0,
+      "0": 3,
+      "1": 3,
+      "2": 3,
+      "3": 5,
+      "4": 5,
+      "5": 10,
+      "6": 5,
+      "7": 1,
+      "8": 5,
+      "9": 1,
       "10": 0,
       "11": 0,
-      "12": 0,
-      "13": 2,
-      "14": 2
+      "12": 1,
+      "13": 5,
+      "14": 3
     },
-    "f": { "0": 2, "1": 4, "2": 0, "3": 0, "4": 0 },
-    "b": { "0": [0, 0] }
+    "f": { "0": 5, "1": 10, "2": 1, "3": 1, "4": 0 },
+    "b": { "0": [0, 1] }
   },
   "C:\\Users\\user\\Desktop\\React 2024\\React-2024\\React-2024\\src\\components\\Download\\Download.tsx": {
     "path": "C:\\Users\\user\\Desktop\\React 2024\\React-2024\\React-2024\\src\\components\\Download\\Download.tsx",
@@ -976,33 +976,56 @@
     "statementMap": {
       "0": {
         "start": { "line": 1, "column": 0 },
-        "end": { "line": 1, "column": 27 }
+        "end": { "line": 1, "column": 43 }
       },
       "1": {
-        "start": { "line": 10, "column": 2 },
-        "end": { "line": 59, "column": 4 }
+        "start": { "line": 3, "column": 0 },
+        "end": { "line": 3, "column": 27 }
       },
       "2": {
-        "start": { "line": 61, "column": 0 },
-        "end": { "line": 61, "column": 27 }
+        "start": { "line": 13, "column": 22 },
+        "end": { "line": 14, "column": null }
+      },
+      "3": {
+        "start": { "line": 14, "column": 26 },
+        "end": { "line": 14, "column": 55 }
+      },
+      "4": {
+        "start": { "line": 16, "column": 2 },
+        "end": { "line": 65, "column": 4 }
+      },
+      "5": {
+        "start": { "line": 67, "column": 0 },
+        "end": { "line": 67, "column": 27 }
       }
     },
     "fnMap": {
       "0": {
         "name": "Paginations",
         "decl": {
-          "start": { "line": 9, "column": 9 },
-          "end": { "line": 9, "column": 20 }
+          "start": { "line": 11, "column": 9 },
+          "end": { "line": 11, "column": 20 }
         },
         "loc": {
-          "start": { "line": 9, "column": 74 },
-          "end": { "line": 60, "column": 1 }
+          "start": { "line": 11, "column": 61 },
+          "end": { "line": 66, "column": 1 }
+        }
+      },
+      "1": {
+        "name": "(anonymous_1)",
+        "decl": {
+          "start": { "line": 14, "column": 4 },
+          "end": { "line": 14, "column": 5 }
+        },
+        "loc": {
+          "start": { "line": 14, "column": 26 },
+          "end": { "line": 14, "column": 55 }
         }
       }
     },
     "branchMap": {},
-    "s": { "0": 1, "1": 1, "2": 1 },
-    "f": { "0": 1 },
+    "s": { "0": 1, "1": 1, "2": 1, "3": 2, "4": 1, "5": 1 },
+    "f": { "0": 1, "1": 2 },
     "b": {}
   },
   "C:\\Users\\user\\Desktop\\React 2024\\React-2024\\React-2024\\src\\components\\PeopleCarts\\Carts.tsx": {
@@ -1581,117 +1604,131 @@
         "end": { "line": 5, "column": 57 }
       },
       "5": {
-        "start": { "line": 7, "column": 13 },
-        "end": { "line": 15, "column": 3 }
+        "start": { "line": 6, "column": 0 },
+        "end": { "line": 6, "column": 67 }
       },
       "6": {
-        "start": { "line": 14, "column": 4 },
-        "end": { "line": 14, "column": 55 }
+        "start": { "line": 8, "column": 13 },
+        "end": { "line": 17, "column": 3 }
       },
       "7": {
-        "start": { "line": 16, "column": 0 },
-        "end": { "line": 16, "column": 31 }
+        "start": { "line": 16, "column": 4 },
+        "end": { "line": 16, "column": 55 }
+      },
+      "8": {
+        "start": { "line": 18, "column": 0 },
+        "end": { "line": 18, "column": 31 }
       }
     },
     "fnMap": {
       "0": {
         "name": "(anonymous_0)",
         "decl": {
-          "start": { "line": 13, "column": 14 },
-          "end": { "line": 13, "column": 15 }
+          "start": { "line": 15, "column": 14 },
+          "end": { "line": 15, "column": 15 }
         },
         "loc": {
-          "start": { "line": 14, "column": 4 },
-          "end": { "line": 14, "column": 55 }
+          "start": { "line": 16, "column": 4 },
+          "end": { "line": 16, "column": 55 }
         }
       }
     },
     "branchMap": {},
-    "s": { "0": 3, "1": 3, "2": 3, "3": 3, "4": 3, "5": 3, "6": 3, "7": 3 },
-    "f": { "0": 3 },
+    "s": {
+      "0": 4,
+      "1": 4,
+      "2": 4,
+      "3": 4,
+      "4": 4,
+      "5": 4,
+      "6": 4,
+      "7": 4,
+      "8": 4
+    },
+    "f": { "0": 4 },
     "b": {}
   },
   "C:\\Users\\user\\Desktop\\React 2024\\React-2024\\React-2024\\src\\redux\\services\\api_people.ts": {
     "path": "C:\\Users\\user\\Desktop\\React 2024\\React-2024\\React-2024\\src\\redux\\services\\api_people.ts",
     "statementMap": {
       "0": {
-        "start": { "line": 1, "column": 0 },
-        "end": { "line": 1, "column": 73 }
+        "start": { "line": 2, "column": 0 },
+        "end": { "line": 2, "column": 73 }
       },
       "1": {
-        "start": { "line": 3, "column": 13 },
-        "end": { "line": 17, "column": 3 }
+        "start": { "line": 4, "column": 13 },
+        "end": { "line": 20, "column": 3 }
       },
       "2": {
-        "start": { "line": 6, "column": 27 },
-        "end": { "line": 16, "column": 4 }
+        "start": { "line": 9, "column": 27 },
+        "end": { "line": 19, "column": 4 }
       },
       "3": {
-        "start": { "line": 8, "column": 23 },
-        "end": { "line": 8, "column": 38 }
+        "start": { "line": 11, "column": 23 },
+        "end": { "line": 11, "column": 38 }
       },
       "4": {
-        "start": { "line": 11, "column": 21 },
-        "end": { "line": 11, "column": 29 }
+        "start": { "line": 14, "column": 21 },
+        "end": { "line": 14, "column": 29 }
       },
       "5": {
-        "start": { "line": 14, "column": 23 },
-        "end": { "line": 14, "column": 40 }
+        "start": { "line": 17, "column": 23 },
+        "end": { "line": 17, "column": 40 }
       },
       "6": {
-        "start": { "line": 18, "column": 15 },
-        "end": { "line": 19, "column": 12 }
+        "start": { "line": 21, "column": 15 },
+        "end": { "line": 22, "column": 12 }
       }
     },
     "fnMap": {
       "0": {
         "name": "(anonymous_0)",
         "decl": {
-          "start": { "line": 6, "column": 13 },
-          "end": { "line": 6, "column": 14 }
+          "start": { "line": 9, "column": 13 },
+          "end": { "line": 9, "column": 14 }
         },
         "loc": {
-          "start": { "line": 6, "column": 27 },
-          "end": { "line": 16, "column": 4 }
+          "start": { "line": 9, "column": 27 },
+          "end": { "line": 19, "column": 4 }
         }
       },
       "1": {
         "name": "(anonymous_1)",
         "decl": {
-          "start": { "line": 8, "column": 13 },
-          "end": { "line": 8, "column": 14 }
+          "start": { "line": 11, "column": 13 },
+          "end": { "line": 11, "column": 14 }
         },
         "loc": {
-          "start": { "line": 8, "column": 23 },
-          "end": { "line": 8, "column": 38 }
+          "start": { "line": 11, "column": 23 },
+          "end": { "line": 11, "column": 38 }
         }
       },
       "2": {
         "name": "(anonymous_2)",
         "decl": {
-          "start": { "line": 11, "column": 13 },
-          "end": { "line": 11, "column": 14 }
+          "start": { "line": 14, "column": 13 },
+          "end": { "line": 14, "column": 14 }
         },
         "loc": {
-          "start": { "line": 11, "column": 21 },
-          "end": { "line": 11, "column": 29 }
+          "start": { "line": 14, "column": 21 },
+          "end": { "line": 14, "column": 29 }
         }
       },
       "3": {
         "name": "(anonymous_3)",
         "decl": {
-          "start": { "line": 14, "column": 13 },
-          "end": { "line": 14, "column": 14 }
+          "start": { "line": 17, "column": 13 },
+          "end": { "line": 17, "column": 14 }
         },
         "loc": {
-          "start": { "line": 14, "column": 23 },
-          "end": { "line": 14, "column": 40 }
+          "start": { "line": 17, "column": 23 },
+          "end": { "line": 17, "column": 40 }
         }
       }
     },
     "branchMap": {},
-    "s": { "0": 3, "1": 3, "2": 3, "3": 0, "4": 1, "5": 0, "6": 3 },
-    "f": { "0": 3, "1": 0, "2": 1, "3": 0 },
+    "s": { "0": 4, "1": 4, "2": 4, "3": 0, "4": 1, "5": 0, "6": 4 },
+    "f": { "0": 4, "1": 0, "2": 1, "3": 0 },
     "b": {}
   },
   "C:\\Users\\user\\Desktop\\React 2024\\React-2024\\React-2024\\src\\redux\\slices\\currentPageSlice.ts": {
@@ -1736,7 +1773,53 @@
       }
     },
     "branchMap": {},
-    "s": { "0": 3, "1": 3, "2": 3, "3": 0, "4": 3, "5": 3 },
+    "s": { "0": 4, "1": 4, "2": 4, "3": 0, "4": 4, "5": 4 },
+    "f": { "0": 0 },
+    "b": {}
+  },
+  "C:\\Users\\user\\Desktop\\React 2024\\React-2024\\React-2024\\src\\redux\\slices\\itemsCurrentPageSlice.ts": {
+    "path": "C:\\Users\\user\\Desktop\\React 2024\\React-2024\\React-2024\\src\\redux\\slices\\itemsCurrentPageSlice.ts",
+    "statementMap": {
+      "0": {
+        "start": { "line": 1, "column": 0 },
+        "end": { "line": 1, "column": 47 }
+      },
+      "1": {
+        "start": { "line": 8, "column": 44 },
+        "end": { "line": 10, "column": 2 }
+      },
+      "2": {
+        "start": { "line": 11, "column": 13 },
+        "end": { "line": 19, "column": 3 }
+      },
+      "3": {
+        "start": { "line": 16, "column": 6 },
+        "end": { "line": 16, "column": 35 }
+      },
+      "4": {
+        "start": { "line": 20, "column": 15 },
+        "end": { "line": 20, "column": 69 }
+      },
+      "5": {
+        "start": { "line": 21, "column": 0 },
+        "end": { "line": 21, "column": 45 }
+      }
+    },
+    "fnMap": {
+      "0": {
+        "name": "(anonymous_0)",
+        "decl": {
+          "start": { "line": 15, "column": 4 },
+          "end": { "line": 15, "column": 23 }
+        },
+        "loc": {
+          "start": { "line": 15, "column": 67 },
+          "end": { "line": 17, "column": 5 }
+        }
+      }
+    },
+    "branchMap": {},
+    "s": { "0": 4, "1": 4, "2": 4, "3": 0, "4": 4, "5": 4 },
     "f": { "0": 0 },
     "b": {}
   },
@@ -1812,8 +1895,8 @@
       }
     },
     "branchMap": {},
-    "s": { "0": 3, "1": 3, "2": 3, "3": 0, "4": 0, "5": 0, "6": 3, "7": 3 },
-    "f": { "0": 0, "1": 0, "2": 0 },
+    "s": { "0": 5, "1": 5, "2": 5, "3": 1, "4": 0, "5": 0, "6": 5, "7": 5 },
+    "f": { "0": 1, "1": 0, "2": 0 },
     "b": {}
   }
 }

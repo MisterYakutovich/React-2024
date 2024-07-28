@@ -15,21 +15,3 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     </ThemeProvider>
   </Provider>
 );
-//useEffect(() => {
-
-// document.documentElement.style.setProperty(
-//   '--main-bg-color',
-//   theme === 'light' ? 'var(--main-bg-color-light)' : 'var(--main-bg-color-dark)'
-// );
-// }, [theme]);
-
-// const rootRef = useRef<HTMLDivElement | null>(null);
-// useEffect(() => {
-// if (rootRef.current) {
-
-//   rootRef.current.style.backgroundColor =
-//     theme === 'light'
-//      ? 'var(--main-bg-color-light)'
-//       : 'var(--main-bg-color-dark)';
-// }
-// }, [theme]);

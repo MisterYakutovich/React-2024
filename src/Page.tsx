@@ -92,16 +92,8 @@ function Page() {
           enterHandler={handleEnter}
           savedSearchLocal={localResultSearch}
         />
-        <Paginations
-          nextPage={incrementPage}
-          prevPage={decrementPage}
-          currentPage={currentPage}
-        />
-        <Main
-          personNameSearch={personNameSearch}
-          localResult={localResult}
-          currentPage={currentPage}
-        />
+        <Paginations nextPage={incrementPage} prevPage={decrementPage} />
+        <Main personNameSearch={personNameSearch} localResult={localResult} />
         {showFlyout && <FlyoutItems />}
       </ErrorBoundary>
     </>

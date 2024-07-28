@@ -7,13 +7,8 @@ import PageItem from './PageItem';
 import Main from './components/Main/Main';
 import Page_404 from './Page_404/Page_404';
 import Themes from './components/Themes/Themes';
-import { useSelector } from 'react-redux';
-import { RootState } from './redux/store';
 
 function App(): ReactNode {
-  const currentPage = useSelector(
-    (state: RootState) => state.currentPage.currentPage
-  );
   const router = createBrowserRouter([
     {
       path: '/',
@@ -25,23 +20,13 @@ function App(): ReactNode {
       children: [
         {
           path: '',
-          element: (
-            <Main
-              personNameSearch={[]}
-              localResult={[]}
-              currentPage={currentPage}
-            />
-          ),
+          element: <Main personNameSearch={[]} localResult={[]} />,
         },
         {
           path: ':id',
           element: (
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <Main
-                personNameSearch={[]}
-                localResult={[]}
-                currentPage={currentPage}
-              />
+              <Main personNameSearch={[]} localResult={[]} />
               <PageItemCart />
             </div>
           ),

@@ -5,7 +5,41 @@ import { BrowserRouter } from 'react-router-dom';
 import { ArrSearchResult, PeopleArray } from '../../types/types';
 import { Provider } from 'react-redux';
 import { store } from '../../redux/store';
+import fetchMock from 'jest-fetch-mock';
 
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+
+const customFetchFn: (
+  input: RequestInfo,
+  init?: RequestInit
+) => Promise<Response> = async (input, init) => {
+  try {
+    const response = await fetch(input, init);
+    return response;
+  } catch (error) {
+    console.error('Error in custom fetchFn:', error);
+    throw error;
+  }
+};
+
+export const peopleApi = createApi({
+  reducerPath: 'peopleApi',
+  baseQuery: fetchBaseQuery({
+    baseUrl: 'https://swapi.dev/api/people/',
+    fetchFn: customFetchFn,
+  }),
+  endpoints: (builder) => ({
+    getPeople: builder.query({
+      query: (page) => `?page=${page}`,
+    }),
+    getPeopleId: builder.query({
+      query: (id) => `${id}/`,
+    }),
+    getSearch: builder.query({
+      query: (name) => `?search=${name}`,
+    }),
+  }),
+});
 const mockItems: PeopleArray[] = [
   {
     id: '1',
@@ -38,24 +72,22 @@ describe('Carts Component', () => {
     render(
       <Provider store={store}>
         <BrowserRouter>
-          <Carts
-            localResult={mockLocalResult}
-            items={mockItems}
-            currentPage={0}
-          />
+          <Carts localResult={mockLocalResult} items={mockItems} />
         </BrowserRouter>
       </Provider>
     );
 
     const cartItems = screen.getAllByRole('link');
+
     expect(cartItems).toHaveLength(mockItems.length);
   });
 
   test('должен отображать сообщение при отсутствии карт', () => {
+    fetchMock.mockResponseOnce(JSON.stringify({ results: [] }));
     render(
       <Provider store={store}>
         <BrowserRouter>
-          <Carts localResult={mockLocalResult} items={[]} currentPage={0} />
+          <Carts localResult={mockLocalResult} items={[]} />
         </BrowserRouter>
       </Provider>
     );

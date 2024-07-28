@@ -30,10 +30,10 @@ function Checkbox({ element }: CheckboxProps) {
       dispatch(setSelectedCharacters([...selectedCharacters, element]));
     }
   };
-
   return (
     <div>
       <input
+        data-testid="checkbox"
         className="input_checkbox"
         type="checkbox"
         checked={isChecked}
