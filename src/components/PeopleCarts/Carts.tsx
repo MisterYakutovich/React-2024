@@ -15,19 +15,19 @@ export function extractIdFromUrl(url: string): string {
 }
 
 function Carts({ localResult, items }: CartsProps) {
- //const location = useLocation();
- // const navigate = useNavigate();
+  //const location = useLocation();
+  // const navigate = useNavigate();
   const isDetailPage = location.pathname.includes('/item/');
- // const handleClosePageItem = () => {
- //   if (location.pathname.includes('/item')) {
- //    navigate(-1);
+  // const handleClosePageItem = () => {
+  //   if (location.pathname.includes('/item')) {
+  //    navigate(-1);
   //  }
- // };
+  // };
 
   return (
     <section className="section-main">
       <div
-       // onClick={handleClosePageItem}
+        // onClick={handleClosePageItem}
         className={`container ${isDetailPage ? 'container-small' : ''}`}
       >
         {items.length === 0 ? (
@@ -47,8 +47,8 @@ function Carts({ localResult, items }: CartsProps) {
                     href={``}
                     style={{ textDecoration: 'none' }}
                     //className={({ isActive, isPending }) =>
-                     // isPending ? 'pending' : isActive ? 'active-linc' : ''
-                   // }
+                    // isPending ? 'pending' : isActive ? 'active-linc' : ''
+                    // }
                   >
                     <CartItem
                       key={element.id}

@@ -11,7 +11,7 @@ export interface CartItemProps {
 }
 
 function CartItem({ element, index }: CartItemProps) {
- // const location = useLocation();
+  // const location = useLocation();
   const isDetailPage = location.pathname.includes('/item/');
 
   return (

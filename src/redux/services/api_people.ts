@@ -19,4 +19,4 @@ export const peopleApi = createApi({
 });
 export const { useGetPeopleQuery, useGetPeopleIdQuery, useGetSearchQuery } =
   peopleApi;
-  export const { getPeople, getPeopleId,getSearch } = peopleApi.endpoints;
+export const { getPeople, getPeopleId, getSearch } = peopleApi.endpoints;

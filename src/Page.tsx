@@ -12,11 +12,11 @@ import { AppDispatch, RootState } from './redux/store';
 import { setCurrentPage } from './redux/slices/currentPageSlice';
 import FlyoutItems from './components/FlyoutItems/FlyoutItems';
 
-interface PageProps{
-  data1:PeopleArray[];
+interface PageProps {
+  data1: PeopleArray[];
 }
-function Page({data1}:PageProps) {
-  console.log(data1)
+function Page({ data1 }: PageProps) {
+  console.log(data1);
   const dispatch = useDispatch<AppDispatch>();
   const currentPage = useSelector(
     (state: RootState) => state.currentPage.currentPage
@@ -39,11 +39,11 @@ function Page({data1}:PageProps) {
   useEffect(() => {
     setShowFlyout(selectedCharacters.length > 0);
   }, [selectedCharacters]);
- // useEffect(() => {
- //  const params = new URLSearchParams(location.search);
+  // useEffect(() => {
+  //  const params = new URLSearchParams(location.search);
   //  const page = parseInt(params.get('page') || '1', 10);
- //   dispatch(setCurrentPage(page));
- // }, [location.search, dispatch]);
+  //   dispatch(setCurrentPage(page));
+  // }, [location.search, dispatch]);
   useEffect(() => {
     const localData = localStorage.getItem('key');
     const localSearch = localStorage.getItem('search');
@@ -78,13 +78,13 @@ function Page({data1}:PageProps) {
   const incrementPage = () => {
     const nextPage = currentPage + 1;
     dispatch(setCurrentPage(nextPage));
-   // navigate(`?page=${nextPage}`);
+    // navigate(`?page=${nextPage}`);
   };
 
   const decrementPage = () => {
     const prevPage = currentPage > 1 ? currentPage - 1 : 1;
     dispatch(setCurrentPage(prevPage));
-   // navigate(`?page=${prevPage}`);
+    // navigate(`?page=${prevPage}`);
   };
   if (isLoading) {
     return <Loader />;
