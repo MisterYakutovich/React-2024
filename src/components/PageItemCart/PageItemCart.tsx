@@ -9,7 +9,7 @@ import { useGetPeopleIdQuery } from '../../redux/services/api_people';
 
 function PageItemCart() {
   const [item, setItem] = useState<PeopleArray | null>(null);
- // const { id } = useParams();
+  // const { id } = useParams();
   //const navigate = useNavigate();
   const { data, isLoading, isError } = useGetPeopleIdQuery(``);
 
@@ -35,15 +35,15 @@ function PageItemCart() {
   if (!item) {
     return <div className="isError">No data found.</div>;
   }
- // const handleClose = () => {
+  // const handleClose = () => {
   //  navigate(-1);
- // };
+  // };
 
   return (
     <section className={styles.section_container}>
       <div className={styles.container_pageitem}>
         <div
-         //onClick={handleClose}
+          //onClick={handleClose}
           className={styles.close_pageitem}
           data-testid="close-pageitem"
         >

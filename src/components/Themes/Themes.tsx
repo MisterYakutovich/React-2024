@@ -16,7 +16,7 @@ function Themes() {
       <div className={styles.dropdown} onClick={toggleDropdown}>
         <button className={styles.dropbtn} data-testid="dropdown-content">
           <img
-            src=''//'theme === 'light' ? dark : light'
+            src="" //'theme === 'light' ? dark : light'
             alt="theme-icon"
             className={styles.theme_image}
           />
@@ -24,7 +24,7 @@ function Themes() {
         {isDropdownOpen && (
           <div className={styles.theme_container}>
             <img
-              src=''//{dark}
+              src="" //{dark}
               className={styles.theme_image}
               onClick={() => {
                 setTheme('dark');
@@ -32,7 +32,7 @@ function Themes() {
               }}
             />
             <img
-              src=''//{light}
+              src="" //{light}
               className={styles.theme_image}
               onClick={() => {
                 setTheme('light');

@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 export default function ErrorMessage(): ReactNode {
   //const navigate = useNavigate();
   const handleClick = () => {
-   // navigate('/');
+    // navigate('/');
   };
 
   return (

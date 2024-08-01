@@ -12,22 +12,16 @@ export interface CartItemProps {
 
 function CartItem({ element, index }: CartItemProps) {
   // const location = useLocation();
- // const isDetailPage = location.pathname.includes('/item/');
+  // const isDetailPage = location.pathname.includes('/item/');
 
   return (
-    <div
-      key={element.id || index}
-      className={styles.card}
-    >
+    <div key={element.id || index} className={styles.card}>
       <img
         className={styles.card_img}
         src={`${URL_PERSON}${extractIdFromUrl(element.url)}${URL_EXTENSION}`}
         alt={element.name}
       />
-      <p
-        key={element.name}
-        className={styles.cart_title}
-      >
+      <p key={element.name} className={styles.cart_title}>
         {element.name}
       </p>
     </div>

@@ -24,9 +24,9 @@ function Seach({ enterHandler, savedSearchLocal }: SearchProps) {
   };
   return (
     <div className={styles.row}>
-      <div /*className="input-field col s12"*/>
+      <div className="styles.input-field col s12">
         <input
-          className="input_search"
+          className={styles.input_search}
           type="text"
           value={isSavedSearch ? savedSearchLocal : search}
           onChange={(event) => {
