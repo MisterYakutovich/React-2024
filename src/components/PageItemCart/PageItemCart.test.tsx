@@ -7,17 +7,17 @@ import {
 } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import PageItemCart from './PageItemCart';
-import { BrowserRouter } from 'react-router-dom';
+//import { BrowserRouter } from 'react-router-dom';
 import fetchMock from 'jest-fetch-mock';
 import { Provider } from 'react-redux';
-import { store } from '../../redux/store';
+import { setupStore } from '../../redux/store';
 
 fetchMock.enableMocks();
 
 beforeEach(() => {
   fetchMock.resetMocks();
 });
-
+const store = setupStore();
 test('должен отображать индикатор загрузки при извлечении данных', async () => {
   fetchMock.mockResponseOnce(
     JSON.stringify({

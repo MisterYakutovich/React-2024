@@ -1,0 +1,87 @@
+.navigation {
+  display: flex;
+  justify-content: space-evenly;
+  width: 540px;
+  height: 52px;
+  position: relative;
+  top: -50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#items-per-page {
+  height: 25px;
+}
+.change_button {
+  border-radius: 8px;
+  border: 1px solid gray;
+  padding: 0.6em 1.2em;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  color: aqua;
+  transition: border-color 0.25s;
+}
+.button {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #f1cdb3;
+  border-radius: 20%;
+  position: relative;
+  cursor: pointer;
+}
+.button_arrow_right_pets:first-child {
+  border: 2px solid #f1cdb3;
+}
+.button_arrow_right_pets:first-child:hover {
+  cursor: default;
+}
+.button_arrow_right_pets:nth-child(2):hover {
+  cursor: default;
+}
+.button_arrow_right_pets:nth-child(2) {
+  border: 2px solid #f1cdb3;
+}
+.button_arrow_right_pets:nth-child(4):hover {
+  background-color: #fddcc4;
+  transition: all 0.5s ease-out;
+}
+.button_arrow_right_pets:nth-child(5):hover {
+  background-color: #fddcc4;
+  transition: all 0.5s ease-out;
+}
+.button_arrow_right_number h4 {
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 115%;
+  color: #292929;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  margin-left: 19.5px;
+  margin-top: 12px;
+}
+.button_arrow_right_number:hover {
+  cursor: default;
+}
+.button_arrow_right_number h4:hover {
+  cursor: default;
+}
+.button_arrow_right_number {
+  width: 52px;
+  height: 52px;
+  border: 2px solid #f1cdb3;
+  border-radius: 100%;
+  position: relative;
+  cursor: pointer;
+  background: #f1cdb3;
+}
+.button_arrow_right_pets .one {
+  margin-left: 11px;
+  margin-top: 19px;
+}
+.button_arrow_right_pets .two {
+  margin-left: 18px;
+  margin-top: 19px;
+}

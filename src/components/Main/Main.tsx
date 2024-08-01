@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import './Main.css';
 import Loader from '../loading/Loader';
 import Carts from '../PeopleCarts/Carts';
 import { ArrSearchResult } from '../../types/types';

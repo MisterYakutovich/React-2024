@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
-import './Paginations.css';
+import styles from './Paginations.module.css';
 
 interface PaginationsProps {
   nextPage: () => void;
@@ -12,13 +12,13 @@ function Paginations({ nextPage, prevPage }: PaginationsProps) {
     (state: RootState) => state.currentPage.currentPage
   );
   return (
-    <div className="navigation">
+    <div className={styles.navigation}>
       <button
-        className="button"
+        className={styles.button}
         onClick={prevPage}
         data-testid="previous-button"
       >
-        <div className="two">
+        <div className={styles.two}>
           <svg
             width="10"
             height="11"
@@ -34,17 +34,17 @@ function Paginations({ nextPage, prevPage }: PaginationsProps) {
         </div>
       </button>
 
-      <div className="button_arrow_right_number">
+      <div className={styles.button_arrow_right_number}>
         <h4>{currentPage}</h4>
       </div>
 
       <button
         data-testid="next-button"
-        className="button"
+        className={styles.button}
         onClick={nextPage}
         disabled={currentPage === 9}
       >
-        <div className="two">
+        <div className={styles.two}>
           <svg
             width="10"
             height="11"

@@ -1,9 +1,9 @@
-import './Loader.css';
+import styles from './Loader.module.css';
 
 function Loader() {
   return (
     <>
-      <span className="loader"></span>
+      <span className={styles.loader}></span>
     </>
   );
 }

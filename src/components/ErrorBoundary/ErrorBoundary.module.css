@@ -1,0 +1,18 @@
+.error_boundary {
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+.error_boundary h1 {
+  width: 70%;
+  margin: 0 auto;
+  color: red;
+}
+.error_boundary p {
+  width: 70%;
+  font-size: 40px;
+  margin: 0 auto;
+  color: red;
+}

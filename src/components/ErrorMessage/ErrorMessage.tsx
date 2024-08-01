@@ -1,10 +1,10 @@
 import { ReactNode } from 'react';
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 
 export default function ErrorMessage(): ReactNode {
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   const handleClick = () => {
-    navigate('/');
+   // navigate('/');
   };
 
   return (

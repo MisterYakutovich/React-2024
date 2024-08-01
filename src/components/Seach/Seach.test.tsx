@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import Seach from './Seach';
 import '@testing-library/jest-dom';
-import { BrowserRouter } from 'react-router-dom';
+//import { BrowserRouter } from 'react-router-dom';
 
 test('extracting value from local storage when component mounts', () => {
   const savedSearchLocal = JSON.stringify('C-3PO');

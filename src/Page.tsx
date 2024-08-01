@@ -15,8 +15,8 @@ import FlyoutItems from './components/FlyoutItems/FlyoutItems';
 interface PageProps {
   data1: PeopleArray[];
 }
-function Page({ data1 }: PageProps) {
-  console.log(data1);
+function Page() {
+ 
   const dispatch = useDispatch<AppDispatch>();
   const currentPage = useSelector(
     (state: RootState) => state.currentPage.currentPage

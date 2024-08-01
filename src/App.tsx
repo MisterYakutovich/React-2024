@@ -1,7 +1,6 @@
-import { ReactNode } from 'react';
+/*import { ReactNode } from 'react';
 import Page from './Page';
 import './App.css';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import PageItemCart from './components/PageItemCart/PageItemCart';
 import PageItem from './PageItem';
 import Main from './components/Main/Main';
@@ -45,4 +44,4 @@ function App(): ReactNode {
     </>
   );
 }
-export default App;
+export default App;*/

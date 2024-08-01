@@ -6,14 +6,13 @@ import stateCurrentPage from './slices/currentPageSlice';
 import stateItemsCurrentPage from './slices/itemsCurrentPageSlice';
 import { createWrapper } from 'next-redux-wrapper';
 
-
 const rootReducer = combineReducers({
   [peopleApi.reducerPath]: peopleApi.reducer,
   itemsDetails: stateItemDetails,
   currentPage: stateCurrentPage,
   itemsCurrentPage: stateItemsCurrentPage,
 });
-export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
+export const setupStore:any = (preloadedState?: PreloadedState<RootState>) => {
   return configureStore({
     reducer: rootReducer,
     middleware: (getDefaultMiddleware) =>

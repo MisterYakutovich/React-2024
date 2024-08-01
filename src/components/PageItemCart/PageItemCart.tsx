@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import './PageItemCart.css';
+//import { useNavigate, useParams } from 'react-router-dom';
+import styles from './PageItemCart.module.css';
 import { URL_EXTENSION, URL_PERSON } from '../../consts/api';
 import Loader from '../loading/Loader';
 import { PeopleArray } from '../../types/types';
@@ -9,15 +9,15 @@ import { useGetPeopleIdQuery } from '../../redux/services/api_people';
 
 function PageItemCart() {
   const [item, setItem] = useState<PeopleArray | null>(null);
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const { data, isLoading, isError } = useGetPeopleIdQuery(`${id}`);
+ // const { id } = useParams();
+  //const navigate = useNavigate();
+  const { data, isLoading, isError } = useGetPeopleIdQuery(``);
 
   useEffect(() => {
     if (data) {
       setItem(data);
     }
-  }, [data, id]);
+  }, [data]);
 
   if (isLoading) {
     return (
@@ -35,16 +35,16 @@ function PageItemCart() {
   if (!item) {
     return <div className="isError">No data found.</div>;
   }
-  const handleClose = () => {
-    navigate(-1);
-  };
+ // const handleClose = () => {
+  //  navigate(-1);
+ // };
 
   return (
-    <section className="section-container">
-      <div className="container-pageitem">
+    <section className={styles.section_container}>
+      <div className={styles.container_pageitem}>
         <div
-          onClick={handleClose}
-          className="close_pageitem"
+         //onClick={handleClose}
+          className={styles.close_pageitem}
           data-testid="close-pageitem"
         >
           <svg
@@ -70,16 +70,16 @@ function PageItemCart() {
           </svg>{' '}
         </div>
 
-        <div className="cart_pageitem">
+        <div className={styles.cart_pageitem}>
           <img
-            className="cart_img_pageitem"
+            className={styles.cart_img_pageitem}
             src={`${URL_PERSON}${extractIdFromUrl(item.url)}${URL_EXTENSION}`}
             alt=""
           ></img>
-          <p className="cart_title_pageitem">{item.name}</p>
+          <p className={styles.cart_title_pageitem}>{item.name}</p>
         </div>
       </div>
-      <div className="description">
+      <div className={styles.description}>
         <p>Height:{item.height}</p>
         <p>Birth_year:{item.birth_year}</p>
         <p>Eye_color:{item.eye_color}</p>
