@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import Seach from './components/Seach/Seach';
 import Main from './components/Main/Main';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
-import { ArrSearchResult } from './types/types';
+import { ArrSearchResult, PeopleArray } from './types/types';
 import Paginations from './components/Pagination/Paginations';
-import { useLocation, useNavigate } from 'react-router-dom';
+//import { useLocation, useNavigate } from 'react-router-dom';
 import { useGetSearchQuery } from './redux/services/api_people';
 import Loader from './components/loading/Loader';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,7 +12,11 @@ import { AppDispatch, RootState } from './redux/store';
 import { setCurrentPage } from './redux/slices/currentPageSlice';
 import FlyoutItems from './components/FlyoutItems/FlyoutItems';
 
-function Page() {
+interface PageProps{
+  data1:PeopleArray[];
+}
+function Page({data1}:PageProps) {
+  console.log(data1)
   const dispatch = useDispatch<AppDispatch>();
   const currentPage = useSelector(
     (state: RootState) => state.currentPage.currentPage
@@ -30,16 +34,16 @@ function Page() {
   const [localResultSearch, setlocalResultSearch] = useState<string>('');
   const { data, isLoading } = useGetSearchQuery(search);
 
-  const location = useLocation();
-  const navigate = useNavigate();
+  //const location = useLocation();
+  //const navigate = useNavigate();
   useEffect(() => {
     setShowFlyout(selectedCharacters.length > 0);
   }, [selectedCharacters]);
-  useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const page = parseInt(params.get('page') || '1', 10);
-    dispatch(setCurrentPage(page));
-  }, [location.search, dispatch]);
+ // useEffect(() => {
+ //  const params = new URLSearchParams(location.search);
+  //  const page = parseInt(params.get('page') || '1', 10);
+ //   dispatch(setCurrentPage(page));
+ // }, [location.search, dispatch]);
   useEffect(() => {
     const localData = localStorage.getItem('key');
     const localSearch = localStorage.getItem('search');
@@ -74,13 +78,13 @@ function Page() {
   const incrementPage = () => {
     const nextPage = currentPage + 1;
     dispatch(setCurrentPage(nextPage));
-    navigate(`?page=${nextPage}`);
+   // navigate(`?page=${nextPage}`);
   };
 
   const decrementPage = () => {
     const prevPage = currentPage > 1 ? currentPage - 1 : 1;
     dispatch(setCurrentPage(prevPage));
-    navigate(`?page=${prevPage}`);
+   // navigate(`?page=${prevPage}`);
   };
   if (isLoading) {
     return <Loader />;

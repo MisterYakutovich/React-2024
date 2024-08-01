@@ -1,8 +1,9 @@
-import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+//import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import './Carts.css';
 import CartItem from '../CartItem/CartItem';
 import { ArrSearchResult, PeopleArray } from '../../types/types';
 import Checkbox from '../Checkbox/Checkbox';
+import Link from 'next/link';
 
 interface CartsProps {
   localResult: ArrSearchResult[];
@@ -14,19 +15,19 @@ export function extractIdFromUrl(url: string): string {
 }
 
 function Carts({ localResult, items }: CartsProps) {
-  const location = useLocation();
-  const navigate = useNavigate();
+ //const location = useLocation();
+ // const navigate = useNavigate();
   const isDetailPage = location.pathname.includes('/item/');
-  const handleClosePageItem = () => {
-    if (location.pathname.includes('/item')) {
-      navigate(-1);
-    }
-  };
+ // const handleClosePageItem = () => {
+ //   if (location.pathname.includes('/item')) {
+ //    navigate(-1);
+  //  }
+ // };
 
   return (
     <section className="section-main">
       <div
-        onClick={handleClosePageItem}
+       // onClick={handleClosePageItem}
         className={`container ${isDetailPage ? 'container-small' : ''}`}
       >
         {items.length === 0 ? (
@@ -41,20 +42,20 @@ function Carts({ localResult, items }: CartsProps) {
               ) : (
                 <>
                   <Checkbox element={element} />
-                  <NavLink
+                  <Link
                     key={element.id}
-                    to={`/item/${extractIdFromUrl(element.url)}/`}
+                    href={``}
                     style={{ textDecoration: 'none' }}
-                    className={({ isActive, isPending }) =>
-                      isPending ? 'pending' : isActive ? 'active-linc' : ''
-                    }
+                    //className={({ isActive, isPending }) =>
+                     // isPending ? 'pending' : isActive ? 'active-linc' : ''
+                   // }
                   >
                     <CartItem
                       key={element.id}
                       element={element}
                       index={index}
                     />
-                  </NavLink>
+                  </Link>
                 </>
               )}
             </div>
