@@ -3,7 +3,6 @@ import { RootState } from '../../redux/store';
 import { PeopleArray } from '../../types/types';
 import styles from './Download.module.css';
 
-
 export function convertToCSV(data: PeopleArray[]) {
   const csvHeaders = [
     'name      ',
@@ -45,14 +44,14 @@ function Download() {
   const url = window.URL.createObjectURL(blob);
 
   return (
-   <a
+    <a
       download={filename}
       href={url}
       role="link"
       className={styles.flyout_container_download_button}
     >
-        Download
-      </a>
+      Download
+    </a>
   );
 }
 export default Download;

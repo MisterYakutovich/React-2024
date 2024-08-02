@@ -4,5 +4,12 @@ import ThemeProvider from '../context/ThemeProvider';
 
 export default function Home() {
   return (
-    <> <ThemeProvider><Themes /><Page /></ThemeProvider></>);
+    <>
+      {' '}
+      <ThemeProvider>
+        <Themes />
+        <Page />
+      </ThemeProvider>
+    </>
+  );
 }

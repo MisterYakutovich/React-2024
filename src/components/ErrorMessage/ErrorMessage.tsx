@@ -1,12 +1,11 @@
 import { useRouter } from 'next/router';
 import { ReactNode } from 'react';
 
-
 export default function ErrorMessage(): ReactNode {
   const router = useRouter();
-  console.log(router)
+  console.log(router);
   const handleClick = () => {
-    router.push('/')
+    router.push('/');
   };
 
   return (

@@ -1,4 +1,3 @@
-
 import styles from './Carts.module.css';
 import CartItem from '../../pages/cartid/[id]';
 import { ArrSearchResult, PeopleArray } from '../../types/types';

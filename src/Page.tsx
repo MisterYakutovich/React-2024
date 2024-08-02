@@ -30,7 +30,7 @@ function Page() {
   const [localResultSearch, setlocalResultSearch] = useState<string>('');
   const { data, isLoading } = useGetSearchQuery(search);
   const router = useRouter();
- 
+
   useEffect(() => {
     setShowFlyout(selectedCharacters.length > 0);
   }, [selectedCharacters]);

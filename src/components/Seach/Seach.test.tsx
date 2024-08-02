@@ -2,20 +2,16 @@ import { render } from '@testing-library/react';
 import Seach from './Seach';
 import '@testing-library/jest-dom';
 
-
 test('extracting value from local storage when component mounts', () => {
   const savedSearchLocal = JSON.stringify('C-3PO');
   localStorage.setItem('search', savedSearchLocal);
   const { getByPlaceholderText } = render(
-    
-     
-      <Seach
-        enterHandler={function (): void {
-          throw new Error('Function not implemented.');
-        }}
-        savedSearchLocal={''}
-      />
-    
+    <Seach
+      enterHandler={function (): void {
+        throw new Error('Function not implemented.');
+      }}
+      savedSearchLocal={''}
+    />
   );
 
   const searchInput = getByPlaceholderText('Enter the name of the person');
