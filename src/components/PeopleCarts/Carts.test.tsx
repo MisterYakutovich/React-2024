@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Carts from './Carts';
-import { BrowserRouter } from 'react-router-dom';
+
 import { ArrSearchResult, PeopleArray } from '../../types/types';
 import { Provider } from 'react-redux';
 import { store } from '../../redux/store';

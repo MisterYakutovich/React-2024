@@ -12,7 +12,6 @@ import { setCurrentPage } from './redux/slices/currentPageSlice';
 import FlyoutItems from './components/FlyoutItems/FlyoutItems';
 import { useRouter } from 'next/router';
 
-
 function Page() {
   const dispatch = useDispatch<AppDispatch>();
   const currentPage = useSelector(
@@ -30,14 +29,14 @@ function Page() {
   const [search, setSearch] = useState<string>('');
   const [localResultSearch, setlocalResultSearch] = useState<string>('');
   const { data, isLoading } = useGetSearchQuery(search);
-  const router = useRouter()
-console.log(router)
+  const router = useRouter();
+ 
   useEffect(() => {
     setShowFlyout(selectedCharacters.length > 0);
   }, [selectedCharacters]);
 
   useEffect(() => {
-    const page = parseInt(router.query.page as string || '1', 10);
+    const page = parseInt((router.query.page as string) || '1', 10);
     dispatch(setCurrentPage(page));
   }, [router.query.page, dispatch]);
   useEffect(() => {

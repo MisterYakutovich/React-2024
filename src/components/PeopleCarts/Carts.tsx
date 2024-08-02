@@ -1,6 +1,6 @@
-//import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+
 import styles from './Carts.module.css';
-import CartItem from '../CartItem/CartItem';
+import CartItem from '../../pages/cartid/[id]';
 import { ArrSearchResult, PeopleArray } from '../../types/types';
 import Checkbox from '../Checkbox/Checkbox';
 import Link from 'next/link';
@@ -44,7 +44,7 @@ function Carts({ localResult, items }: CartsProps) {
                   <Checkbox element={element} />
                   <Link
                     key={element.id}
-                    href={``}
+                    href={`/cartid/${extractIdFromUrl(element.url)}`}
                     style={{ textDecoration: 'none' }}
                     //className={({ isActive, isPending }) =>
                     // isPending ? 'pending' : isActive ? 'active-linc' : ''

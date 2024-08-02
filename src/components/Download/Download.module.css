@@ -16,3 +16,10 @@
   cursor: pointer;
   color: rgb(94, 90, 83);
 }
+.FancyBorder {
+  padding: 10px 10px;
+  border: 10px solid;
+}
+.FancyBorder-blue {
+  border-color: blue;
+}

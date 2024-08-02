@@ -1,6 +1,4 @@
 import { useContext, useState } from 'react';
-import dark from '../../assets/dark.png';
-import light from '../../assets/light.jpg';
 import styles from './Themes.module.css';
 import { ThemeContext } from '../../context/ThemeProvider';
 
@@ -16,7 +14,7 @@ function Themes() {
       <div className={styles.dropdown} onClick={toggleDropdown}>
         <button className={styles.dropbtn} data-testid="dropdown-content">
           <img
-            src="" //'theme === 'light' ? dark : light'
+          src={theme === 'light' ? '/assets/dark.png' : '/assets/light.png'}
             alt="theme-icon"
             className={styles.theme_image}
           />
@@ -24,7 +22,7 @@ function Themes() {
         {isDropdownOpen && (
           <div className={styles.theme_container}>
             <img
-              src="" //{dark}
+              src='/assets/dark.png'
               className={styles.theme_image}
               onClick={() => {
                 setTheme('dark');
@@ -32,7 +30,7 @@ function Themes() {
               }}
             />
             <img
-              src="" //{light}
+              src='/assets/light.png'
               className={styles.theme_image}
               onClick={() => {
                 setTheme('light');

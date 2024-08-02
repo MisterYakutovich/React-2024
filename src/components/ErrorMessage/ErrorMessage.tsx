@@ -1,10 +1,12 @@
+import { useRouter } from 'next/router';
 import { ReactNode } from 'react';
-//import { useNavigate } from 'react-router-dom';
+
 
 export default function ErrorMessage(): ReactNode {
-  //const navigate = useNavigate();
+  const router = useRouter();
+  console.log(router)
   const handleClick = () => {
-    // navigate('/');
+    router.push('/')
   };
 
   return (
