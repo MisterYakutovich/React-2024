@@ -2,19 +2,16 @@ import { useEffect, useState } from 'react';
 import Seach from './components/Seach/Seach';
 import Main from './components/Main/Main';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
-import { ArrSearchResult, PeopleArray } from './types/types';
+import { ArrSearchResult } from './types/types';
 import Paginations from './components/Pagination/Paginations';
-import { getPeople, useGetSearchQuery } from './redux/services/api_people';
+import { useGetSearchQuery } from './redux/services/api_people';
 import Loader from './components/Loader/Loader';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState, wrapper } from './redux/store';
+import { AppDispatch, RootState } from './redux/store';
 import { setCurrentPage } from './redux/slices/currentPageSlice';
 import FlyoutItems from './components/FlyoutItems/FlyoutItems';
 import { useRouter } from 'next/router';
 
-interface PageProps {
-  dataPeople: PeopleArray[];
-}
 
 function Page() {
   const dispatch = useDispatch<AppDispatch>();
@@ -101,7 +98,6 @@ function Page() {
         <Main
           personNameSearch={personNameSearch}
           localResult={localResult}
-          // dataPeople={dataPeople}
         />
 
         {showFlyout && <FlyoutItems />}

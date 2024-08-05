@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 import Carts from '../PeopleCarts/Carts';
-import { ArrSearchResult, PeopleArray } from '../../types/types';
+import { ArrSearchResult } from '../../types/types';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../redux/store';
@@ -10,7 +10,6 @@ import { setItemsCurrentPage } from '../../redux/slices/itemsCurrentPageSlice';
 export interface PeopleProps {
   personNameSearch: ArrSearchResult[];
   localResult: ArrSearchResult[];
-  dataPeople: PeopleArray[];
 }
 
 function Main({ localResult }: PeopleProps) {
