@@ -2,15 +2,19 @@ import { useEffect, useState } from 'react';
 import Seach from './components/Seach/Seach';
 import Main from './components/Main/Main';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
-import { ArrSearchResult } from './types/types';
+import { ArrSearchResult, PeopleArray } from './types/types';
 import Paginations from './components/Pagination/Paginations';
-import { useGetSearchQuery } from './redux/services/api_people';
-import Loader from './components/loading/Loader';
+import { getPeople, useGetSearchQuery } from './redux/services/api_people';
+import Loader from './components/Loader/Loader';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from './redux/store';
+import { AppDispatch, RootState, wrapper } from './redux/store';
 import { setCurrentPage } from './redux/slices/currentPageSlice';
 import FlyoutItems from './components/FlyoutItems/FlyoutItems';
 import { useRouter } from 'next/router';
+
+interface PageProps {
+  dataPeople: PeopleArray[];
+}
 
 function Page() {
   const dispatch = useDispatch<AppDispatch>();
@@ -29,6 +33,7 @@ function Page() {
   const [search, setSearch] = useState<string>('');
   const [localResultSearch, setlocalResultSearch] = useState<string>('');
   const { data, isLoading } = useGetSearchQuery(search);
+
   const router = useRouter();
 
   useEffect(() => {
@@ -92,7 +97,13 @@ function Page() {
           savedSearchLocal={localResultSearch}
         />
         <Paginations nextPage={incrementPage} prevPage={decrementPage} />
-        <Main personNameSearch={personNameSearch} localResult={localResult} />
+
+        <Main
+          personNameSearch={personNameSearch}
+          localResult={localResult}
+          // dataPeople={dataPeople}
+        />
+
         {showFlyout && <FlyoutItems />}
       </ErrorBoundary>
     </>

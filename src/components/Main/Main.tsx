@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import Loader from '../loading/Loader';
+
 import Carts from '../PeopleCarts/Carts';
-import { ArrSearchResult } from '../../types/types';
-import { useGetPeopleQuery } from '../../redux/services/api_people';
+import { ArrSearchResult, PeopleArray } from '../../types/types';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../redux/store';
 import { setItemsCurrentPage } from '../../redux/slices/itemsCurrentPageSlice';
@@ -10,25 +10,19 @@ import { setItemsCurrentPage } from '../../redux/slices/itemsCurrentPageSlice';
 export interface PeopleProps {
   personNameSearch: ArrSearchResult[];
   localResult: ArrSearchResult[];
+  dataPeople: PeopleArray[];
 }
 
 function Main({ localResult }: PeopleProps) {
   const dispatch = useDispatch<AppDispatch>();
-  const currentPage = useSelector(
-    (state: RootState) => state.currentPage.currentPage
-  );
-  const { data, isLoading } = useGetPeopleQuery(`${currentPage}`);
+
   const items = useSelector((state: RootState) => state.itemsCurrentPage.items);
 
   useEffect(() => {
-    if (data) {
-      dispatch(setItemsCurrentPage(data.results));
+    if (items) {
+      dispatch(setItemsCurrentPage(items));
     }
-  }, [data, dispatch]);
-
-  if (isLoading) {
-    return <Loader />;
-  }
+  }, [items, dispatch]);
 
   return (
     <>

@@ -1,8 +1,11 @@
 import styles from './Carts.module.css';
-import CartItem from '../../pages/cartid/[id]';
+import CartItem from '../CartItem/CartItem';
 import { ArrSearchResult, PeopleArray } from '../../types/types';
 import Checkbox from '../Checkbox/Checkbox';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/store';
 
 interface CartsProps {
   localResult: ArrSearchResult[];
@@ -13,20 +16,46 @@ export function extractIdFromUrl(url: string): string {
   return parts[parts.length - 2];
 }
 
-function Carts({ localResult, items }: CartsProps) {
-  //const location = useLocation();
-  // const navigate = useNavigate();
-  const isDetailPage = location.pathname.includes('/item/');
+function Carts({ localResult }: CartsProps) {
+  const router = useRouter();
+  const items = useSelector((state: RootState) => state.itemsCurrentPage.items);
+  const isDetailPage = router.pathname.includes('/cartid/');
   // const handleClosePageItem = () => {
-  //   if (location.pathname.includes('/item')) {
-  //    navigate(-1);
-  //  }
+  //  if (router.pathname.includes('/item')) {
+  //    router.push('/')
+  //   }
+
   // };
 
   return (
     <section className="section-main">
       <div
-        // onClick={handleClosePageItem}
+        //onClick={handleClosePageItem}
+        className={styles.container}
+      >
+        {items.length === 0 ? (
+          <div>No items available</div>
+        ) : localResult.length === 0 ? (
+          items.map((element, index) => (
+            <div key={element.id} className={styles.cart_item_wrapper}>
+              <Checkbox element={element} />
+              <Link
+                key={element.id}
+                href={`/cartid/${extractIdFromUrl(element.url)}`}
+                style={{ textDecoration: 'none' }}
+              >
+                <CartItem key={element.id} element={element} index={index} />
+              </Link>
+            </div>
+          ))
+        ) : (
+          localResult.map((element, index) => (
+            <CartItem key={element.id} element={element} index={index} />
+          ))
+        )}
+      </div>
+      {/*<div
+        //onClick={handleClosePageItem}
         className={styles.container}
       >
         {items.length === 0 ? (
@@ -45,9 +74,9 @@ function Carts({ localResult, items }: CartsProps) {
                     key={element.id}
                     href={`/cartid/${extractIdFromUrl(element.url)}`}
                     style={{ textDecoration: 'none' }}
-                    //className={({ isActive, isPending }) =>
-                    // isPending ? 'pending' : isActive ? 'active-linc' : ''
-                    // }
+                   // className={({ isActive, isPending }) =>
+                   //  isPending ? 'pending' : isActive ? 'active-linc' : ''
+                   //  }
                   >
                     <CartItem
                       key={element.id}
@@ -64,7 +93,7 @@ function Carts({ localResult, items }: CartsProps) {
             <CartItem key={element.id} element={element} index={index} />
           ))
         )}
-      </div>
+          </div>*/}
     </section>
   );
 }

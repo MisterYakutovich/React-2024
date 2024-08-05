@@ -6,7 +6,7 @@ import {
   fireEvent,
 } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import PageItemCart from './PageItemCart';
+import PageItemCart from '../../pages/cartid/[id]';
 //import { BrowserRouter } from 'react-router-dom';
 import fetchMock from 'jest-fetch-mock';
 import { Provider } from 'react-redux';

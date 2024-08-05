@@ -11,7 +11,9 @@ export interface ArrSearchResult {
   edited: string;
   created: string;
 }
-
+export interface DataPeople {
+  results: PeopleArray[];
+}
 export interface PeopleArray {
   name: string;
   id: string;

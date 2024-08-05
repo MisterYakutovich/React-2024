@@ -1,11 +1,33 @@
+import { InferGetServerSidePropsType } from 'next';
 import Page from '../Page';
 import Themes from '../components/Themes/Themes';
 import ThemeProvider from '../context/ThemeProvider';
+import { RootState, wrapper } from '../redux/store';
+import { getPeople } from '../redux/services/api_people';
+import { useDispatch, useSelector } from 'react-redux';
+import { setItemsCurrentPage } from '../redux/slices/itemsCurrentPageSlice';
+import { useEffect } from 'react';
 
-export default function Home() {
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) => async (context) => {
+    const page = (context.query.page as string | undefined) || '1';
+    const { data } = await store.dispatch(getPeople.initiate(page));
+    return { props: { data } };
+  }
+);
+
+export default function Home({
+  data,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  const dispatch = useDispatch();
+  const { results } = data;
+
+  useEffect(() => {
+    dispatch(setItemsCurrentPage(results));
+  }, [data, dispatch]);
+
   return (
     <>
-      {' '}
       <ThemeProvider>
         <Themes />
         <Page />
@@ -13,3 +35,28 @@ export default function Home() {
     </>
   );
 }
+/*export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(
+  (store) => async (context) => {
+    try {
+      const page = context.query.page as string | undefined || '1'; // Укажите значение по умолчанию
+      const { data } = await store.dispatch(getPeople.initiate(page));
+
+      if (!data) {
+        
+        return {
+          props: { data: null }, // или props: {} 
+        };
+      }
+
+      return {
+        props: { data },
+      };
+    } catch (error) {
+      
+      console.error(error);
+      return {
+        props: { data: null },
+      };
+    }
+  }
+);*/
