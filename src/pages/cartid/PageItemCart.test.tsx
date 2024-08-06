@@ -6,18 +6,50 @@ import {
   fireEvent,
 } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import PageItemCart from '../../pages/cartid/[id]';
-//import { BrowserRouter } from 'react-router-dom';
+import PageItemCart from './[id]';
 import fetchMock from 'jest-fetch-mock';
 import { Provider } from 'react-redux';
-import { setupStore } from '../../redux/store';
+import { makeStore } from '../../redux/store';
+import  {  useRouter  }  from  'next/router' ; 
+import  mockRouter  from  'next-router-mock' ; 
+//const nextRouterMock = require('next-router-mock')
 
-fetchMock.enableMocks();
+
+const store = makeStore();
+/*fetchMock.enableMocks();
 
 beforeEach(() => {
   fetchMock.resetMocks();
 });
-const store = setupStore();
+const store = makeStore();
+jest.mock('next/router', () => {
+  const { useRouter } = nextRouterMock
+
+  const usePathname = () => {
+    const router = useRouter()
+    return router.pathname
+  }
+
+  const useSearchParams = () => {
+    const router = useRouter()
+    return new URLSearchParams(router.query)
+  }
+
+  return {
+    useRouter,
+    usePathname,
+    useSearchParams
+  }
+})*/
+jest . mock ( 'next/router' ,  ( )  =>  jest . requireActual ( 'next-router-mock' ) ) 
+const  ExampleComponent  =  ( { href =  ''  } )  =>  { 
+  const  router  =  useRouter ( ) ; 
+  return  ( 
+    < button  onClick = { ( )  =>  router . push ( href ) } > 
+      Текущий маршрут: " { router . asPath } "
+     </button > 
+  ) ; 
+} 
 test('должен отображать индикатор загрузки при извлечении данных', async () => {
   fetchMock.mockResponseOnce(
     JSON.stringify({
@@ -35,9 +67,9 @@ test('должен отображать индикатор загрузки пр
 
   render(
     <Provider store={store}>
-      <BrowserRouter>
-        <PageItemCart />
-      </BrowserRouter>
+     
+        <PageItemCart item={undefined} />
+     
     </Provider>
   );
 
@@ -65,9 +97,9 @@ test('должен корректно отображать подробные д
 
   render(
     <Provider store={store}>
-      <BrowserRouter>
-        <PageItemCart />
-      </BrowserRouter>
+     
+        <PageItemCart item={undefined} />
+     
     </Provider>
   );
 
@@ -105,9 +137,9 @@ test('должен скрывать компонент при нажатии к�
 
   render(
     <Provider store={store}>
-      <BrowserRouter>
-        <PageItemCart />
-      </BrowserRouter>
+     
+        <PageItemCart item={undefined} />
+     
     </Provider>
   );
 

@@ -11,7 +11,9 @@ import { useRouter } from 'next/router';
 import { RootState, wrapper } from '../../redux/store';
 import { InferGetServerSidePropsType } from 'next';
 import CartItem from '../../components/CartItem/CartItem';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { setItemsCurrentPage } from '../../redux/slices/itemsCurrentPageSlice';
 
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async (context) => {
@@ -25,9 +27,25 @@ function PageItemCart({
   item,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const items = useSelector((state: RootState) => state.itemsCurrentPage.items);
+ const dispatch=useDispatch()
   const router = useRouter();
 
   const { isLoading, isError } = useGetPeopleIdQuery(``);
+  useEffect(() => {
+    
+    const storedItems = localStorage.getItem('items');
+    if (storedItems) {
+     
+      const parsedItems = JSON.parse(storedItems);
+    
+      dispatch(setItemsCurrentPage(parsedItems)); 
+    }
+  }, []);
+
+
+  useEffect(() => {
+    localStorage.setItem('items', JSON.stringify(items)); 
+  }, [items]);
 
   if (isLoading) {
     return (
@@ -48,7 +66,7 @@ function PageItemCart({
   const handleClose = () => {
     router.push('/');
   };
-  console.log(items);
+ 
   return (
     <section className={styles.section_container}>
       <div className={styles.container_itemcart_description}>
@@ -109,3 +127,5 @@ function PageItemCart({
 }
 
 export default PageItemCart;
+
+

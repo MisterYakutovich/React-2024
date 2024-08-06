@@ -1,10 +1,9 @@
 import {
   Action,
   ThunkAction,
-  combineReducers,
   configureStore,
 } from '@reduxjs/toolkit';
-import { setupListeners } from '@reduxjs/toolkit/query';
+
 import { peopleApi } from './services/api_people';
 import stateItemDetails from './slices/itemsDetailsSlice';
 import stateCurrentPage from './slices/currentPageSlice';
@@ -32,5 +31,5 @@ export type AppThunk<ReturnType = void> = ThunkAction<
   unknown,
   Action
 >;
-export const wrapper = createWrapper<RootStore>(makeStore, { debug: true });
-
+export const wrapper = createWrapper<RootStore>(makeStore, { debug: true,serializeState: (state) => JSON.stringify(state),
+	deserializeState: (state) => JSON.parse(state), });

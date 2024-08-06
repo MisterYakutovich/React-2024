@@ -4,11 +4,11 @@ import Carts from './Carts';
 
 import { ArrSearchResult, PeopleArray } from '../../types/types';
 import { Provider } from 'react-redux';
-import { store } from '../../redux/store';
+import { makeStore } from '../../redux/store';
 import fetchMock from 'jest-fetch-mock';
 
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-
+const store=makeStore()
 const customFetchFn: (
   input: RequestInfo,
   init?: RequestInit
@@ -71,9 +71,9 @@ describe('Carts Component', () => {
   test('должен отображать указанное количество карт', () => {
     render(
       <Provider store={store}>
-        <BrowserRouter>
+       
           <Carts localResult={mockLocalResult} items={mockItems} />
-        </BrowserRouter>
+      
       </Provider>
     );
 
@@ -86,9 +86,9 @@ describe('Carts Component', () => {
     fetchMock.mockResponseOnce(JSON.stringify({ results: [] }));
     render(
       <Provider store={store}>
-        <BrowserRouter>
+       
           <Carts localResult={mockLocalResult} items={[]} />
-        </BrowserRouter>
+        
       </Provider>
     );
 

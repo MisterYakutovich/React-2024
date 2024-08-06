@@ -1,11 +1,12 @@
 import { render, screen, fireEvent, act } from '@testing-library/react';
-import { MemoryRouter, Route, Routes } from 'react-router-dom';
+
 import '@testing-library/jest-dom';
 import Paginations from './Paginations';
 import fetchMock from 'jest-fetch-mock';
 import { Provider } from 'react-redux';
-import { store } from '../../redux/store';
+import { makeStore } from '../../redux/store';
 
+const store=makeStore()
 fetchMock.enableMocks();
 
 beforeEach(() => {
@@ -19,9 +20,9 @@ test('обновляет параметр запроса URL при измене
   await act(async () => {
     render(
       <Provider store={store}>
-        <MemoryRouter initialEntries={['/']}>
-          <Routes>
-            <Route
+       
+         
+           
               path="/"
               element={
                 <Paginations
@@ -29,9 +30,9 @@ test('обновляет параметр запроса URL при измене
                   prevPage={decrementPage}
                 />
               }
-            />
-          </Routes>
-        </MemoryRouter>
+            
+        
+      
       </Provider>
     );
   });

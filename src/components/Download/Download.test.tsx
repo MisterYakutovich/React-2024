@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import Download from './Download';
-import { setupStore } from '../../redux/store';
+import { makeStore } from '../../redux/store';
 import '@testing-library/jest-dom';
 
-const store = setupStore();
+const store = makeStore();
 describe('Download Component', () => {
   it('следует отображать компонент «Download» и показывать ссылку Download', () => {
     window.URL.createObjectURL = jest.fn();
