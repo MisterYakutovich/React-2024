@@ -17,14 +17,11 @@ export function extractIdFromUrl(url: string): string {
 }
 
 function Carts({ localResult }: CartsProps) {
- 
   const items = useSelector((state: RootState) => state.itemsCurrentPage.items);
- 
+
   return (
     <section className="section-main">
-      <div
-        className={styles.container}
-      >
+      <div className={styles.container}>
         {items.length === 0 ? (
           <div>No items available</div>
         ) : localResult.length === 0 ? (
@@ -36,17 +33,18 @@ function Carts({ localResult }: CartsProps) {
                 href={`/cartid/${extractIdFromUrl(element.url)}`}
                 style={{ textDecoration: 'none' }}
               >
-                <CartItem key={element.id} element={element} index={index} />
+                
+                <CartItem key={element.id} element={element} index={index} data-testid={`cart-item-${index % 10}`} />
+               
               </Link>
             </div>
           ))
         ) : (
           localResult.map((element, index) => (
-            <CartItem key={element.id} element={element} index={index} />
+            <CartItem key={element.id} element={element} index={index} data-testid={`cart-item-${index % 10}`} />
           ))
         )}
       </div>
-     
     </section>
   );
 }

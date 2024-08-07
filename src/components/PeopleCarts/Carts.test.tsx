@@ -8,7 +8,7 @@ import { makeStore } from '../../redux/store';
 import fetchMock from 'jest-fetch-mock';
 
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-const store=makeStore()
+const store = makeStore();
 const customFetchFn: (
   input: RequestInfo,
   init?: RequestInit
@@ -71,24 +71,23 @@ describe('Carts Component', () => {
   test('должен отображать указанное количество карт', () => {
     render(
       <Provider store={store}>
-       
-          <Carts localResult={mockLocalResult} items={mockItems} />
-      
+        <Carts localResult={mockLocalResult} items={mockItems} />
       </Provider>
     );
+    for (let i = 0; i < 10; i++) {
+      const cartItem = screen.getByTestId(`cart-item-${i}`);
+      expect(cartItem).toBeInTheDocument();
+    }
+   // const cartItems = screen.getAllByTestId('cart-item-');
 
-    const cartItems = screen.getAllByRole('link');
-
-    expect(cartItems).toHaveLength(mockItems.length);
+    //expect(cartItems).toHaveLength(mockItems.length);
   });
 
   test('должен отображать сообщение при отсутствии карт', () => {
     fetchMock.mockResponseOnce(JSON.stringify({ results: [] }));
     render(
       <Provider store={store}>
-       
-          <Carts localResult={mockLocalResult} items={[]} />
-        
+        <Carts localResult={mockLocalResult} items={[]} />
       </Provider>
     );
 

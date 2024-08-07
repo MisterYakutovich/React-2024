@@ -27,24 +27,21 @@ function PageItemCart({
   item,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const items = useSelector((state: RootState) => state.itemsCurrentPage.items);
- const dispatch=useDispatch()
+  const dispatch = useDispatch();
   const router = useRouter();
 
   const { isLoading, isError } = useGetPeopleIdQuery(``);
   useEffect(() => {
-    
     const storedItems = localStorage.getItem('items');
     if (storedItems) {
-     
       const parsedItems = JSON.parse(storedItems);
-    
-      dispatch(setItemsCurrentPage(parsedItems)); 
+
+      dispatch(setItemsCurrentPage(parsedItems));
     }
   }, []);
 
-
   useEffect(() => {
-    localStorage.setItem('items', JSON.stringify(items)); 
+    localStorage.setItem('items', JSON.stringify(items));
   }, [items]);
 
   if (isLoading) {
@@ -66,7 +63,7 @@ function PageItemCart({
   const handleClose = () => {
     router.push('/');
   };
- 
+
   return (
     <section className={styles.section_container}>
       <div className={styles.container_itemcart_description}>
@@ -127,5 +124,3 @@ function PageItemCart({
 }
 
 export default PageItemCart;
-
-

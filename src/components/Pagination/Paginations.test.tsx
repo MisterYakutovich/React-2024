@@ -6,7 +6,7 @@ import fetchMock from 'jest-fetch-mock';
 import { Provider } from 'react-redux';
 import { makeStore } from '../../redux/store';
 
-const store=makeStore()
+const store = makeStore();
 fetchMock.enableMocks();
 
 beforeEach(() => {
@@ -20,19 +20,8 @@ test('обновляет параметр запроса URL при измене
   await act(async () => {
     render(
       <Provider store={store}>
-       
-         
-           
-              path="/"
-              element={
-                <Paginations
-                  nextPage={incrementPage}
-                  prevPage={decrementPage}
-                />
-              }
-            
-        
-      
+        path="/" element=
+        {<Paginations nextPage={incrementPage} prevPage={decrementPage} />}
       </Provider>
     );
   });

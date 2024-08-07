@@ -10,11 +10,7 @@ jest.mock('react-router-dom', () => ({
 }));
 
 test('renders ErrorMessage and handles button click', () => {
-  render(
-   
-      <ErrorMessage />
-   
-  );
+  render(<ErrorMessage />);
 
   expect(screen.getByText('Error page')).toBeInTheDocument();
 

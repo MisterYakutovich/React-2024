@@ -1,8 +1,4 @@
-import {
-  Action,
-  ThunkAction,
-  configureStore,
-} from '@reduxjs/toolkit';
+import { Action, ThunkAction, configureStore } from '@reduxjs/toolkit';
 
 import { peopleApi } from './services/api_people';
 import stateItemDetails from './slices/itemsDetailsSlice';
@@ -31,5 +27,8 @@ export type AppThunk<ReturnType = void> = ThunkAction<
   unknown,
   Action
 >;
-export const wrapper = createWrapper<RootStore>(makeStore, { debug: true,serializeState: (state) => JSON.stringify(state),
-	deserializeState: (state) => JSON.parse(state), });
+export const wrapper = createWrapper<RootStore>(makeStore, {
+  debug: true,
+  serializeState: (state) => JSON.stringify(state),
+  deserializeState: (state) => JSON.parse(state),
+});

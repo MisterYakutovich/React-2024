@@ -4,7 +4,7 @@ import { RootState } from '../store';
 import { HYDRATE } from 'next-redux-wrapper';
 
 function isHydrateAction(action: Action): action is PayloadAction<RootState> {
- return action.type === HYDRATE
+  return action.type === HYDRATE;
 }
 
 export const peopleApi = createApi({
@@ -12,11 +12,11 @@ export const peopleApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://swapi.dev/api/people/',
   }),
-   extractRehydrationInfo(action, { reducerPath }): any {
-     if (isHydrateAction(action)) {
-      return action.payload[reducerPath]
+  extractRehydrationInfo(action, { reducerPath }): any {
+    if (isHydrateAction(action)) {
+      return action.payload[reducerPath];
     }
-    }, 
+  },
   endpoints: (builder) => ({
     getPeople: builder.query({
       query: (page) => `?page=${page}`,
@@ -29,7 +29,11 @@ export const peopleApi = createApi({
     }),
   }),
 });
-export const { useGetPeopleQuery, useGetPeopleIdQuery, useGetSearchQuery,util: { getRunningQueriesThunk }, } =
-  peopleApi;
+export const {
+  useGetPeopleQuery,
+  useGetPeopleIdQuery,
+  useGetSearchQuery,
+  util: { getRunningQueriesThunk },
+} = peopleApi;
 // export endpoints for use in SSR
 export const { getPeople, getPeopleId, getSearch } = peopleApi.endpoints;

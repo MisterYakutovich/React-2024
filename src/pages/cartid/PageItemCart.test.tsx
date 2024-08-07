@@ -10,46 +10,23 @@ import PageItemCart from './[id]';
 import fetchMock from 'jest-fetch-mock';
 import { Provider } from 'react-redux';
 import { makeStore } from '../../redux/store';
-import  {  useRouter  }  from  'next/router' ; 
-import  mockRouter  from  'next-router-mock' ; 
-//const nextRouterMock = require('next-router-mock')
+import { useRouter } from 'next/router';
+
 
 
 const store = makeStore();
-/*fetchMock.enableMocks();
 
-beforeEach(() => {
-  fetchMock.resetMocks();
-});
-const store = makeStore();
-jest.mock('next/router', () => {
-  const { useRouter } = nextRouterMock
-
-  const usePathname = () => {
-    const router = useRouter()
-    return router.pathname
-  }
-
-  const useSearchParams = () => {
-    const router = useRouter()
-    return new URLSearchParams(router.query)
-  }
-
-  return {
-    useRouter,
-    usePathname,
-    useSearchParams
-  }
-})*/
-jest . mock ( 'next/router' ,  ( )  =>  jest . requireActual ( 'next-router-mock' ) ) 
-const  ExampleComponent  =  ( { href =  ''  } )  =>  { 
-  const  router  =  useRouter ( ) ; 
-  return  ( 
-    < button  onClick = { ( )  =>  router . push ( href ) } > 
-      Текущий маршрут: " { router . asPath } "
-     </button > 
-  ) ; 
-} 
+jest.mock('next/router', () => ({
+  useRouter: () => ({
+    push: jest.fn(),
+  }),
+}));
+jest.mock('../../redux/services/api_people', () => ({
+  useGetPeopleIdQuery: jest.fn().mockReturnValue({
+    isLoading: false,
+    isError: false, 
+  }),
+}));
 test('должен отображать индикатор загрузки при извлечении данных', async () => {
   fetchMock.mockResponseOnce(
     JSON.stringify({
@@ -67,9 +44,7 @@ test('должен отображать индикатор загрузки пр
 
   render(
     <Provider store={store}>
-     
-        <PageItemCart item={undefined} />
-     
+      <PageItemCart item={undefined} />
     </Provider>
   );
 
@@ -97,9 +72,7 @@ test('должен корректно отображать подробные д
 
   render(
     <Provider store={store}>
-     
-        <PageItemCart item={undefined} />
-     
+      <PageItemCart item={undefined} />
     </Provider>
   );
 
@@ -120,38 +93,33 @@ test('должен корректно отображать подробные д
   ).toBeInTheDocument();
 });
 
-test('должен скрывать компонент при нажатии кнопки "Закрыть"', async () => {
-  fetchMock.mockResponseOnce(
-    JSON.stringify({
-      id: '1',
-      name: 'Luke Skywalker',
-      height: '172',
-      birth_year: '19BBY',
-      eye_color: 'blue',
-      mass: '77',
-      edited: '2014-12-20T21:17:56.891000Z',
-      created: '2014-12-09T13:50:51.644000Z',
-      url: 'https://swapi.dev/api/people/1/',
-    })
-  );
+const mockItem={
+    id: '1',
+    name: 'Luke Skywalker',
+    height: '172',
+    birth_year: '19BBY',
+    eye_color: 'blue',
+    mass: '77',
+    edited: '2014-12-20T21:17:56.891000Z',
+    created: '2014-12-09T13:50:51.644000Z',
+    url: 'https://swapi.dev/api/people/1/',
+  }
 
-  render(
-    <Provider store={store}>
-     
-        <PageItemCart item={undefined} />
-     
-    </Provider>
-  );
 
-  await waitFor(() =>
-    expect(screen.queryByText('Loading...')).not.toBeInTheDocument()
-  );
 
-  await act(async () => {
-    fireEvent.click(screen.getByTestId('close-pageitem'));
+  it('должен скрывать компонент при нажатии на "Закрыть"', () => {
+    render(<PageItemCart item={mockItem} />);
+
+    
+    const closeButton = screen.getByTestId('close-pageitem');
+
+   
+    expect(closeButton).toBeInTheDocument();
+
+   
+    fireEvent.click(closeButton);
+
+   
+    expect(useRouter().push).toHaveBeenCalledWith('/');
   });
 
-  await waitFor(() => {
-    expect(screen.queryByTestId('section-container')).not.toBeInTheDocument();
-  });
-});

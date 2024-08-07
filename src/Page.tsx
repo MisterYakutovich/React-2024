@@ -4,7 +4,7 @@ import Main from './components/Main/Main';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 import { ArrSearchResult } from './types/types';
 import Paginations from './components/Pagination/Paginations';
-import {  useGetSearchQuery } from './redux/services/api_people';
+import { useGetSearchQuery } from './redux/services/api_people';
 import Loader from './components/Loader/Loader';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from './redux/store';
@@ -13,12 +13,7 @@ import { setCurrentPage } from './redux/slices/currentPageSlice';
 import { useRouter } from 'next/router';
 import FlyoutItems from './components/FlyoutItems/FlyoutItems';
 
-
-
-
-
 function Page() {
- 
   const dispatch = useDispatch<AppDispatch>();
   const currentPage = useSelector(
     (state: RootState) => state.currentPage.currentPage

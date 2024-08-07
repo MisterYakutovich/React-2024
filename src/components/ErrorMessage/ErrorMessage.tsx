@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 
 export default function ErrorMessage(): ReactNode {
   const router = useRouter();
- 
+
   const handleClick = () => {
     router.push('/');
   };
