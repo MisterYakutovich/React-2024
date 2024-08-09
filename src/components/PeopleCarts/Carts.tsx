@@ -33,15 +33,13 @@ function Carts({ localResult }: CartsProps) {
                 href={`/cartid/${extractIdFromUrl(element.url)}`}
                 style={{ textDecoration: 'none' }}
               >
-                
-                <CartItem key={element.id} element={element} index={index} data-testid={`cart-item-${index % 10}`} />
-               
+                <CartItem key={element.id} element={element} index={index} />
               </Link>
             </div>
           ))
         ) : (
           localResult.map((element, index) => (
-            <CartItem key={element.id} element={element} index={index} data-testid={`cart-item-${index % 10}`} />
+            <CartItem key={element.id} element={element} index={index} />
           ))
         )}
       </div>

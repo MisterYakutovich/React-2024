@@ -11,7 +11,6 @@ function Paginations({ nextPage, prevPage }: PaginationsProps) {
   const currentPage = useSelector(
     (state: RootState) => state.currentPage.currentPage
   );
-  console.log(currentPage);
   return (
     <div className={styles.navigation}>
       <button

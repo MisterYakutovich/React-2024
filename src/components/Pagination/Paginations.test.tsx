@@ -20,7 +20,6 @@ test('обновляет параметр запроса URL при измене
   await act(async () => {
     render(
       <Provider store={store}>
-        path="/" element=
         {<Paginations nextPage={incrementPage} prevPage={decrementPage} />}
       </Provider>
     );

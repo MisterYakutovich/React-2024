@@ -1,18 +1,10 @@
-import {
-  render,
-  screen,
-  waitFor,
-  act,
-  fireEvent,
-} from '@testing-library/react';
+import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import PageItemCart from './[id]';
 import fetchMock from 'jest-fetch-mock';
 import { Provider } from 'react-redux';
-import { makeStore } from '../../redux/store';
 import { useRouter } from 'next/router';
-
-
+import { makeStore } from '../../redux/store';
 
 const store = makeStore();
 
@@ -21,10 +13,11 @@ jest.mock('next/router', () => ({
     push: jest.fn(),
   }),
 }));
+
 jest.mock('../../redux/services/api_people', () => ({
   useGetPeopleIdQuery: jest.fn().mockReturnValue({
     isLoading: false,
-    isError: false, 
+    isError: false,
   }),
 }));
 test('должен отображать индикатор загрузки при извлечении данных', async () => {
@@ -93,33 +86,30 @@ test('должен корректно отображать подробные д
   ).toBeInTheDocument();
 });
 
-const mockItem={
-    id: '1',
-    name: 'Luke Skywalker',
-    height: '172',
-    birth_year: '19BBY',
-    eye_color: 'blue',
-    mass: '77',
-    edited: '2014-12-20T21:17:56.891000Z',
-    created: '2014-12-09T13:50:51.644000Z',
-    url: 'https://swapi.dev/api/people/1/',
-  }
+const mockItem = {
+  id: '1',
+  name: 'Luke Skywalker',
+  height: '172',
+  birth_year: '19BBY',
+  eye_color: 'blue',
+  mass: '77',
+  edited: '2014-12-20T21:17:56.891000Z',
+  created: '2014-12-09T13:50:51.644000Z',
+  url: 'https://swapi.dev/api/people/1/',
+};
 
+it('должен скрывать компонент при нажатии на "Закрыть"', () => {
+  render(
+    <Provider store={store}>
+      <PageItemCart item={mockItem} />
+    </Provider>
+  );
 
+  const closeButton = screen.getByTestId('close-pageitem');
 
-  it('должен скрывать компонент при нажатии на "Закрыть"', () => {
-    render(<PageItemCart item={mockItem} />);
+  expect(closeButton).toBeInTheDocument();
 
-    
-    const closeButton = screen.getByTestId('close-pageitem');
+  fireEvent.click(closeButton);
 
-   
-    expect(closeButton).toBeInTheDocument();
-
-   
-    fireEvent.click(closeButton);
-
-   
-    expect(useRouter().push).toHaveBeenCalledWith('/');
-  });
-
+  expect(useRouter().push).toHaveBeenCalledWith('/');
+});

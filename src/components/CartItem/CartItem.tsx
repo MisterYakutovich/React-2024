@@ -10,7 +10,11 @@ export interface CartItemProps {
 
 function CartItem({ element, index }: CartItemProps) {
   return (
-    <div key={element.id || index} className={styles.card}>
+    <div
+      key={element.id || index}
+      className={styles.card}
+      data-testid={`cart-item-${index % 10}`}
+    >
       <img
         className={styles.card_img}
         src={`${URL_PERSON}${extractIdFromUrl(element.url)}${URL_EXTENSION}`}

@@ -30,10 +30,9 @@ export default function Home({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const dispatch = useDispatch();
   const { results } = data;
-  console.log(results);
   useEffect(() => {
     dispatch(setItemsCurrentPage(results));
-  }, [data, dispatch]);
+  }, [results, dispatch]);
 
   return (
     <>

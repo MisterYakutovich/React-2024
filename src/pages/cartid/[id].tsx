@@ -38,7 +38,7 @@ function PageItemCart({
 
       dispatch(setItemsCurrentPage(parsedItems));
     }
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     localStorage.setItem('items', JSON.stringify(items));
@@ -116,7 +116,7 @@ function PageItemCart({
       </div>
       <div className={styles.container_wrapper_pageitemcart}>
         {items.map((element, index) => (
-          <CartItem index={index} element={element} />
+          <CartItem key={index} index={index} element={element} />
         ))}
       </div>
     </section>
