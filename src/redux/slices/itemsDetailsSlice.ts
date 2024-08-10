@@ -4,11 +4,11 @@ import { PeopleArray } from '../../types/types';
 
 export interface CharactersState {
   selectedCharacters: PeopleArray[];
-  isChecked: boolean;
+  // isChecked: boolean;
 }
 const initialState: CharactersState = {
   selectedCharacters: [],
-  isChecked: false,
+  // isChecked: false,
 };
 
 export const itemsDetailsSlice = createSlice({
@@ -21,12 +21,12 @@ export const itemsDetailsSlice = createSlice({
     unselectAllItems(state) {
       state.selectedCharacters = [];
     },
-    setIsChecked(state, action: PayloadAction<boolean>) {
-      state.isChecked = action.payload;
-    },
+    // setIsChecked(state, action: PayloadAction<boolean>) {
+    // state.isChecked = action.payload;
+    // },
   },
 });
 
-export const { setSelectedCharacters, setIsChecked, unselectAllItems } =
+export const { setSelectedCharacters, unselectAllItems } =
   itemsDetailsSlice.actions;
 export default itemsDetailsSlice.reducer;

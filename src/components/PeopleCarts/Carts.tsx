@@ -4,9 +4,6 @@ import { ArrSearchResult, PeopleArray } from '../../types/types';
 import Checkbox from '../Checkbox/Checkbox';
 import Link from 'next/link';
 
-import { useSelector } from 'react-redux';
-import { RootState } from '../../redux/store';
-
 interface CartsProps {
   localResult: ArrSearchResult[];
   items: PeopleArray[];
@@ -17,8 +14,6 @@ export function extractIdFromUrl(url: string): string {
 }
 
 function Carts({ localResult, items }: CartsProps) {
-  // const items = useSelector((state: RootState) => state.itemsCurrentPage.items);
-
   return (
     <>
       <section className="section-main">
@@ -31,7 +26,7 @@ function Carts({ localResult, items }: CartsProps) {
                 <Checkbox element={element} />
                 <Link
                   key={element.id}
-                  href={`/cartid/${extractIdFromUrl(element.url)}`}
+                  href={`/details/${extractIdFromUrl(element.url)}`}
                   style={{ textDecoration: 'none' }}
                 >
                   <CartItem key={element.id} element={element} index={index} />

@@ -1,16 +1,32 @@
 'use client';
 
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import styles from './Paginations.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../redux/store';
+import { useEffect } from 'react';
+import { setCurrentPage } from '../../redux/slices/currentPageSlice';
 
 interface PaginationsProps {
   totalPages: number;
 }
 
 function Paginations({ totalPages }: PaginationsProps) {
+  const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const currentPage = Number(searchParams.get('page')) || 1;
+  const dispatch = useDispatch();
+
+  const savedCurrentPage = useSelector(
+    (state: RootState) => state.currentPage.currentPage
+  );
+
+  useEffect(() => {
+    if (currentPage !== savedCurrentPage) {
+      dispatch(setCurrentPage(currentPage));
+    }
+  }, [currentPage, dispatch, savedCurrentPage]);
 
   const createPageURL = (pageNumber: number | string) => {
     const params = new URLSearchParams(searchParams);
@@ -19,13 +35,13 @@ function Paginations({ totalPages }: PaginationsProps) {
   };
   const prevPage = () => {
     if (currentPage > 1) {
-      window.location.href = createPageURL(currentPage - 1);
+      router.push(createPageURL(currentPage - 1));
     }
   };
 
   const nextPage = () => {
     if (currentPage < totalPages) {
-      window.location.href = createPageURL(currentPage + 1);
+      router.push(createPageURL(currentPage + 1));
     }
   };
 

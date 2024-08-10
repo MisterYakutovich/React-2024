@@ -1,6 +1,6 @@
 import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import PageItemCart from './[id]';
+import PageItemCart from '../../../pag/cartid/[id]';
 import fetchMock from 'jest-fetch-mock';
 import { Provider } from 'react-redux';
 import { useRouter } from 'next/router';

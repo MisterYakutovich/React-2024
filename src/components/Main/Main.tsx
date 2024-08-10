@@ -9,8 +9,9 @@ import Paginations from '../Pagination/Paginations';
 import Themes from '../Themes/Themes';
 import ThemeProvider from '../../context/ThemeProvider';
 import { getPeople, getSearch } from '../../redux/services/api_people';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
+import { setItemsCurrentPage } from '../../redux/slices/itemsCurrentPageSlice';
 
 interface PageProps {
   data: PeopleArray[];
@@ -25,10 +26,14 @@ function Main({ data, totalPages, currentPage }: PageProps) {
   const [localResult, setLocalResult] = useState<ArrSearchResult[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [showFlyout, setShowFlyout] = useState(false);
+  const dispatch = useDispatch();
   const selectedCharacters = useSelector(
     (state: RootState) => state.itemsDetails.selectedCharacters
   );
-  console.log(selectedCharacters);
+  useEffect(() => {
+    dispatch(setItemsCurrentPage(data));
+  }, [data, dispatch]);
+
   useEffect(() => {
     setShowFlyout(selectedCharacters.length > 0);
   }, [selectedCharacters]);
@@ -80,6 +85,7 @@ function Main({ data, totalPages, currentPage }: PageProps) {
   if (loading) {
     return <Loader />;
   }
+
   return (
     <ThemeProvider>
       <Themes />
