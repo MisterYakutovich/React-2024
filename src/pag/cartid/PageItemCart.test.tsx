@@ -4,9 +4,6 @@ import PageItemCart from './[id]';
 import fetchMock from 'jest-fetch-mock';
 import { Provider } from 'react-redux';
 import { useRouter } from 'next/router';
-import { makeStore } from '../../redux/store';
-
-const store = makeStore();
 
 jest.mock('next/router', () => ({
   useRouter: () => ({
@@ -35,11 +32,7 @@ test('должен отображать индикатор загрузки пр
     })
   );
 
-  render(
-    <Provider store={store}>
-      <PageItemCart item={undefined} />
-    </Provider>
-  );
+  render(<PageItemCart item={undefined} />);
 
   expect(screen.getByText('Loading...')).toBeInTheDocument();
 
@@ -63,11 +56,7 @@ test('должен корректно отображать подробные д
     })
   );
 
-  render(
-    <Provider store={store}>
-      <PageItemCart item={undefined} />
-    </Provider>
-  );
+  render(<PageItemCart item={undefined} />);
 
   await waitFor(() =>
     expect(screen.queryByText('Loading...')).not.toBeInTheDocument()
@@ -99,11 +88,7 @@ const mockItem = {
 };
 
 it('должен скрывать компонент при нажатии на "Закрыть"', () => {
-  render(
-    <Provider store={store}>
-      <PageItemCart item={mockItem} />
-    </Provider>
-  );
+  render(<PageItemCart item={mockItem} />);
 
   const closeButton = screen.getByTestId('close-pageitem');
 

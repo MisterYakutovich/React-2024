@@ -28,6 +28,7 @@ function Carts({ localResult, items }: CartsProps) {
           ) : localResult.length === 0 ? (
             items.map((element, index) => (
               <div key={element.id} className={styles.cart_item_wrapper}>
+                <Checkbox element={element} />
                 <Link
                   key={element.id}
                   href={`/cartid/${extractIdFromUrl(element.url)}`}

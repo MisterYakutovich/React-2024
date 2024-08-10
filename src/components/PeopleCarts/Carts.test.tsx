@@ -4,12 +4,13 @@ import Carts from './Carts';
 
 import { ArrSearchResult, PeopleArray } from '../../types/types';
 import { Provider } from 'react-redux';
-import { makeStore } from '../../redux/store';
+
 import fetchMock from 'jest-fetch-mock';
 
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import CartItem from '../CartItem/CartItem';
-const store = makeStore();
+import { store } from '../../redux/store';
+
 const customFetchFn: (
   input: RequestInfo,
   init?: RequestInit
@@ -175,9 +176,9 @@ describe('Carts Component', () => {
   test('должен отображать сообщение при отсутствии карт', () => {
     fetchMock.mockResponseOnce(JSON.stringify({ results: [] }));
     render(
-      <Provider store={store}>
-        <Carts localResult={mockLocalResult} items={[]} />
-      </Provider>
+      //<Provider store={store}>
+      <Carts localResult={mockLocalResult} items={[]} />
+      // </Provider>
     );
 
     const message = screen.getByText('No items available');
