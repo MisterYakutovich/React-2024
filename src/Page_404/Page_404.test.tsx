@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import Page_404 from '../pages/404';
+import Page_404 from '../pag/404';
 import '@testing-library/jest-dom';
 
 jest.mock('next/router', () => ({

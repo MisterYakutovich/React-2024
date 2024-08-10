@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 import styles from './Seach.module.css';
 import ErrorButton from '../ErrorButton/ErrorButton';

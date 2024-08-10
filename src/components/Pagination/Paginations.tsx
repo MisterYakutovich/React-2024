@@ -1,16 +1,34 @@
-import { useSelector } from 'react-redux';
-import { RootState } from '../../redux/store';
+'use client';
+
+import { usePathname, useSearchParams } from 'next/navigation';
 import styles from './Paginations.module.css';
 
 interface PaginationsProps {
-  nextPage: () => void;
-  prevPage: () => void;
+  totalPages: number;
 }
 
-function Paginations({ nextPage, prevPage }: PaginationsProps) {
-  const currentPage = useSelector(
-    (state: RootState) => state.currentPage.currentPage
-  );
+function Paginations({ totalPages }: PaginationsProps) {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const currentPage = Number(searchParams.get('page')) || 1;
+
+  const createPageURL = (pageNumber: number | string) => {
+    const params = new URLSearchParams(searchParams);
+    params.set('page', pageNumber.toString());
+    return `${pathname}?${params.toString()}`;
+  };
+  const prevPage = () => {
+    if (currentPage > 1) {
+      window.location.href = createPageURL(currentPage - 1);
+    }
+  };
+
+  const nextPage = () => {
+    if (currentPage < totalPages) {
+      window.location.href = createPageURL(currentPage + 1);
+    }
+  };
+
   return (
     <div className={styles.navigation}>
       <button

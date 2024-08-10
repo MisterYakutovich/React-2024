@@ -1,4 +1,4 @@
-import styles from './PageItemCart.module.css';
+/*import styles from './PageItemCart.module.css';
 import { URL_EXTENSION, URL_PERSON } from '../../consts/api';
 import Loader from '../../components/Loader/Loader';
 
@@ -123,4 +123,4 @@ function PageItemCart({
   );
 }
 
-export default PageItemCart;
+export default PageItemCart;*/

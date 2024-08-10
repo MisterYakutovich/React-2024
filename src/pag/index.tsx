@@ -1,5 +1,5 @@
-import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
-import Page from '../Page';
+/*import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
+import Page from '../components/Page';
 import Themes from '../components/Themes/Themes';
 import ThemeProvider from '../context/ThemeProvider';
 import { wrapper } from '../redux/store';
@@ -42,4 +42,4 @@ export default function Home({
       </ThemeProvider>
     </>
   );
-}
+}*/

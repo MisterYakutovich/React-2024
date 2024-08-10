@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+/*import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const peopleApi = createApi({
   reducerPath: 'peopleApi',
@@ -22,7 +22,7 @@ export const {
   useGetPeopleQuery,
   useGetPeopleIdQuery,
   useGetSearchQuery,
-  util: { getRunningQueriesThunk },
+ 
 } = peopleApi;
 // export endpoints for use in SSR
-export const { getPeople, getPeopleId, getSearch } = peopleApi.endpoints;
+export const { getPeople, getPeopleId, getSearch } = peopleApi.endpoints;*/
