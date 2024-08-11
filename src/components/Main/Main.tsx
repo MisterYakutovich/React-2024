@@ -12,6 +12,7 @@ import { getPeople, getSearch } from '../../redux/services/api_people';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { setItemsCurrentPage } from '../../redux/slices/itemsCurrentPageSlice';
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 
 interface PageProps {
   data: PeopleArray[];
@@ -30,6 +31,7 @@ function Main({ data, totalPages, currentPage }: PageProps) {
   const selectedCharacters = useSelector(
     (state: RootState) => state.itemsDetails.selectedCharacters
   );
+
   useEffect(() => {
     dispatch(setItemsCurrentPage(data));
   }, [data, dispatch]);
@@ -69,7 +71,7 @@ function Main({ data, totalPages, currentPage }: PageProps) {
         setPeopleData(result.results);
       });
     }
-  }, [search]);
+  }, [search, currentPage, dispatch, loading]);
 
   const handleEnter = (search: string) => {
     if (search.trim() === '') {
@@ -88,11 +90,16 @@ function Main({ data, totalPages, currentPage }: PageProps) {
 
   return (
     <ThemeProvider>
-      <Themes />
-      <Seach enterHandler={handleEnter} savedSearchLocal={localResultSearch} />
-      <Paginations totalPages={totalPages} />
-      <Carts items={peopleData} localResult={localResult} />
-      {showFlyout && <FlyoutItems />}
+      <ErrorBoundary>
+        <Themes />
+        <Seach
+          enterHandler={handleEnter}
+          savedSearchLocal={localResultSearch}
+        />
+        <Paginations totalPages={totalPages} />
+        <Carts items={peopleData} localResult={localResult} />
+        {showFlyout && <FlyoutItems />}
+      </ErrorBoundary>
     </ThemeProvider>
   );
 }

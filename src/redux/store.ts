@@ -1,5 +1,4 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { setupListeners } from '@reduxjs/toolkit/query';
 
 import stateItemDetails from './slices/itemsDetailsSlice';
 import stateCurrentPage from './slices/currentPageSlice';
@@ -12,6 +11,6 @@ export const store = configureStore({
     itemsCurrentPage: stateItemsCurrentPage,
   },
 });
-//setupListeners(store.dispatch);
+
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

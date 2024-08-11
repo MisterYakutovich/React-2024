@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">65% </span>
+                <span class="strong">70.21% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>39/60</span>
+                <span class='fraction'>33/47</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/4</span>
+                <span class='fraction'>2/3</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">65% </span>
+                <span class="strong">70.21% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>39/60</span>
+                <span class='fraction'>33/47</span>
             </div>
         
             
@@ -110,23 +110,7 @@
 <a name='L45'></a><a href='#L45'>45</a>
 <a name='L46'></a><a href='#L46'>46</a>
 <a name='L47'></a><a href='#L47'>47</a>
-<a name='L48'></a><a href='#L48'>48</a>
-<a name='L49'></a><a href='#L49'>49</a>
-<a name='L50'></a><a href='#L50'>50</a>
-<a name='L51'></a><a href='#L51'>51</a>
-<a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a>
-<a name='L57'></a><a href='#L57'>57</a>
-<a name='L58'></a><a href='#L58'>58</a>
-<a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a>
-<a name='L61'></a><a href='#L61'>61</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L48'></a><a href='#L48'>48</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -149,7 +133,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -164,15 +147,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -189,9 +163,6 @@ import { ArrSearchResult, PeopleArray } from '../../types/types';
 import Checkbox from '../Checkbox/Checkbox';
 import Link from 'next/link';
 &nbsp;
-import { useSelector } from 'react-redux';
-import { RootState } from '../../redux/store';
-&nbsp;
 interface CartsProps {
   localResult: ArrSearchResult[];
   items: PeopleArray[];
@@ -201,44 +172,34 @@ export function extractIdFromUrl(url: string): string {
   return parts[parts.length - 2];
 }
 &nbsp;
-function Carts({ localResult }: CartsProps) {
-  const items = useSelector((state: RootState) =&gt; state.itemsCurrentPage.items);
-&nbsp;
+function Carts({ localResult, items }: CartsProps) {
   return (
-    &lt;section className="section-main"&gt;
-      &lt;div className={styles.container}&gt;
-        {items.length === 0 ? (
-          &lt;div&gt;No items available&lt;/div&gt;
-        ) : <span class="branch-0 cbranch-no" title="branch not covered" >localResult.length === 0 ? (</span>
-<span class="cstat-no" title="statement not covered" >          items.map((element, index) =&gt; (</span>
-<span class="cstat-no" title="statement not covered" >            &lt;div key={element.id} className={styles.cart_item_wrapper}&gt;</span>
-<span class="cstat-no" title="statement not covered" >              &lt;Checkbox element={element} /&gt;</span>
-<span class="cstat-no" title="statement not covered" >              &lt;Link</span>
-<span class="cstat-no" title="statement not covered" >                key={element.id}</span>
-<span class="cstat-no" title="statement not covered" >                href={`/cartid/${extractIdFromUrl(element.url)}`}</span>
-<span class="cstat-no" title="statement not covered" >                style={{ textDecoration: 'none' }}</span>
-<span class="cstat-no" title="statement not covered" >              &gt;</span>
-<span class="cstat-no" title="statement not covered" >                &lt;CartItem</span>
+    &lt;&gt;
+      &lt;section className="section-main"&gt;
+        &lt;div className={styles.container}&gt;
+          {items.length === 0 ? (
+            &lt;div&gt;No items available&lt;/div&gt;
+          ) : <span class="branch-0 cbranch-no" title="branch not covered" >localResult.length === 0 ? (</span>
+<span class="cstat-no" title="statement not covered" >            items.map((element, index) =&gt; (</span>
+<span class="cstat-no" title="statement not covered" >              &lt;div key={element.id} className={styles.cart_item_wrapper}&gt;</span>
+<span class="cstat-no" title="statement not covered" >                &lt;Checkbox element={element} /&gt;</span>
+<span class="cstat-no" title="statement not covered" >                &lt;Link</span>
 <span class="cstat-no" title="statement not covered" >                  key={element.id}</span>
-<span class="cstat-no" title="statement not covered" >                  element={element}</span>
-<span class="cstat-no" title="statement not covered" >                  index={index}</span>
-<span class="cstat-no" title="statement not covered" >                 </span>
-<span class="cstat-no" title="statement not covered" >                /&gt;</span>
-<span class="cstat-no" title="statement not covered" >              &lt;/Link&gt;</span>
-<span class="cstat-no" title="statement not covered" >            &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >          ))</span>
-<span class="cstat-no" title="statement not covered" >        ) : (</span>
-<span class="cstat-no" title="statement not covered" >          localResult.map((element, index) =&gt; (</span>
-<span class="cstat-no" title="statement not covered" >            &lt;CartItem</span>
-<span class="cstat-no" title="statement not covered" >              key={element.id}</span>
-              element={element}
-              index={index}
-              
-            /&gt;
-          ))
-        )}
-      &lt;/div&gt;
-    &lt;/section&gt;
+<span class="cstat-no" title="statement not covered" >                  href={`/details/${extractIdFromUrl(element.url)}`}</span>
+<span class="cstat-no" title="statement not covered" >                  style={{ textDecoration: 'none' }}</span>
+<span class="cstat-no" title="statement not covered" >                &gt;</span>
+<span class="cstat-no" title="statement not covered" >                  &lt;CartItem key={element.id} element={element} index={index} /&gt;</span>
+<span class="cstat-no" title="statement not covered" >                &lt;/Link&gt;</span>
+<span class="cstat-no" title="statement not covered" >              &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >            ))</span>
+<span class="cstat-no" title="statement not covered" >          ) : (</span>
+<span class="cstat-no" title="statement not covered" >            localResult.map((element, index) =&gt; (</span>
+              &lt;CartItem key={element.id} element={element} index={index} /&gt;
+            ))
+          )}
+        &lt;/div&gt;
+      &lt;/section&gt;
+    &lt;/&gt;
   );
 }
 &nbsp;
@@ -250,7 +211,7 @@ export default Carts;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-08-09T14:16:47.667Z
+                at 2024-08-11T13:43:41.323Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

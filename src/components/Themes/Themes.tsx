@@ -21,7 +21,7 @@ function Themes() {
           />
         </button>
         {isDropdownOpen && (
-          <div className={styles.theme_container}>
+          <div className={styles.theme_container} data-testid="theme-container">
             <img
               src="/assets/dark.png"
               className={styles.theme_image}

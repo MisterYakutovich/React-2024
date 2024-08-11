@@ -13,13 +13,6 @@ interface PageItemCartClientProps {
 export default function PageItemCartClient({
   details,
 }: PageItemCartClientProps) {
-  // const [loading, setLoading] = useState(true);
-  // const items = useSelector((state: RootState) => state.itemsCurrentPage.items);
-
-  // if (loading) {
-  //   return <Loader />;
-  // }
-
   return (
     <Provider store={store}>
       <ThemeProvider>

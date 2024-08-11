@@ -12,11 +12,11 @@ function Checkbox({ element }: CheckboxProps) {
   const selectedCharacters = useSelector(
     (state: RootState) => state.itemsDetails.selectedCharacters
   );
-  console.log(selectedCharacters);
+
   const isChecked = selectedCharacters.some(
     (character) => character.name === element.name
   );
-  console.log(isChecked);
+
   const handleChange = () => {
     if (isChecked) {
       dispatch(
