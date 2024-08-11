@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import './FlyoutItems.css';
+import styles from './FlyoutItems.module.css';
 import { RootState } from '../../redux/store';
 import { unselectAllItems } from '../../redux/slices/itemsDetailsSlice';
 import Download from '../Download/Download';
@@ -15,21 +15,21 @@ function FlyoutItems() {
   };
 
   return (
-    <div className="flyout-container">
-      <div className="flyout-container_unselect_all">
+    <div className={styles.flyout_container}>
+      <div className={styles.flyout_container_unselect_all}>
         <button
-          className="flyout-container_unselectAll_button"
+          className={styles.flyout_container_unselectAll_button}
           onClick={removeItems}
         >
           Unselect all
         </button>
       </div>
-      <div className="flyout-container_items">
-        <h2 className="flyout-container_items_selected">
+      <div className={styles.flyout_container_items}>
+        <h2 className={styles.flyout_container_items_selected}>
           {selectedCharacters.length} Items are selected
         </h2>
       </div>
-      <div className="flyout-container_download">
+      <div className={styles.flyout_container_download}>
         <Download />
       </div>
     </div>

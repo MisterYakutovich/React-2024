@@ -1,24 +1,58 @@
-import { useSelector } from 'react-redux';
+'use client';
+
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import styles from './Paginations.module.css';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
-import './Paginations.css';
+import { useEffect } from 'react';
+import { setCurrentPage } from '../../redux/slices/currentPageSlice';
 
 interface PaginationsProps {
-  nextPage: () => void;
-  prevPage: () => void;
+  totalPages: number;
 }
 
-function Paginations({ nextPage, prevPage }: PaginationsProps) {
-  const currentPage = useSelector(
+function Paginations({ totalPages }: PaginationsProps) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const currentPage = Number(searchParams.get('page')) || 1;
+  const dispatch = useDispatch();
+
+  const savedCurrentPage = useSelector(
     (state: RootState) => state.currentPage.currentPage
   );
+
+  useEffect(() => {
+    if (currentPage !== savedCurrentPage) {
+      dispatch(setCurrentPage(currentPage));
+    }
+  }, [currentPage, dispatch, savedCurrentPage]);
+
+  const createPageURL = (pageNumber: number | string) => {
+    const params = new URLSearchParams(searchParams);
+    params.set('page', pageNumber.toString());
+    return `${pathname}?${params.toString()}`;
+  };
+  const prevPage = () => {
+    if (currentPage > 1) {
+      router.push(createPageURL(currentPage - 1));
+    }
+  };
+
+  const nextPage = () => {
+    if (currentPage < totalPages) {
+      router.push(createPageURL(currentPage + 1));
+    }
+  };
+
   return (
-    <div className="navigation">
+    <div className={styles.navigation}>
       <button
-        className="button"
+        className={styles.button}
         onClick={prevPage}
         data-testid="previous-button"
       >
-        <div className="two">
+        <div className={styles.two}>
           <svg
             width="10"
             height="11"
@@ -34,17 +68,17 @@ function Paginations({ nextPage, prevPage }: PaginationsProps) {
         </div>
       </button>
 
-      <div className="button_arrow_right_number">
+      <div className={styles.button_arrow_right_number}>
         <h4>{currentPage}</h4>
       </div>
 
       <button
         data-testid="next-button"
-        className="button"
+        className={styles.button}
         onClick={nextPage}
         disabled={currentPage === 9}
       >
-        <div className="two">
+        <div className={styles.two}>
           <svg
             width="10"
             height="11"

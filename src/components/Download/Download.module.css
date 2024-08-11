@@ -1,0 +1,25 @@
+.flyout_container_download_button {
+  width: 120px;
+  padding: 10px 0;
+  position: relative;
+  margin-top: 33px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 6px;
+  background: greenyellow;
+  cursor: pointer;
+  color: rgb(94, 90, 83);
+}
+.FancyBorder {
+  padding: 10px 10px;
+  border: 10px solid;
+}
+.FancyBorder-blue {
+  border-color: blue;
+}

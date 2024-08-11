@@ -1,4 +1,4 @@
-import './Checkbox.css';
+import styles from './Checkbox.module.css';
 import { PeopleArray } from '../../types/types';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../redux/store';
@@ -34,7 +34,7 @@ function Checkbox({ element }: CheckboxProps) {
     <div>
       <input
         data-testid="checkbox"
-        className="input_checkbox"
+        className={styles.input_checkbox}
         type="checkbox"
         checked={isChecked}
         onChange={handleChange}

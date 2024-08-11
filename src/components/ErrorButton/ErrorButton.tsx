@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './ErrorButton.css';
+import styles from './ErrorButton.module.css';
 import { ErrorButtonState } from '../../types/types';
 
 const ErrorButton: React.FC = () => {
@@ -18,7 +18,7 @@ const ErrorButton: React.FC = () => {
   }
 
   return (
-    <button className="error-button" onClick={handleClick}>
+    <button className={styles.error_button} onClick={handleClick}>
       ErrorBoundary
     </button>
   );

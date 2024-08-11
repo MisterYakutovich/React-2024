@@ -1,40 +1,106 @@
-import { useEffect } from 'react';
-import './Main.css';
-import Loader from '../loading/Loader';
+'use client';
+import { useEffect, useState } from 'react';
+import Seach from '../Seach/Seach';
+import { ArrSearchResult, PeopleArray } from '../../types/types';
+import FlyoutItems from '../FlyoutItems/FlyoutItems';
 import Carts from '../PeopleCarts/Carts';
-import { ArrSearchResult } from '../../types/types';
-import { useGetPeopleQuery } from '../../redux/services/api_people';
+import Loader from '../Loader/Loader';
+import Paginations from '../Pagination/Paginations';
+import Themes from '../Themes/Themes';
+import ThemeProvider from '../../context/ThemeProvider';
+import { getPeople, getSearch } from '../../redux/services/api_people';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '../../redux/store';
+import { RootState } from '../../redux/store';
 import { setItemsCurrentPage } from '../../redux/slices/itemsCurrentPageSlice';
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 
-export interface PeopleProps {
-  personNameSearch: ArrSearchResult[];
-  localResult: ArrSearchResult[];
+interface PageProps {
+  data: PeopleArray[];
+  totalPages: number;
+  currentPage: number;
 }
 
-function Main({ localResult }: PeopleProps) {
-  const dispatch = useDispatch<AppDispatch>();
-  const currentPage = useSelector(
-    (state: RootState) => state.currentPage.currentPage
+function Main({ data, totalPages, currentPage }: PageProps) {
+  const [search, setSearch] = useState<string>('');
+  const [peopleData, setPeopleData] = useState<PeopleArray[]>(data);
+  const [localResultSearch, setlocalResultSearch] = useState<string>('');
+  const [localResult, setLocalResult] = useState<ArrSearchResult[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [showFlyout, setShowFlyout] = useState(false);
+  const dispatch = useDispatch();
+  const selectedCharacters = useSelector(
+    (state: RootState) => state.itemsDetails.selectedCharacters
   );
-  const { data, isLoading } = useGetPeopleQuery(`${currentPage}`);
-  const items = useSelector((state: RootState) => state.itemsCurrentPage.items);
 
   useEffect(() => {
-    if (data) {
-      dispatch(setItemsCurrentPage(data.results));
-    }
+    dispatch(setItemsCurrentPage(data));
   }, [data, dispatch]);
 
-  if (isLoading) {
+  useEffect(() => {
+    setShowFlyout(selectedCharacters.length > 0);
+  }, [selectedCharacters]);
+
+  useEffect(() => {
+    const localData = localStorage.getItem('key');
+    const localSearch = localStorage.getItem('search');
+    const localResult = localData ? JSON.parse(localData) : [];
+    const localResultSearch = localSearch ? JSON.parse(localSearch) : '';
+    if (localSearch) {
+      setSearch(localResultSearch);
+      setLocalResult(localResult);
+      setPeopleData(localResult);
+    } else {
+      setPeopleData(data);
+    }
+    setLoading(false);
+    setLocalResult(localResult);
+    setlocalResultSearch(localResultSearch);
+  }, [data]);
+
+  useEffect(() => {
+    if (search.trim()) {
+      setLoading(true);
+      getSearch(search).then((result) => {
+        setPeopleData(result.results);
+        localStorage.setItem('key', JSON.stringify(result.results));
+        localStorage.setItem('search', JSON.stringify(search));
+        setLoading(false);
+      });
+    } else if (!loading) {
+      getPeople(currentPage).then((result) => {
+        setPeopleData(result.results);
+      });
+    }
+  }, [search, currentPage, dispatch, loading]);
+
+  const handleEnter = (search: string) => {
+    if (search.trim() === '') {
+      localStorage.removeItem('key');
+      localStorage.removeItem('search');
+      setLocalResult([]);
+      setlocalResultSearch('');
+      setSearch('');
+    } else {
+      setSearch(search);
+    }
+  };
+  if (loading) {
     return <Loader />;
   }
 
   return (
-    <>
-      <Carts localResult={localResult} items={items} />
-    </>
+    <ThemeProvider>
+      <ErrorBoundary>
+        <Themes />
+        <Seach
+          enterHandler={handleEnter}
+          savedSearchLocal={localResultSearch}
+        />
+        <Paginations totalPages={totalPages} />
+        <Carts items={peopleData} localResult={localResult} />
+        {showFlyout && <FlyoutItems />}
+      </ErrorBoundary>
+    </ThemeProvider>
   );
 }
 

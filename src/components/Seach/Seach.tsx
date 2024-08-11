@@ -1,5 +1,7 @@
+'use client';
+
 import { useEffect, useState } from 'react';
-import './Seach.css';
+import styles from './Seach.module.css';
 import ErrorButton from '../ErrorButton/ErrorButton';
 
 export interface SearchProps {
@@ -23,10 +25,10 @@ function Seach({ enterHandler, savedSearchLocal }: SearchProps) {
     }
   };
   return (
-    <div className="row">
-      <div className="input-field col s12">
+    <div className={styles.row}>
+      <div className="styles.input-field col s12">
         <input
-          className="input_search"
+          className={styles.input_search}
           type="text"
           value={isSavedSearch ? savedSearchLocal : search}
           onChange={(event) => {
@@ -36,7 +38,7 @@ function Seach({ enterHandler, savedSearchLocal }: SearchProps) {
           onKeyUp={handleEnter}
           placeholder="Enter the name of the person"
         />
-        <button className="btn" onClick={() => enterHandler(search)}>
+        <button className={styles.btn} onClick={() => enterHandler(search)}>
           Search
         </button>
         <ErrorButton />

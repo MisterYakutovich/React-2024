@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { PeopleArray } from '../../types/types';
-import './Download.css';
+import styles from './Download.module.css';
 
 export function convertToCSV(data: PeopleArray[]) {
   const csvHeaders = [
@@ -48,7 +48,7 @@ function Download() {
       download={filename}
       href={url}
       role="link"
-      className="flyout-container_download_button"
+      className={styles.flyout_container_download_button}
     >
       Download
     </a>

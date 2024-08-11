@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './ErrorBoundary.css';
+import styles from './ErrorBoundary.module.css';
 import { ErrorBoundaryProps, ErrorBoundaryState } from '../../types/types';
 
 class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
@@ -19,8 +19,6 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
     this.setState({
       hasError: true,
-      error,
-      errorInfo,
     });
     console.error(error, errorInfo);
   }
@@ -28,7 +26,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   render() {
     if (this.state.hasError) {
       return (
-        <div className="error-boundary">
+        <div className={styles.error_boundary}>
           <h1>An error has occurred!</h1>
           <p>Please try refreshing the page.</p>
         </div>
