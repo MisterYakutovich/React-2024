@@ -176,9 +176,9 @@ describe('Carts Component', () => {
   test('должен отображать сообщение при отсутствии карт', () => {
     fetchMock.mockResponseOnce(JSON.stringify({ results: [] }));
     render(
-      //<Provider store={store}>
-      <Carts localResult={mockLocalResult} items={[]} />
-      // </Provider>
+      <Provider store={store}>
+        <Carts localResult={mockLocalResult} items={[]} />
+      </Provider>
     );
 
     const message = screen.getByText('No items available');
