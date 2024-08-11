@@ -1,4 +1,4 @@
-'use client';
+"use client"
 import { useEffect, useState } from 'react';
 import Seach from '../Seach/Seach';
 import { ArrSearchResult, PeopleArray } from '../../types/types';
@@ -21,6 +21,7 @@ interface PageProps {
 }
 
 function Main({ data, totalPages, currentPage }: PageProps) {
+ 
   const [search, setSearch] = useState<string>('');
   const [peopleData, setPeopleData] = useState<PeopleArray[]>(data);
   const [localResultSearch, setlocalResultSearch] = useState<string>('');
@@ -32,13 +33,13 @@ function Main({ data, totalPages, currentPage }: PageProps) {
     (state: RootState) => state.itemsDetails.selectedCharacters
   );
 
-  useEffect(() => {
-    dispatch(setItemsCurrentPage(data));
-  }, [data, dispatch]);
+ // useEffect(() => {
+ //   dispatch(setItemsCurrentPage(data));
+ // }, [data, dispatch]);
 
-  useEffect(() => {
-    setShowFlyout(selectedCharacters.length > 0);
-  }, [selectedCharacters]);
+ // useEffect(() => {
+ //   setShowFlyout(selectedCharacters.length > 0);
+//  }, [selectedCharacters]);
 
   useEffect(() => {
     const localData = localStorage.getItem('key');
@@ -72,9 +73,8 @@ function Main({ data, totalPages, currentPage }: PageProps) {
       });
     }
   }, [search, currentPage, dispatch, loading]);
-
   const handleEnter = (search: string) => {
-    if (search.trim() === '') {
+    if (search.trim() !== '') {
       localStorage.removeItem('key');
       localStorage.removeItem('search');
       setLocalResult([]);
@@ -84,23 +84,24 @@ function Main({ data, totalPages, currentPage }: PageProps) {
       setSearch(search);
     }
   };
-  if (loading) {
-    return <Loader />;
-  }
-
+  console.log(search)
   return (
-    <ThemeProvider>
-      <ErrorBoundary>
-        <Themes />
+  
+        <>
+         <ThemeProvider>
+                  <Themes/>
         <Seach
           enterHandler={handleEnter}
           savedSearchLocal={localResultSearch}
         />
-        <Paginations totalPages={totalPages} />
-        <Carts items={peopleData} localResult={localResult} />
-        {showFlyout && <FlyoutItems />}
-      </ErrorBoundary>
-    </ThemeProvider>
+    
+  
+      <Paginations totalPages={totalPages} />
+      <Carts items={peopleData} localResult={localResult} />
+        {/*{showFlyout && <FlyoutItems />}*/}
+        </ThemeProvider>
+</>
+     
   );
 }
 

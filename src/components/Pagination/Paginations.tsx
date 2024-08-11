@@ -1,56 +1,44 @@
-'use client';
-
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { useSearchParams } from '@remix-run/react';
 import styles from './Paginations.module.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../redux/store';
-import { useEffect } from 'react';
-import { setCurrentPage } from '../../redux/slices/currentPageSlice';
+
 
 interface PaginationsProps {
   totalPages: number;
 }
 
 function Paginations({ totalPages }: PaginationsProps) {
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  
+  
   const currentPage = Number(searchParams.get('page')) || 1;
-  const dispatch = useDispatch();
-
-  const savedCurrentPage = useSelector(
-    (state: RootState) => state.currentPage.currentPage
-  );
-
-  useEffect(() => {
-    if (currentPage !== savedCurrentPage) {
-      dispatch(setCurrentPage(currentPage));
-    }
-  }, [currentPage, dispatch, savedCurrentPage]);
-
-  const createPageURL = (pageNumber: number | string) => {
-    const params = new URLSearchParams(searchParams);
-    params.set('page', pageNumber.toString());
-    return `${pathname}?${params.toString()}`;
-  };
   const prevPage = () => {
     if (currentPage > 1) {
-      router.push(createPageURL(currentPage - 1));
+      const page = currentPage - 1;
+      params.set('page', page.toString());
+      setSearchParams(params.toString());
     }
-  };
-
-  const nextPage = () => {
-    if (currentPage < totalPages) {
-      router.push(createPageURL(currentPage + 1));
-    }
-  };
+};
+const nextPage = () => {
+  if (currentPage < totalPages) {
+    const page = currentPage + 1;
+    params.set('page', page.toString());
+    setSearchParams(params.toString());
+  }
+};
 
   return (
     <div className={styles.navigation}>
-      <button
+      <Link
+         to={`?page=${currentPage - 1}`}>
+  <button
         className={styles.button}
         onClick={prevPage}
         data-testid="previous-button"
+        disabled={currentPage ===1}
       >
         <div className={styles.two}>
           <svg
@@ -67,16 +55,19 @@ function Paginations({ totalPages }: PaginationsProps) {
           </svg>
         </div>
       </button>
-
+</Link>
       <div className={styles.button_arrow_right_number}>
         <h4>{currentPage}</h4>
       </div>
 
-      <button
+      <Link
+       to={`?page=${currentPage + 1}`}>
+         <button
         data-testid="next-button"
         className={styles.button}
         onClick={nextPage}
-        disabled={currentPage === 9}
+        disabled={currentPage === totalPages}
+         
       >
         <div className={styles.two}>
           <svg
@@ -92,8 +83,10 @@ function Paginations({ totalPages }: PaginationsProps) {
             />
           </svg>
         </div>
-      </button>
+        </button>
+      </Link>
     </div>
   );
 }
 export default Paginations;
+ 

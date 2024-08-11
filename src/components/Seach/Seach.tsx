@@ -1,4 +1,4 @@
-'use client';
+
 
 import { useEffect, useState } from 'react';
 import styles from './Seach.module.css';
@@ -26,7 +26,7 @@ function Seach({ enterHandler, savedSearchLocal }: SearchProps) {
   };
   return (
     <div className={styles.row}>
-      <div className="styles.input-field col s12">
+      <div >
         <input
           className={styles.input_search}
           type="text"
