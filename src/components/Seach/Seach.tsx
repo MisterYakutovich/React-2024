@@ -1,5 +1,3 @@
-
-
 import { useEffect, useState } from 'react';
 import styles from './Seach.module.css';
 import ErrorButton from '../ErrorButton/ErrorButton';
@@ -26,7 +24,7 @@ function Seach({ enterHandler, savedSearchLocal }: SearchProps) {
   };
   return (
     <div className={styles.row}>
-      <div >
+      <div>
         <input
           className={styles.input_search}
           type="text"

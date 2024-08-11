@@ -1,7 +1,6 @@
-
 import PageItemCartClient from '../../src/components/PageItemCartClient/PageItemCartClient';
 import { LoaderFunctionArgs } from '@remix-run/node';
-import {  json, useLoaderData } from '@remix-run/react';
+import { json, useLoaderData } from '@remix-run/react';
 export interface PersonDetails {
   name: string;
   id: string;
@@ -13,7 +12,9 @@ export interface PersonDetails {
   edited: string;
   created: string;
 }
-async function getDetailsPeople(id:string | undefined): Promise<PersonDetails> {
+async function getDetailsPeople(
+  id: string | undefined
+): Promise<PersonDetails> {
   const response = await fetch(`https://swapi.dev/api/people/${id}`, {
     cache: 'no-store',
   });
@@ -21,15 +22,13 @@ async function getDetailsPeople(id:string | undefined): Promise<PersonDetails> {
 }
 export const loader = async ({ params }: LoaderFunctionArgs) => {
   const details = await getDetailsPeople(params.id);
-  
+
   return json({ details });
 };
 
-
 export default function PageItemCart() {
- 
   const { details } = useLoaderData<typeof loader>();
-console.log(details)
+  console.log(details);
   return <PageItemCartClient details={details} />;
 }
 

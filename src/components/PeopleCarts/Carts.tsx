@@ -2,7 +2,7 @@ import styles from './Carts.module.css';
 import CartItem from '../CartItem/CartItem';
 import { ArrSearchResult, PeopleArray } from '../../types/types';
 import Checkbox from '../Checkbox/Checkbox';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 interface CartsProps {
   localResult: ArrSearchResult[];
@@ -26,7 +26,7 @@ function Carts({ localResult, items }: CartsProps) {
                 <Checkbox element={element} />
                 <Link
                   key={element.id}
-                  to={`/details/${extractIdFromUrl(element.url)}`}
+                  href={`/details/${extractIdFromUrl(element.url)}`}
                   style={{ textDecoration: 'none' }}
                 >
                   <CartItem key={element.id} element={element} index={index} />

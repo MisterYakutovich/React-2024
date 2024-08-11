@@ -1,4 +1,3 @@
-
 import { PeopleArray } from '../../types/types';
 import PageItem from '../PageItem/PageItem';
 
@@ -8,9 +7,5 @@ interface PageItemCartClientProps {
 export default function PageItemCartClient({
   details,
 }: PageItemCartClientProps) {
-  return (
-    
-        <PageItem details={details} />
-     
-  );
+  return <PageItem details={details} />;
 }
