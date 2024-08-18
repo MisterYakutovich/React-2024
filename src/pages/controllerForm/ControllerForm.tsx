@@ -118,30 +118,22 @@ function ControllerForm() {
       .string()
       .required()
       .oneOf([yup.ref('password')], 'Passwords must match'),
-      photo: yup
+    photo: yup
       .mixed()
-      .test(
-        'fileSize',
-        'File is too large',
-        (value) => {
-          if (Array.isArray(value) && value.length > 0) {
-            return value[0].size <= 5000000;
-          } else {
-            return true; 
-          }
+      .test('fileSize', 'File is too large', (value) => {
+        if (Array.isArray(value) && value.length > 0) {
+          return value[0].size <= 5000000;
+        } else {
+          return true;
         }
-      )
-      .test(
-        'fileType',
-        'Unsupported file format',
-        (value) => {
-          if (Array.isArray(value) && value.length > 0) {
-            return ['image/jpeg', 'image/png'].includes(value[0].type);
-          } else {
-            return true; 
-          }
+      })
+      .test('fileType', 'Unsupported file format', (value) => {
+        if (Array.isArray(value) && value.length > 0) {
+          return ['image/jpeg', 'image/png'].includes(value[0].type);
+        } else {
+          return true;
         }
-      ),
+      }),
 
     age: yup
       .number()
@@ -161,119 +153,116 @@ function ControllerForm() {
   } = useForm<IFormInput>({ resolver: yupResolver(schema) });
 
   return (
-    <section className='section-form'>
-    <form onSubmit={handleSubmit(onSubmit)} className="form">
-    <div className="input-container ic1">
-    <label>First Name</label>
-      <input
-       className="input"
-        type="text"
-        id="firstName"
-        {...register('firstName')}
-        value={name}
-        onChange={handleNameChange}
-        placeholder=" "
-      />
-      <div className="cut"></div>
-     
-      <p className="error_registration">{error.firstName}</p>
-      <br />
-</div>
-<div className="input-container ic1">
-      <label>Gender Selection</label>
-      <select {...register('gender')}>
-        <option value="female">female</option>
-        <option value="male">male</option>
-        <option value="other">other</option>
-      </select>
-      <br />
-      </div>
-      <div className="input-container ic1">
-      <label>age</label>
-      <input
-       className="input"
-        placeholder=""
-        type="text"
-        id="email"
-        {...register('age')}
-        value={age}
-        onChange={handleAgeChange}
-      />
-       <div className="cut"></div>
-      
-     
-      <p>{errors.age?.message}</p>
-      <p className="error_registration">{error.age}</p>
-      <br />
+    <section className="section-form">
+      <form onSubmit={handleSubmit(onSubmit)} className="form">
+        <div className="input-container ic1">
+          <label>First Name</label>
+          <input
+            className="input"
+            type="text"
+            id="firstName"
+            {...register('firstName')}
+            value={name}
+            onChange={handleNameChange}
+            placeholder=" "
+          />
+          <div className="cut"></div>
 
+          <p className="error_registration">{error.firstName}</p>
+          <br />
+        </div>
+        <div className="input-container ic1">
+          <label>Gender Selection</label>
+          <select {...register('gender')}>
+            <option value="female">female</option>
+            <option value="male">male</option>
+            <option value="other">other</option>
+          </select>
+          <br />
+        </div>
+        <div className="input-container ic1">
+          <label>age</label>
+          <input
+            className="input"
+            placeholder=""
+            type="text"
+            id="email"
+            {...register('age')}
+            value={age}
+            onChange={handleAgeChange}
+          />
+          <div className="cut"></div>
 
-      </div>
-      <div className="input-container ic1">
-      <label>email</label>
-      <input
-       className="input"
-        {...register('email')}
-        placeholder=""
-        type="email"
-        value={email}
-        onChange={handleEmailChange}
-      />
-      
-      <p>{errors.email?.message}</p>
-      <p className="error_registration">{error.email}</p>
-      <br />
-      </div>
-      <div className="input-container ic1">
-      <label>password</label>
-      <input
-       className="input"
-        {...register('password')}
-        placeholder=""
-        type="password"
-        value={password}
-        onChange={handlePasswordChange}
-        required
-      />
-      <p>{errors.password?.message}</p>
-      <p className="error_registration">{error.password}</p>
-      <br />
-      </div>
-      <div className="input-container ic1">
-      <label>confirm password</label>
-      <input
-       className="input"
-        {...register('confirm_password')}
-        value={confirmPassword}
-        onChange={handleConfirmPasswordChange}
-        placeholder=""
-        type="password"
-        required
-      />
-      <p>{errors.confirm_password?.message}</p>
+          <p>{errors.age?.message}</p>
+          <p className="error_registration">{error.age}</p>
+          <br />
+        </div>
+        <div className="input-container ic1">
+          <label>email</label>
+          <input
+            className="input"
+            {...register('email')}
+            placeholder=""
+            type="email"
+            value={email}
+            onChange={handleEmailChange}
+          />
 
-      <br />
-      </div>
-      <div className="input-container ic1">
-      <label>photo</label>
-      <ImageUploaderComponent />
-      <p>{errors.photo?.message}</p>
-      <br />
-      </div>
-      <div className="input-container ic1">
-      <label htmlFor="acceptTerms">Accept Terms & Conditions</label>
-      <input
-       className="input"
-        type="checkbox"
-        {...register('acceptTerms')}
-        id="acceptTerms"
-        checked={acceptTerms}
-        onChange={handlAcceptTermsChange}
-      />
-      <p>{errors.acceptTerms?.message}</p>
-      <p className="error_registration">{error.acceptTerms}</p>
-</div>
-      <input className="submit" type="submit" />
-    </form>
+          <p>{errors.email?.message}</p>
+          <p className="error_registration">{error.email}</p>
+          <br />
+        </div>
+        <div className="input-container ic1">
+          <label>password</label>
+          <input
+            className="input"
+            {...register('password')}
+            placeholder=""
+            type="password"
+            value={password}
+            onChange={handlePasswordChange}
+            required
+          />
+          <p>{errors.password?.message}</p>
+          <p className="error_registration">{error.password}</p>
+          <br />
+        </div>
+        <div className="input-container ic1">
+          <label>confirm password</label>
+          <input
+            className="input"
+            {...register('confirm_password')}
+            value={confirmPassword}
+            onChange={handleConfirmPasswordChange}
+            placeholder=""
+            type="password"
+            required
+          />
+          <p>{errors.confirm_password?.message}</p>
+
+          <br />
+        </div>
+        <div className="input-container ic1">
+          <label>photo</label>
+          <ImageUploaderComponent />
+          <p>{errors.photo?.message}</p>
+          <br />
+        </div>
+        <div className="input-container ic1">
+          <label htmlFor="acceptTerms">Accept Terms & Conditions</label>
+          <input
+            className="input"
+            type="checkbox"
+            {...register('acceptTerms')}
+            id="acceptTerms"
+            checked={acceptTerms}
+            onChange={handlAcceptTermsChange}
+          />
+          <p>{errors.acceptTerms?.message}</p>
+          <p className="error_registration">{error.acceptTerms}</p>
+        </div>
+        <input className="submit" type="submit" />
+      </form>
     </section>
   );
 }

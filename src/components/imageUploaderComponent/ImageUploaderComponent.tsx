@@ -6,7 +6,12 @@ function ImageUploaderComponent() {
   const handleImageChange = context?.handleImageChange;
   return (
     <div>
-      <input className="submit" type="file" accept="image/*" onChange={handleImageChange} />
+      <input
+        className="submit"
+        type="file"
+        accept="image/*"
+        onChange={handleImageChange}
+      />
     </div>
   );
 }
