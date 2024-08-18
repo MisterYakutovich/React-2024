@@ -25,9 +25,8 @@
     }
   },
   "lint-staged": {
-    "*.(ts|tsx|js|jsx)": [
-      "npm run lint:fix",
-      "gid:add"
+    "*.(ts|tsx,css)": [
+      "npm run lint"
     ]
   },
   "dependencies": {
