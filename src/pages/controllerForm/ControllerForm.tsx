@@ -72,6 +72,7 @@ function ControllerForm() {
     setEmail(e.target.value);
     validateField('email', e.target.value);
   };
+
   const handleAgeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAge(e.target.value);
     validateField('age', e.target.value);
@@ -155,6 +156,7 @@ function ControllerForm() {
   return (
     <section className="section-form">
       <form onSubmit={handleSubmit(onSubmit)} className="form">
+        <h3 className="form_title">Controlled Component</h3>
         <div className="input-container ic1">
           <label>First Name</label>
           <input
@@ -173,7 +175,7 @@ function ControllerForm() {
         </div>
         <div className="input-container ic1">
           <label>Gender Selection</label>
-          <select {...register('gender')}>
+          <select {...register('gender')} className="input">
             <option value="female">female</option>
             <option value="male">male</option>
             <option value="other">other</option>

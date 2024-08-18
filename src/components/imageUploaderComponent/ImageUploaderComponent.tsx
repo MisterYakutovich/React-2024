@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { IContext, ThemeContext } from '../../App';
+import './ImageUploaderComponent.css';
 
 function ImageUploaderComponent() {
   const context = useContext<null | IContext>(ThemeContext);
@@ -7,7 +8,7 @@ function ImageUploaderComponent() {
   return (
     <div>
       <input
-        className="submit"
+        className="input"
         type="file"
         accept="image/*"
         onChange={handleImageChange}

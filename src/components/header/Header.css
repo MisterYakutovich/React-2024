@@ -93,7 +93,12 @@
 a {
   text-decoration: none;
 }
-.content{
+.content {
   display: flex;
   justify-content: space-around;
+  flex-direction: row-reverse;
+}
+.img_base64 {
+  width: 100px;
+  height: 100px;
 }

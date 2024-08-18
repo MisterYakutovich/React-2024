@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Header from './components/header/Header';
-import ErrorPage from './ErrorPage';
+import ErrorPage from './pages/ErrorPage';
 import ControllerForm from './pages/controllerForm/ControllerForm';
 import UncontrollForm from './pages/uncontrollerForm/UncontrollForm';
 import { useDispatch } from 'react-redux';

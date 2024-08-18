@@ -1,8 +1,7 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import * as Yup from 'yup';
 import { IContext, ThemeContext } from '../../App';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../redux/store';
+import { useDispatch} from 'react-redux';
 import { setUnFormData } from '../../redux/slices/uncontrollslice';
 import { useNavigate } from 'react-router';
 import './UncontrollerForm.css';
@@ -24,8 +23,6 @@ export interface IFormInput {
 }
 
 const UncontrollForm = () => {
-  const formData2 = useSelector((state: RootState) => state.uncontrollform);
-  console.log(formData2);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const context = useContext<null | IContext>(ThemeContext);
@@ -68,6 +65,7 @@ const UncontrollForm = () => {
         [true],
         'Вы должны принять условия и положения'
       ),
+      photo: Yup.string().required('Фото обязательно'),
     });
 
     const data = {
@@ -93,16 +91,15 @@ const UncontrollForm = () => {
 
   return (
     <div className="section-form">
-      <h1 className="geeks">GeeksForGeeks</h1>
-      <h3>Uncontrolled Component</h3>
       <form onSubmit={handleSubmit} className="form">
+        <h3 className="form_title">Uncontrolled Component</h3>
         <div className="input-container ic1">
           <label>Name :</label>
           <input type="text" name="name" ref={nameRef} className="input" />
         </div>
         <div className="input-container ic1">
           <label>Gender Selection</label>
-          <select ref={genderRef}>
+          <select ref={genderRef} className="input">
             <option value="female">female</option>
             <option value="male">male</option>
             <option value="other">other</option>
@@ -147,17 +144,17 @@ const UncontrollForm = () => {
           <br />
         </div>
 
-        <input
-          className="input"
-          type="file"
-          accept="image/*"
-          ref={photoRef}
-          onChange={handleImageChange}
-        />
-        <br />
         <div className="input-container ic1">
+          <input
+            className="input"
+            type="file"
+            accept="image/*"
+            ref={photoRef}
+            onChange={handleImageChange}
+          />
           <br />
         </div>
+
         <div className="input-container ic1">
           <label htmlFor="acceptTerms">Accept Terms & Conditions</label>
           <input
