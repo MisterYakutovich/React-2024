@@ -2,8 +2,8 @@ import * as yup from 'yup';
 import './ControllerForm.css';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { setFormData } from './redux/slices/formslice';
-import ImageUploaderComponent from './ImageUploaderComponent';
+import { setFormData } from '../../redux/slices/formslice';
+import ImageUploaderComponent from '../../components/imageUploaderComponent/ImageUploaderComponent';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigate } from 'react-router';
 import { useEffect, useState } from 'react';
@@ -179,6 +179,7 @@ function ControllerForm() {
       <p className="error_registration">{error.firstName}</p>
       <br />
 </div>
+<div className="input-container ic1">
       <label>Gender Selection</label>
       <select {...register('gender')}>
         <option value="female">female</option>
@@ -186,11 +187,12 @@ function ControllerForm() {
         <option value="other">other</option>
       </select>
       <br />
+      </div>
       <div className="input-container ic1">
       <label>age</label>
       <input
        className="input"
-        placeholder="age"
+        placeholder=""
         type="text"
         id="email"
         {...register('age')}
@@ -211,7 +213,7 @@ function ControllerForm() {
       <input
        className="input"
         {...register('email')}
-        placeholder="email"
+        placeholder=""
         type="email"
         value={email}
         onChange={handleEmailChange}
@@ -226,7 +228,7 @@ function ControllerForm() {
       <input
        className="input"
         {...register('password')}
-        placeholder="password"
+        placeholder=""
         type="password"
         value={password}
         onChange={handlePasswordChange}
@@ -243,7 +245,7 @@ function ControllerForm() {
         {...register('confirm_password')}
         value={confirmPassword}
         onChange={handleConfirmPasswordChange}
-        placeholder="confirm_password"
+        placeholder=""
         type="password"
         required
       />
@@ -260,6 +262,7 @@ function ControllerForm() {
       <div className="input-container ic1">
       <label htmlFor="acceptTerms">Accept Terms & Conditions</label>
       <input
+       className="input"
         type="checkbox"
         {...register('acceptTerms')}
         id="acceptTerms"
@@ -269,7 +272,7 @@ function ControllerForm() {
       <p>{errors.acceptTerms?.message}</p>
       <p className="error_registration">{error.acceptTerms}</p>
 </div>
-      <input type="submit" />
+      <input className="submit" type="submit" />
     </form>
     </section>
   );

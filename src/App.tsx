@@ -1,8 +1,8 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Header from './Header';
+import Header from './components/header/Header';
 import ErrorPage from './ErrorPage';
-import ControllerForm from './ControllerForm';
-import UncontrollForm from './UncontrollForm';
+import ControllerForm from './pages/controllerForm/ControllerForm';
+import UncontrollForm from './pages/uncontrollerForm/UncontrollForm';
 import { useDispatch } from 'react-redux';
 import { updatePhoto } from './redux/slices/formslice';
 import { createContext } from 'react';
