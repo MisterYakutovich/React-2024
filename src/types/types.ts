@@ -7,7 +7,6 @@ export interface ArrSearchResult {
   birth_year: string;
   height: string;
   eye_color: string;
-
   mass: string;
   edited: string;
   created: string;
@@ -20,7 +19,6 @@ export interface PeopleArray {
   birth_year: string;
   height: string;
   eye_color: string;
-
   mass: string;
   edited: string;
   created: string;
@@ -38,4 +36,9 @@ export interface ErrorBoundaryState {
 export interface ErrorButtonState {
   error: boolean;
   hasError: boolean;
+}
+export interface IContext {
+  theme: string;
+  setTheme: (theme: string) => void;
+  toggleTheme: () => void;
 }

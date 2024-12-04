@@ -5,29 +5,21 @@ import { URL_EXTENSION, URL_PERSON } from '../../consts/api';
 import Loader from '../loading/Loader';
 import { PeopleArray } from '../../types/types';
 import { extractIdFromUrl } from '../PeopleCarts/Carts';
+import { useGetPeopleIdQuery } from '../../redux/services/api_people';
 
 function PageItemCart() {
-  const [loading, setLoading] = useState<boolean>(false);
-  const [isError, setIsError] = useState<boolean>(false);
   const [item, setItem] = useState<PeopleArray | null>(null);
   const { id } = useParams();
   const navigate = useNavigate();
+  const { data, isLoading, isError } = useGetPeopleIdQuery(`${id}`);
 
   useEffect(() => {
-    setLoading(true);
-    fetch(`https://swapi.dev/api/people/${id}/`)
-      .then((res) => res.json())
-      .then((result) => {
-        setItem(result);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setIsError(true);
-        alert(error);
-      });
-  }, [id]);
+    if (data) {
+      setItem(data);
+    }
+  }, [data, id]);
 
-  if (loading) {
+  if (isLoading) {
     return (
       <>
         <div>Loading...</div>
@@ -41,7 +33,7 @@ function PageItemCart() {
   }
 
   if (!item) {
-    return <div>No data found.</div>;
+    return <div className="isError">No data found.</div>;
   }
   const handleClose = () => {
     navigate(-1);

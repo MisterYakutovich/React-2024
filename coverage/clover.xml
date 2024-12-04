@@ -1,73 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1721377320041" clover="3.2.0">
-  <project timestamp="1721377320041" name="All files">
-    <metrics statements="190" coveredstatements="157" conditionals="42" coveredconditionals="24" methods="44" coveredmethods="33" elements="276" coveredelements="214" complexity="0" loc="190" ncloc="190" packages="13" files="13" classes="13"/>
-    <package name="src">
-      <metrics statements="59" coveredstatements="42" conditionals="11" coveredconditionals="6" methods="10" coveredmethods="7"/>
-      <file name="Page.tsx" path="C:\Users\user\Desktop\React 2024\React-2024\React-2024\src\Page.tsx">
-        <metrics statements="59" coveredstatements="42" conditionals="11" coveredconditionals="6" methods="10" coveredmethods="7"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="10" count="6" type="stmt"/>
-        <line num="12" count="6" type="stmt"/>
-        <line num="15" count="6" type="stmt"/>
-        <line num="16" count="6" type="stmt"/>
-        <line num="17" count="6" type="stmt"/>
-        <line num="19" count="6" type="stmt"/>
-        <line num="20" count="6" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="22" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="25" count="6" type="stmt"/>
-        <line num="26" count="6" type="stmt"/>
-        <line num="28" count="6" type="stmt"/>
-        <line num="29" count="3" type="stmt"/>
-        <line num="30" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="31" count="3" type="stmt"/>
-        <line num="33" count="6" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
-        <line num="35" count="1" type="stmt"/>
-        <line num="36" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="37" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="38" count="1" type="stmt"/>
-        <line num="39" count="1" type="stmt"/>
-        <line num="41" count="6" type="stmt"/>
-        <line num="42" count="3" type="stmt"/>
-        <line num="44" count="6" type="stmt"/>
-        <line num="45" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="52" count="0" type="stmt"/>
-        <line num="53" count="0" type="stmt"/>
-        <line num="54" count="0" type="stmt"/>
-        <line num="55" count="0" type="stmt"/>
-        <line num="56" count="0" type="stmt"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="60" count="0" type="stmt"/>
-        <line num="61" count="0" type="stmt"/>
-        <line num="62" count="0" type="stmt"/>
-        <line num="64" count="0" type="stmt"/>
-        <line num="67" count="6" type="stmt"/>
-        <line num="68" count="1" type="stmt"/>
-        <line num="69" count="1" type="stmt"/>
-        <line num="70" count="1" type="stmt"/>
-        <line num="73" count="6" type="stmt"/>
-        <line num="74" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="75" count="1" type="stmt"/>
-        <line num="76" count="1" type="stmt"/>
-        <line num="78" count="6" type="stmt"/>
-        <line num="79" count="6" type="stmt"/>
-        <line num="101" count="1" type="stmt"/>
-      </file>
-    </package>
-    <package name="src.Page_404">
+<coverage generated="1722171073991" clover="3.2.0">
+  <project timestamp="1722171073991" name="All files">
+    <metrics statements="180" coveredstatements="159" conditionals="33" coveredconditionals="19" methods="47" coveredmethods="33" elements="260" coveredelements="211" complexity="0" loc="180" ncloc="180" packages="16" files="18" classes="18"/>
+    <package name="Page_404">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="Page_404.tsx" path="C:\Users\user\Desktop\React 2024\React-2024\React-2024\src\Page_404\Page_404.tsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -76,78 +11,99 @@
         <line num="11" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.CartItem">
+    <package name="components.CartItem">
       <metrics statements="8" coveredstatements="8" conditionals="8" coveredconditionals="4" methods="1" coveredmethods="1"/>
       <file name="CartItem.tsx" path="C:\Users\user\Desktop\React 2024\React-2024\React-2024\src\components\CartItem\CartItem.tsx">
         <metrics statements="8" coveredstatements="8" conditionals="8" coveredconditionals="4" methods="1" coveredmethods="1"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="3" count="3" type="stmt"/>
-        <line num="4" count="3" type="stmt"/>
-        <line num="5" count="3" type="stmt"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
         <line num="13" count="2" type="stmt"/>
         <line num="15" count="2" type="stmt"/>
         <line num="17" count="2" type="stmt"/>
-        <line num="37" count="3" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.Carts">
-      <metrics statements="17" coveredstatements="14" conditionals="13" coveredconditionals="7" methods="6" coveredmethods="4"/>
-      <file name="Carts.tsx" path="C:\Users\user\Desktop\React 2024\React-2024\React-2024\src\components\Carts\Carts.tsx">
-        <metrics statements="17" coveredstatements="14" conditionals="13" coveredconditionals="7" methods="6" coveredmethods="4"/>
+    <package name="components.Checkbox">
+      <metrics statements="15" coveredstatements="13" conditionals="2" coveredconditionals="1" methods="5" coveredmethods="4"/>
+      <file name="Checkbox.tsx" path="C:\Users\user\Desktop\React 2024\React-2024\React-2024\src\components\Checkbox\Checkbox.tsx">
+        <metrics statements="15" coveredstatements="13" conditionals="2" coveredconditionals="1" methods="5" coveredmethods="4"/>
         <line num="1" count="3" type="stmt"/>
-        <line num="2" count="3" type="stmt"/>
         <line num="3" count="3" type="stmt"/>
-        <line num="10" count="3" type="stmt"/>
-        <line num="11" count="7" type="stmt"/>
-        <line num="12" count="7" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="11" count="5" type="stmt"/>
+        <line num="12" count="5" type="stmt"/>
+        <line num="13" count="10" type="stmt"/>
         <line num="16" count="5" type="stmt"/>
-        <line num="17" count="5" type="stmt"/>
-        <line num="18" count="5" type="stmt"/>
-        <line num="19" count="5" type="stmt"/>
-        <line num="20" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="25" count="5" type="stmt"/>
-        <line num="35" count="2" type="stmt"/>
-        <line num="46" count="2" type="cond" truecount="2" falsecount="2"/>
-        <line num="56" count="0" type="stmt"/>
-        <line num="64" count="3" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="20" count="5" type="stmt"/>
+        <line num="21" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="33" count="5" type="stmt"/>
+        <line num="45" count="3" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.ErrorBoundary">
+    <package name="components.Download">
+      <metrics statements="17" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="4"/>
+      <file name="Download.tsx" path="C:\Users\user\Desktop\React 2024\React-2024\React-2024\src\components\Download\Download.tsx">
+        <metrics statements="17" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="4"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.ErrorBoundary">
       <metrics statements="11" coveredstatements="11" conditionals="1" coveredconditionals="1" methods="4" coveredmethods="4"/>
       <file name="ErrorBoundary.tsx" path="C:\Users\user\Desktop\React 2024\React-2024\React-2024\src\components\ErrorBoundary\ErrorBoundary.tsx">
         <metrics statements="11" coveredstatements="11" conditionals="1" coveredconditionals="1" methods="4" coveredmethods="4"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="7" count="5" type="stmt"/>
-        <line num="8" count="4" type="stmt"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
         <line num="16" count="2" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
         <line num="25" count="1" type="stmt"/>
-        <line num="29" count="10" type="cond" truecount="1" falsecount="0"/>
+        <line num="29" count="6" type="cond" truecount="1" falsecount="0"/>
         <line num="30" count="3" type="stmt"/>
-        <line num="38" count="7" type="stmt"/>
-        <line num="41" count="2" type="stmt"/>
+        <line num="38" count="3" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.ErrorButton">
+    <package name="components.ErrorButton">
       <metrics statements="11" coveredstatements="8" conditionals="1" coveredconditionals="0" methods="2" coveredmethods="1"/>
       <file name="ErrorButton.tsx" path="C:\Users\user\Desktop\React 2024\React-2024\React-2024\src\components\ErrorButton\ErrorButton.tsx">
         <metrics statements="11" coveredstatements="8" conditionals="1" coveredconditionals="0" methods="2" coveredmethods="1"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="7" type="stmt"/>
-        <line num="11" count="7" type="stmt"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
-        <line num="16" count="7" type="cond" truecount="0" falsecount="1"/>
+        <line num="16" count="3" type="cond" truecount="0" falsecount="1"/>
         <line num="17" count="0" type="stmt"/>
-        <line num="20" count="7" type="stmt"/>
-        <line num="27" count="2" type="stmt"/>
+        <line num="20" count="3" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.ErrorMessage">
+    <package name="components.ErrorMessage">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="ErrorMessage.tsx" path="C:\Users\user\Desktop\React 2024\React-2024\React-2024\src\components\ErrorMessage\ErrorMessage.tsx">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -159,115 +115,173 @@
         <line num="10" count="2" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.Main">
-      <metrics statements="17" coveredstatements="15" conditionals="1" coveredconditionals="1" methods="5" coveredmethods="4"/>
-      <file name="Main.tsx" path="C:\Users\user\Desktop\React 2024\React-2024\React-2024\src\components\Main\Main.tsx">
-        <metrics statements="17" coveredstatements="15" conditionals="1" coveredconditionals="1" methods="5" coveredmethods="4"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="14" count="6" type="stmt"/>
-        <line num="15" count="6" type="stmt"/>
-        <line num="16" count="6" type="stmt"/>
-        <line num="17" count="6" type="stmt"/>
-        <line num="18" count="3" type="stmt"/>
-        <line num="19" count="3" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="25" count="3" type="stmt"/>
-        <line num="29" count="6" type="cond" truecount="1" falsecount="0"/>
-        <line num="30" count="2" type="stmt"/>
-        <line num="33" count="4" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
-      </file>
-    </package>
-    <package name="src.components.PageItemCart">
-      <metrics statements="29" coveredstatements="26" conditionals="3" coveredconditionals="2" methods="6" coveredmethods="5"/>
+    <package name="components.PageItemCart">
+      <metrics statements="24" coveredstatements="23" conditionals="4" coveredconditionals="3" methods="3" coveredmethods="3"/>
       <file name="PageItemCart.tsx" path="C:\Users\user\Desktop\React 2024\React-2024\React-2024\src\components\PageItemCart\PageItemCart.tsx">
-        <metrics statements="29" coveredstatements="26" conditionals="3" coveredconditionals="2" methods="6" coveredmethods="5"/>
+        <metrics statements="24" coveredstatements="23" conditionals="4" coveredconditionals="3" methods="3" coveredmethods="3"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
-        <line num="10" count="9" type="stmt"/>
-        <line num="11" count="9" type="stmt"/>
-        <line num="12" count="9" type="stmt"/>
-        <line num="13" count="9" type="stmt"/>
-        <line num="14" count="9" type="stmt"/>
-        <line num="16" count="9" type="stmt"/>
-        <line num="17" count="3" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="11" count="8" type="stmt"/>
+        <line num="12" count="8" type="stmt"/>
+        <line num="13" count="8" type="stmt"/>
+        <line num="14" count="8" type="stmt"/>
+        <line num="16" count="8" type="stmt"/>
+        <line num="17" count="4" type="cond" truecount="1" falsecount="0"/>
         <line num="18" count="3" type="stmt"/>
-        <line num="19" count="3" type="stmt"/>
-        <line num="21" count="3" type="stmt"/>
-        <line num="22" count="3" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="30" count="9" type="cond" truecount="1" falsecount="0"/>
-        <line num="31" count="3" type="stmt"/>
-        <line num="39" count="6" type="cond" truecount="0" falsecount="1"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="43" count="6" type="cond" truecount="1" falsecount="0"/>
-        <line num="44" count="3" type="stmt"/>
-        <line num="46" count="3" type="stmt"/>
-        <line num="47" count="1" type="stmt"/>
-        <line num="50" count="3" type="stmt"/>
-        <line num="102" count="1" type="stmt"/>
+        <line num="22" count="8" type="cond" truecount="1" falsecount="0"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="31" count="6" type="cond" truecount="0" falsecount="1"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="35" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="36" count="3" type="stmt"/>
+        <line num="38" count="3" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="42" count="3" type="stmt"/>
+        <line num="94" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.Pagination">
-      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+    <package name="components.Pagination">
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="Paginations.tsx" path="C:\Users\user\Desktop\React 2024\React-2024\React-2024\src\components\Pagination\Paginations.tsx">
-        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
-        <line num="10" count="5" type="stmt"/>
-        <line num="11" count="5" type="stmt"/>
-        <line num="62" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="67" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.Seach">
-      <metrics statements="17" coveredstatements="12" conditionals="4" coveredconditionals="3" methods="5" coveredmethods="2"/>
-      <file name="Seach.tsx" path="C:\Users\user\Desktop\React 2024\React-2024\React-2024\src\components\Seach\Seach.tsx">
-        <metrics statements="17" coveredstatements="12" conditionals="4" coveredconditionals="3" methods="5" coveredmethods="2"/>
+    <package name="components.PeopleCarts">
+      <metrics statements="18" coveredstatements="15" conditionals="13" coveredconditionals="7" methods="6" coveredmethods="4"/>
+      <file name="Carts.tsx" path="C:\Users\user\Desktop\React 2024\React-2024\React-2024\src\components\PeopleCarts\Carts.tsx">
+        <metrics statements="18" coveredstatements="15" conditionals="13" coveredconditionals="7" methods="6" coveredmethods="4"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
-        <line num="10" count="7" type="stmt"/>
-        <line num="11" count="7" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
         <line num="13" count="7" type="stmt"/>
-        <line num="14" count="3" type="cond" truecount="1" falsecount="0"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="20" count="7" type="stmt"/>
-        <line num="21" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="25" count="7" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="47" count="2" type="stmt"/>
+        <line num="14" count="7" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="22" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+        <line num="50" count="2" type="cond" truecount="2" falsecount="2"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="73" count="2" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.loading">
+    <package name="components.Seach">
+      <metrics statements="17" coveredstatements="12" conditionals="4" coveredconditionals="3" methods="5" coveredmethods="2"/>
+      <file name="Seach.tsx" path="C:\Users\user\Desktop\React 2024\React-2024\React-2024\src\components\Seach\Seach.tsx">
+        <metrics statements="17" coveredstatements="12" conditionals="4" coveredconditionals="3" methods="5" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="14" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="20" count="3" type="stmt"/>
+        <line num="21" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="25" count="3" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.loading">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="Loader.tsx" path="C:\Users\user\Desktop\React 2024\React-2024\React-2024\src\components\loading\Loader.tsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="4" count="5" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="src.consts">
+    <package name="consts">
       <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="api.ts" path="C:\Users\user\Desktop\React 2024\React-2024\React-2024\src\consts\api.ts">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="2" count="3" type="stmt"/>
-        <line num="3" count="3" type="stmt"/>
-        <line num="4" count="3" type="stmt"/>
-        <line num="5" count="3" type="stmt"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="redux">
+      <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="store.ts" path="C:\Users\user\Desktop\React 2024\React-2024\React-2024\src\redux\store.ts">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="redux.services">
+      <metrics statements="7" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
+      <file name="api_people.ts" path="C:\Users\user\Desktop\React 2024\React-2024\React-2024\src\redux\services\api_people.ts">
+        <metrics statements="7" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="redux.slices">
+      <metrics statements="20" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
+      <file name="currentPageSlice.ts" path="C:\Users\user\Desktop\React 2024\React-2024\React-2024\src\redux\slices\currentPageSlice.ts">
+        <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="19" count="4" type="stmt"/>
+        <line num="20" count="4" type="stmt"/>
+      </file>
+      <file name="itemsCurrentPageSlice.ts" path="C:\Users\user\Desktop\React 2024\React-2024\React-2024\src\redux\slices\itemsCurrentPageSlice.ts">
+        <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="20" count="4" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
+      </file>
+      <file name="itemsDetailsSlice.ts" path="C:\Users\user\Desktop\React 2024\React-2024\React-2024\src\redux\slices\itemsDetailsSlice.ts">
+        <metrics statements="8" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="14" count="5" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="30" count="5" type="stmt"/>
+        <line num="32" count="5" type="stmt"/>
       </file>
     </package>
   </project>

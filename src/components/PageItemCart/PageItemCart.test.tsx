@@ -9,6 +9,8 @@ import '@testing-library/jest-dom';
 import PageItemCart from './PageItemCart';
 import { BrowserRouter } from 'react-router-dom';
 import fetchMock from 'jest-fetch-mock';
+import { Provider } from 'react-redux';
+import { store } from '../../redux/store';
 
 fetchMock.enableMocks();
 
@@ -32,9 +34,11 @@ test('должен отображать индикатор загрузки пр
   );
 
   render(
-    <BrowserRouter>
-      <PageItemCart />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <PageItemCart />
+      </BrowserRouter>
+    </Provider>
   );
 
   expect(screen.getByText('Loading...')).toBeInTheDocument();
@@ -60,9 +64,11 @@ test('должен корректно отображать подробные д
   );
 
   render(
-    <BrowserRouter>
-      <PageItemCart />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <PageItemCart />
+      </BrowserRouter>
+    </Provider>
   );
 
   await waitFor(() =>
@@ -98,9 +104,11 @@ test('должен скрывать компонент при нажатии к�
   );
 
   render(
-    <BrowserRouter>
-      <PageItemCart />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <PageItemCart />
+      </BrowserRouter>
+    </Provider>
   );
 
   await waitFor(() =>

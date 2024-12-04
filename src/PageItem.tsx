@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Outlet, useLocation, useNavigate, useParams } from 'react-router-dom';
-import Main from './components/Main/Main';
 
 function PageItem() {
   const { id } = useParams<{ id: string }>();
